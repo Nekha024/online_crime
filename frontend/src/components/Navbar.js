@@ -47,26 +47,16 @@ const Navbar = () => {
               Statistics
             </a>
           </li>
-
-          <li>
-            <Link
-              to="/dashboard"
-              onClick={() => setMenuOpen(false)}
-              style={{ color: "#38bdf8", fontWeight: "600" }}
-            >
-              Dashboard
-            </Link>
-          </li>
         </ul>
 
         {/* Buttons */}
         <div className="nav-buttons">
-          <button className="login-btn" onClick={() => navigate("/dashboard")}>
+          <button className="login-btn" onClick={() => navigate("/login")}>
             <FaSignInAlt /> Login
           </button>
 
-          <button className="register-btn" onClick={() => navigate("/dashboard")}>
-            <FaTachometerAlt /> Open Dashboard
+          <button className="register-btn" onClick={() => navigate("/register")}>
+            <FaTachometerAlt /> Register
           </button>
         </div>
 
