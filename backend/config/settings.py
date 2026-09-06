@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     
     #apps
     "core",
+    "accounts",
     #react_connection
     
     "rest_framework",
@@ -52,6 +53,7 @@ CORS_ALLOWED_ORIGINS = [
     "http://127.0.0.1:3000",
 
 ]
+CORS_ALLOW_CREDENTIALS = True
 
 MIDDLEWARE = [
     "corsheaders.middleware.CorsMiddleware",

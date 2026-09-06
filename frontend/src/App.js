@@ -22,6 +22,8 @@ import ViewComplaintsPage from "./pages/dashboard/ViewComplaintsPage";
 import PoliceDirectoryPage from "./pages/dashboard/PoliceDirectoryPage";
 import CrimeMapPage from "./pages/dashboard/CrimeMapPage";
 import EmergencyNumbersPage from "./pages/dashboard/EmergencyNumbersPage";
+import Login from "./pages/Login";
+import Register from "./pages/Register";
 
 function LandingPage() {
   return (
@@ -48,6 +50,8 @@ function App() {
         {/* Landing & Public Pages */}
         <Route path="/" element={<LandingPage />} />
         <Route path="/report" element={<ReportCrime />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
 
         {/* User Dashboard Section with Nested Routes */}
         <Route path="/dashboard" element={<DashboardLayout />}>
