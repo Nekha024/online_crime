@@ -18,26 +18,14 @@ const Hero = () => {
       });
   }, []);
 
-import React from "react";
-import "../css/Hero.css";
-import { FaShieldAlt, FaArrowRight } from "react-icons/fa";
-import { useNavigate } from "react-router-dom";
-
-const Hero = () => {
-
-  const navigate = useNavigate();
-
-
   return (
     <section className="hero" id="home">
       <div className="hero-content">
-
 
         {/* Connection Status Badge */}
         <span className="badge" style={{ marginBottom: '10px', display: 'inline-block', backgroundColor: backendStatus.includes("successfully") ? '#064e3b' : '#7f1d1d' }}>
           {backendStatus.includes("successfully") ? <FaCheckCircle style={{ color: '#34d399' }} /> : <FaTimesCircle style={{ color: '#f87171' }} />} {backendStatus}
         </span>
-
 
         <span className="badge">
           <FaShieldAlt /> AI Powered Cyber Security Platform

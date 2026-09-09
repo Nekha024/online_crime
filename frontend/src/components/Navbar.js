@@ -47,8 +47,6 @@ const Navbar = () => {
               Statistics
             </a>
           </li>
-<<<<<<< HEAD
-=======
 
           <li>
             <Link
@@ -59,26 +57,16 @@ const Navbar = () => {
               Dashboard
             </Link>
           </li>
->>>>>>> 4b66748 (backend added)
         </ul>
 
         {/* Buttons */}
         <div className="nav-buttons">
-<<<<<<< HEAD
           <button className="login-btn" onClick={() => navigate("/login")}>
             <FaSignInAlt /> Login
           </button>
 
           <button className="register-btn" onClick={() => navigate("/register")}>
             <FaTachometerAlt /> Register
-=======
-          <button className="login-btn" onClick={() => navigate("/dashboard")}>
-            <FaSignInAlt /> Login
-          </button>
-
-          <button className="register-btn" onClick={() => navigate("/dashboard")}>
-            <FaTachometerAlt /> Open Dashboard
->>>>>>> 4b66748 (backend added)
           </button>
         </div>
 
