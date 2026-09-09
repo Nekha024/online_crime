@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import React, { useState, useEffect } from "react";
 import "../css/Hero.css";
 import { FaShieldAlt, FaArrowRight, FaCheckCircle, FaTimesCircle } from "react-icons/fa";
@@ -18,7 +17,7 @@ const Hero = () => {
         setBackendStatus("Backend disconnected.");
       });
   }, []);
-=======
+
 import React from "react";
 import "../css/Hero.css";
 import { FaShieldAlt, FaArrowRight } from "react-icons/fa";
@@ -27,20 +26,19 @@ import { useNavigate } from "react-router-dom";
 const Hero = () => {
 
   const navigate = useNavigate();
->>>>>>> 4b66748 (backend added)
+
 
   return (
     <section className="hero" id="home">
       <div className="hero-content">
 
-<<<<<<< HEAD
+
         {/* Connection Status Badge */}
         <span className="badge" style={{ marginBottom: '10px', display: 'inline-block', backgroundColor: backendStatus.includes("successfully") ? '#064e3b' : '#7f1d1d' }}>
           {backendStatus.includes("successfully") ? <FaCheckCircle style={{ color: '#34d399' }} /> : <FaTimesCircle style={{ color: '#f87171' }} />} {backendStatus}
         </span>
 
-=======
->>>>>>> 4b66748 (backend added)
+
         <span className="badge">
           <FaShieldAlt /> AI Powered Cyber Security Platform
         </span>
