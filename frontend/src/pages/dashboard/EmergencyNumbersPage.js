@@ -121,10 +121,10 @@ const EmergencyNumbersPage = () => {
         </button>
 
         <div>
-          <h3 style={{ color: "#fff", fontSize: "1.3rem", marginBottom: "6px" }}>
+          <h3>
             {sosActivated ? "🚨 SOS Broadcast Active" : "Emergency SOS Distress Broadcast"}
           </h3>
-          <p style={{ color: "#fca5a5", fontSize: "0.85rem", maxWidth: "550px", margin: "0 auto" }}>
+          <p>
             Pressing this button instantly transmits your live location, battery state, and profile to the nearest Police PCR Patrol Unit.
           </p>
         </div>
@@ -134,35 +134,35 @@ const EmergencyNumbersPage = () => {
       <div className="emergency-grid">
         {emergencyNumbers.map((item) => (
           <div key={item.id} className="helpline-card">
-            <div style={{ display: "flex", alignItems: "center", gap: "16px" }}>
+            <div style={{ display: "flex", alignItems: "flex-start", gap: "16px" }}>
               <div className="helpline-icon-box">{item.icon}</div>
               <div>
-                <div style={{ fontSize: "0.72rem", color: "#38bdf8", fontWeight: "700" }}>
+                <div style={{ fontSize: "0.74rem", color: "#1e3a8a", fontWeight: "700", textTransform: "uppercase", letterSpacing: "0.5px" }}>
                   {item.category} • {item.timing}
                 </div>
-                <h4 style={{ color: "#fff", fontSize: "1rem", margin: "3px 0" }}>
+                <h4 style={{ color: "#0f172a", fontSize: "1.05rem", margin: "4px 0 2px", fontWeight: "700" }}>
                   {item.title}
                 </h4>
-                <div style={{ fontSize: "1.2rem", fontWeight: "800", color: "#38bdf8" }}>
+                <div style={{ fontSize: "1.3rem", fontWeight: "800", color: "#1e3a8a", margin: "4px 0" }}>
                   📞 {item.number}
                 </div>
-                <p style={{ fontSize: "0.75rem", color: "#94a3b8", margin: "4px 0 0" }}>
+                <p style={{ fontSize: "0.82rem", color: "#64748b", margin: "4px 0 0", lineHeight: "1.4" }}>
                   {item.description}
                 </p>
               </div>
             </div>
 
-            <div style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
-              <a href={`tel:${item.number}`} className="helpline-dial-btn">
-                <FaPhoneAlt /> Dial
+            <div style={{ display: "flex", gap: "10px", marginTop: "12px" }}>
+              <a href={`tel:${item.number}`} className="helpline-dial-btn" style={{ flex: 1 }}>
+                <FaPhoneAlt /> Call Now
               </a>
 
               <button
                 className="complaint-action-btn"
-                style={{ justifyContent: "center" }}
+                style={{ justifyContent: "center", minWidth: "90px" }}
                 onClick={() => handleCopy(item.id, item.number)}
               >
-                {copiedId === item.id ? <FaCheck style={{ color: "#34d399" }} /> : <FaCopy />}
+                {copiedId === item.id ? <FaCheck style={{ color: "#166534" }} /> : <FaCopy />}
                 {copiedId === item.id ? "Copied" : "Copy"}
               </button>
             </div>

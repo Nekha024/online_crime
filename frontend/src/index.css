@@ -1,13 +1,123 @@
+/* ==========================================================================
+   GLOBAL DESIGN SYSTEM — LIGHT CIVIC PUBLIC SERVICE THEME
+   Professional, Accessible, Restrained, Trustworthy
+   ========================================================================== */
+
+:root {
+  /* Surface & Background Palette */
+  --bg-page: #f8fafc;
+  --bg-surface: #ffffff;
+  --bg-surface-subtle: #f1f5f9;
+  --bg-surface-hover: #f8fafc;
+  
+  /* Text & Content Palette */
+  --text-primary: #0f172a;
+  --text-secondary: #334155;
+  --text-muted: #64748b;
+  --text-light: #94a3b8;
+  
+  /* Civic Primary Palette (Restrained Deep Navy & Slate) */
+  --primary-navy: #1e3a8a;
+  --primary-navy-dark: #0f2942;
+  --primary-navy-light: #2563eb;
+  --primary-navy-subtle: #eff6ff;
+  --primary-navy-border: #bfdbfe;
+
+  /* Secondary & Muted Blues */
+  --slate-blue: #475569;
+  --slate-blue-light: #64748b;
+  
+  /* Status Colors (Restrained, Professional, Accessible) */
+  --status-submitted-bg: #f1f5f9;
+  --status-submitted-text: #475569;
+  --status-submitted-border: #cbd5e1;
+
+  --status-review-bg: #eff6ff;
+  --status-review-text: #1d4ed8;
+  --status-review-border: #bfdbfe;
+
+  --status-assigned-bg: #f0fdf4;
+  --status-assigned-text: #15803d;
+  --status-assigned-border: #bbf7d0;
+
+  --status-investigation-bg: #fffbeb;
+  --status-investigation-text: #b45309;
+  --status-investigation-border: #fde68a;
+
+  --status-action-bg: #faf5ff;
+  --status-action-text: #7e22ce;
+  --status-action-border: #e9d5ff;
+
+  --status-resolved-bg: #f0fdf4;
+  --status-resolved-text: #15803d;
+  --status-resolved-border: #bbf7d0;
+
+  --status-closed-bg: #f8fafc;
+  --status-closed-text: #64748b;
+  --status-closed-border: #e2e8f0;
+
+  /* Priority Badges */
+  --priority-critical-bg: #fef2f2;
+  --priority-critical-text: #b91c1c;
+  --priority-critical-border: #fecaca;
+
+  --priority-high-bg: #fff7ed;
+  --priority-high-text: #c2410c;
+  --priority-high-border: #fed7aa;
+
+  --priority-medium-bg: #fefce8;
+  --priority-medium-text: #a16207;
+  --priority-medium-border: #fef08a;
+
+  --priority-low-bg: #f0fdf4;
+  --priority-low-text: #166534;
+  --priority-low-border: #bbf7d0;
+
+  /* Borders & Dividers */
+  --border-color: #e2e8f0;
+  --border-subtle: #cbd5e1;
+  --border-strong: #94a3b8;
+
+  /* Shadows (Subtle, Natural Elevation) */
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.07), 0 2px 4px -2px rgba(0, 0, 0, 0.05);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -4px rgba(0, 0, 0, 0.04);
+  --shadow-card: 0 1px 3px rgba(0, 0, 0, 0.05), 0 1px 2px rgba(0, 0, 0, 0.03);
+
+  /* Radii */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-full: 9999px;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  color-scheme: light;
+}
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: var(--bg-page);
+  color: var(--text-primary);
+  line-height: 1.5;
+}
+
+/* Accessibility Focus States */
+:focus-visible {
+  outline: 2px solid var(--primary-navy-light);
+  outline-offset: 2px;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
 }

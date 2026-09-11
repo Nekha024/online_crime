@@ -1,53 +1,55 @@
 import React from "react";
-import "../css/HowItWorks.css";
+import "../css/LandingPage.css";
 
 const steps = [
   {
     number: "01",
-    title: "Register",
-    desc: "Create your secure account.",
+    title: "Report",
+    desc: "Submit the incident details, timeline, location, and upload any supporting digital evidence.",
   },
   {
     number: "02",
-    title: "Submit Complaint",
-    desc: "Provide complaint details and upload evidence.",
+    title: "Review",
+    desc: "The report is securely reviewed and routed to the jurisdictional police station.",
   },
   {
     number: "03",
-    title: "AI Analysis",
-    desc: "AI classifies the complaint and predicts severity.",
+    title: "Investigation",
+    desc: "Assigned officers process and investigate the matter according to official procedures.",
   },
   {
     number: "04",
-    title: "Investigation",
-    desc: "Authorities review and process the complaint.",
+    title: "Track",
+    desc: "Citizens can track the status of their report in real time using their reference number.",
   },
 ];
 
 const HowItWorks = () => {
   return (
-    <section className="how" id="how-it-works">
+    <section className="landing-section" id="how-it-works">
+      <div className="landing-container">
+        {/* Section Header */}
+        <div className="landing-header">
+          <div className="landing-pill">Process Overview</div>
+          <h2>
+            How It <span className="highlight">Works</span>
+          </h2>
+          <p>
+            A simple, straightforward reporting process designed for ordinary citizens.
+          </p>
+        </div>
 
-      <h2>How It Works</h2>
-
-      <div className="steps">
-
-        {steps.map((step, index) => (
-          <div className="step-card" key={index}>
-
-            <div className="step-number">
-              {step.number}
+        {/* 4 Clean Steps Grid */}
+        <div className="steps-grid">
+          {steps.map((step, index) => (
+            <div className="step-card" key={index}>
+              <span className="step-number-pill">{step.number}</span>
+              <h3>{step.title}</h3>
+              <p>{step.desc}</p>
             </div>
-
-            <h3>{step.title}</h3>
-
-            <p>{step.desc}</p>
-
-          </div>
-        ))}
-
+          ))}
+        </div>
       </div>
-
     </section>
   );
 };

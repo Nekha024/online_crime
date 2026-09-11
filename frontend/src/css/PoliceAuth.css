@@ -1,0 +1,257 @@
+/* ==========================================================================
+   POLICE AUTHENTICATION & LOGIN — LIGHT CIVIC THEME
+   Strictly isolated at /police/login/
+   ========================================================================== */
+
+.police-auth-root {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f1f5f9;
+  position: relative;
+  overflow: hidden;
+  padding: 24px;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  color: #0f172a;
+}
+
+/* Subtle civic grid pattern */
+.police-bg-grid {
+  position: absolute;
+  inset: 0;
+  background-image: 
+    linear-gradient(rgba(148, 163, 184, 0.15) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(148, 163, 184, 0.15) 1px, transparent 1px);
+  background-size: 32px 32px;
+  pointer-events: none;
+}
+
+.police-glow-circle {
+  display: none;
+}
+
+.police-auth-card {
+  position: relative;
+  width: 100%;
+  max-width: 440px;
+  background: #ffffff;
+  border: 1px solid #cbd5e1;
+  border-radius: 12px;
+  padding: 38px 32px;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.08), 0 8px 10px -6px rgba(0, 0, 0, 0.04);
+  z-index: 10;
+}
+
+.police-badge-header {
+  text-align: center;
+  margin-bottom: 28px;
+}
+
+.police-badge-icon-wrap {
+  width: 64px;
+  height: 64px;
+  margin: 0 auto 16px;
+  border-radius: 50%;
+  background: #eff6ff;
+  border: 2px solid #bfdbfe;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #1e3a8a;
+  font-size: 26px;
+}
+
+.police-badge-header h1 {
+  font-size: 1.35rem;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+  color: #0f172a;
+  margin: 0 0 6px 0;
+}
+
+.police-badge-header p {
+  font-size: 0.84rem;
+  color: #64748b;
+  margin: 0;
+}
+
+.police-tag {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  color: #b45309;
+  background: #fffbeb;
+  border: 1px solid #fde68a;
+  padding: 3px 12px;
+  border-radius: 20px;
+  margin-top: 10px;
+}
+
+.police-error-alert {
+  background: #fef2f2;
+  border: 1px solid #fecaca;
+  color: #991b1b;
+  padding: 12px 14px;
+  border-radius: 6px;
+  font-size: 0.86rem;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 500;
+}
+
+.police-form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.police-field-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.police-field-group label {
+  font-size: 0.84rem;
+  font-weight: 600;
+  color: #334155;
+}
+
+.police-input-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.police-input-icon {
+  position: absolute;
+  left: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #64748b;
+  font-size: 0.95rem;
+  pointer-events: none;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.police-input-wrap input {
+  width: 100%;
+  height: 44px;
+  background: #ffffff;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  color: #0f172a;
+  font-size: 0.92rem;
+  padding: 0 42px 0 42px;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+  outline: none;
+  box-sizing: border-box;
+}
+
+.police-input-wrap input:focus {
+  border-color: #1e3a8a;
+  box-shadow: 0 0 0 3px rgba(30, 58, 138, 0.08);
+}
+
+.police-toggle-vis {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: #64748b;
+  cursor: pointer;
+  padding: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.15s;
+  z-index: 2;
+}
+
+.police-toggle-vis:hover {
+  color: #0f172a;
+}
+
+.police-btn-submit {
+  margin-top: 10px;
+  height: 46px;
+  background: #1e3a8a;
+  border: none;
+  border-radius: 6px;
+  color: #ffffff;
+  font-size: 0.92rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: background 0.15s ease;
+}
+
+.police-btn-submit:hover:not(:disabled) {
+  background: #1e40af;
+}
+
+.police-btn-submit:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.police-security-footer {
+  margin-top: 24px;
+  text-align: center;
+  border-top: 1px solid #e2e8f0;
+  padding-top: 16px;
+  font-size: 0.76rem;
+  color: #64748b;
+  line-height: 1.5;
+}
+
+@media (max-width: 480px) {
+  .police-auth-root {
+    padding: 16px 12px;
+    align-items: flex-start;
+  }
+
+  .police-auth-card {
+    padding: 24px 18px;
+    margin-top: 10px;
+  }
+
+  .police-badge-header {
+    margin-bottom: 20px;
+  }
+
+  .police-badge-icon-wrap {
+    width: 52px;
+    height: 52px;
+    font-size: 22px;
+    margin-bottom: 12px;
+  }
+
+  .police-badge-header h1 {
+    font-size: 1.2rem;
+  }
+
+  .police-input-wrap input {
+    height: 42px;
+    font-size: 0.9rem;
+    padding: 0 40px 0 40px;
+  }
+
+  .police-btn-submit {
+    height: 44px;
+    font-size: 0.9rem;
+  }
+}

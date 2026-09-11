@@ -1,104 +1,97 @@
 import React from "react";
-import "../css/Footer.css";
-
+import { Link } from "react-router-dom";
 import {
   FaShieldAlt,
-  FaFacebook,
-  FaTwitter,
-  FaLinkedin,
-  FaGithub,
-  FaEnvelope,
   FaPhoneAlt,
+  FaEnvelope,
   FaMapMarkerAlt,
+  FaLock
 } from "react-icons/fa";
+import "../css/LandingPage.css";
 
 const Footer = () => {
   return (
-    <footer className="footer">
-
-      <div className="footer-container">
-
-        <div className="footer-about">
-
-          <div className="footer-logo">
-            <FaShieldAlt />
-            <span>CrimeAI</span>
+    <footer className="public-footer">
+      <div className="landing-container">
+        <div className="footer-top-grid">
+          {/* Brand Column */}
+          <div className="footer-brand">
+            <div className="footer-logo-title">
+              <FaShieldAlt />
+              <span>Crime Reporting Platform</span>
+            </div>
+            <p>
+              An online crime reporting and analysis system enabling citizens to report incidents,
+              submit evidence, and track investigation progress securely.
+            </p>
+            <div style={{ display: "flex", alignItems: "center", gap: "8px", color: "#94a3b8", fontSize: "0.82rem" }}>
+              <FaLock />
+              <span>Secure Citizen Communication</span>
+            </div>
           </div>
 
-          <p>
-            AI-Based Online Crime Reporting and Analysis System that
-            enables secure cybercrime reporting, intelligent complaint
-            classification, and faster investigation through Artificial
-            Intelligence.
-          </p>
-
-        </div>
-
-        <div className="footer-links">
-
-          <h3>Quick Links</h3>
-
-          <a href="#home">Home</a>
-          <a href="#features">Features</a>
-          <a href="#dashboard">Dashboard</a>
-          <a href="#faq">FAQ</a>
-          <a href="#contact">Contact</a>
-
-        </div>
-
-        <div className="footer-contact">
-
-          <h3>Contact</h3>
-
-          <p>
-            <FaEnvelope /> support@crimeai.com
-          </p>
-
-          <p>
-            <FaPhoneAlt /> +91 98765 43210
-          </p>
-
-          <p>
-            <FaMapMarkerAlt /> India
-          </p>
-
-        </div>
-
-        <div className="footer-social">
-
-          <h3>Follow Us</h3>
-
-          <div className="social-icons">
-
-            <a href="/">
-              <FaFacebook />
-            </a>
-
-            <a href="/">
-              <FaTwitter />
-            </a>
-
-            <a href="/">
-              <FaLinkedin />
-            </a>
-
-            <a href="/">
-              <FaGithub />
-            </a>
-
+          {/* Public Navigation */}
+          <div className="footer-col">
+            <h4>Public Navigation</h4>
+            <ul>
+              <li><a href="#home">Home</a></li>
+              <li><a href="#how-it-works">How It Works</a></li>
+              <li><a href="#services">Services</a></li>
+              <li><a href="#process">Reporting Process</a></li>
+              <li><a href="#trust">Trust & Security</a></li>
+              <li><a href="#faq">FAQ</a></li>
+            </ul>
           </div>
 
+          {/* Citizen Services */}
+          <div className="footer-col">
+            <h4>Citizen Services</h4>
+            <ul>
+              <li><Link to="/report">Report a Crime</Link></li>
+              <li><Link to="/dashboard/file-complaint">File a Complaint</Link></li>
+              <li><Link to="/dashboard/my-complaints">Track Report Status</Link></li>
+              <li><Link to="/dashboard/police-stations">Police Station Directory</Link></li>
+              <li><Link to="/login">Citizen Login</Link></li>
+              <li><Link to="/register">Citizen Registration</Link></li>
+            </ul>
+          </div>
+
+          {/* Emergency & Helplines */}
+          <div className="footer-col">
+            <h4>Emergency & Helplines</h4>
+            <ul>
+              <li style={{ color: "#fca5a5", fontWeight: 600 }}>
+                <FaPhoneAlt style={{ marginRight: "6px" }} />
+                All Emergencies: 112
+              </li>
+              <li style={{ color: "#93c5fd", fontWeight: 600 }}>
+                <FaPhoneAlt style={{ marginRight: "6px" }} />
+                Cyber Crime Helpline: 1930
+              </li>
+              <li>
+                <FaEnvelope style={{ marginRight: "6px" }} />
+                support@onlinecrime.gov.in
+              </li>
+              <li>
+                <FaMapMarkerAlt style={{ marginRight: "6px" }} />
+                National Citizen Safety Service
+              </li>
+            </ul>
+          </div>
         </div>
 
+        {/* Bottom Copyright & Policy Row */}
+        <div className="footer-bottom-row">
+          <div>
+            © {new Date().getFullYear()} Online Crime Reporting and Analysis System. All Rights Reserved.
+          </div>
+          <div style={{ display: "flex", gap: "20px" }}>
+            <span>Terms of Public Service</span>
+            <span>Privacy Policy</span>
+            <span>Citizen Guidelines</span>
+          </div>
+        </div>
       </div>
-
-      <hr />
-
-      <div className="copyright">
-        © {new Date().getFullYear()} CrimeAI | AI-Based Online Crime Reporting
-        and Analysis System. All Rights Reserved.
-      </div>
-
     </footer>
   );
 };

@@ -93,7 +93,7 @@ const CrimeMapPage = () => {
       <div className="dash-page-header">
         <div className="dash-page-title-wrap">
           <h2>
-            <FaMapMarkedAlt style={{ color: "#38bdf8" }} />
+            <FaMapMarkedAlt style={{ color: "#1e3a8a" }} />
             Live Crime & Safety Hotspot Map
           </h2>
           <p>
@@ -107,9 +107,9 @@ const CrimeMapPage = () => {
         {/* Floating Map Control Info */}
         <div className="map-control-overlay">
           <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
-            <FaCompass style={{ color: "#38bdf8" }} />
-            <strong style={{ color: "#fff", fontSize: "0.85rem" }}>
-              Metro City Crime Index
+            <FaCompass style={{ color: "#1e3a8a" }} />
+            <strong style={{ color: "#0f172a", fontSize: "0.88rem" }}>
+              District Incident Index
             </strong>
           </div>
 
@@ -117,28 +117,28 @@ const CrimeMapPage = () => {
             <button
               onClick={() => setActiveFilter("all")}
               className={`filter-tab-btn ${activeFilter === "all" ? "active" : ""}`}
-              style={{ padding: "3px 8px", fontSize: "0.72rem" }}
+              style={{ padding: "4px 10px", fontSize: "0.76rem" }}
             >
               All Zones
             </button>
             <button
               onClick={() => setActiveFilter("high")}
               className={`filter-tab-btn ${activeFilter === "high" ? "active" : ""}`}
-              style={{ padding: "3px 8px", fontSize: "0.72rem" }}
+              style={{ padding: "4px 10px", fontSize: "0.76rem" }}
             >
               <span className="legend-color-dot high" style={{ display: "inline-block", marginRight: "4px" }} /> High Alert
             </button>
             <button
               onClick={() => setActiveFilter("medium")}
               className={`filter-tab-btn ${activeFilter === "medium" ? "active" : ""}`}
-              style={{ padding: "3px 8px", fontSize: "0.72rem" }}
+              style={{ padding: "4px 10px", fontSize: "0.76rem" }}
             >
               <span className="legend-color-dot medium" style={{ display: "inline-block", marginRight: "4px" }} /> Moderate
             </button>
             <button
               onClick={() => setActiveFilter("safe")}
               className={`filter-tab-btn ${activeFilter === "safe" ? "active" : ""}`}
-              style={{ padding: "3px 8px", fontSize: "0.72rem" }}
+              style={{ padding: "4px 10px", fontSize: "0.76rem" }}
             >
               <span className="legend-color-dot safe" style={{ display: "inline-block", marginRight: "4px" }} /> Safe
             </button>
@@ -168,7 +168,7 @@ const CrimeMapPage = () => {
                   <div style={{ fontWeight: "700", color: "#fff", fontSize: "0.85rem" }}>
                     {node.name}
                   </div>
-                  <div style={{ fontSize: "0.75rem", color: "#38bdf8" }}>
+                  <div style={{ fontSize: "0.75rem", color: "#93c5fd" }}>
                     {node.risk} • {node.incidents}
                   </div>
                 </div>
@@ -183,16 +183,16 @@ const CrimeMapPage = () => {
         <div className="recent-complaints-card">
           <div className="chart-card-header">
             <h3>
-              <FaShieldAlt style={{ color: "#38bdf8" }} />
+              <FaShieldAlt style={{ color: "#1e3a8a" }} />
               Zone Safety Analysis: {selectedNode.name}
             </h3>
             <span
-              className={`status-pill ${
+              className={`badge-priority ${
                 selectedNode.type === "high"
-                  ? "pending"
+                  ? "priority-critical"
                   : selectedNode.type === "medium"
-                  ? "investigation"
-                  : "resolved"
+                  ? "priority-high"
+                  : "priority-low"
               }`}
             >
               {selectedNode.risk}
@@ -204,26 +204,26 @@ const CrimeMapPage = () => {
               display: "grid",
               gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))",
               gap: "16px",
-              marginTop: "10px"
+              marginTop: "14px"
             }}
           >
-            <div style={{ background: "rgba(255, 255, 255, 0.03)", padding: "14px", borderRadius: "12px" }}>
-              <div style={{ fontSize: "0.75rem", color: "#94a3b8" }}>Recent Incidents:</div>
-              <div style={{ fontWeight: "700", color: "#f8fafc", fontSize: "1rem", marginTop: "4px" }}>
+            <div style={{ background: "#f8fafc", border: "1px solid #e2e8f0", padding: "14px", borderRadius: "6px" }}>
+              <div style={{ fontSize: "0.75rem", color: "#64748b", textTransform: "uppercase", fontWeight: "600" }}>Recent Incidents:</div>
+              <div style={{ fontWeight: "700", color: "#0f172a", fontSize: "1rem", marginTop: "4px" }}>
                 {selectedNode.incidents}
               </div>
             </div>
 
-            <div style={{ background: "rgba(255, 255, 255, 0.03)", padding: "14px", borderRadius: "12px" }}>
-              <div style={{ fontSize: "0.75rem", color: "#94a3b8" }}>Station In Charge:</div>
-              <div style={{ fontWeight: "700", color: "#38bdf8", fontSize: "0.95rem", marginTop: "4px" }}>
+            <div style={{ background: "#f8fafc", border: "1px solid #e2e8f0", padding: "14px", borderRadius: "6px" }}>
+              <div style={{ fontSize: "0.75rem", color: "#64748b", textTransform: "uppercase", fontWeight: "600" }}>Station In Charge:</div>
+              <div style={{ fontWeight: "700", color: "#1e3a8a", fontSize: "0.95rem", marginTop: "4px" }}>
                 {selectedNode.station}
               </div>
             </div>
 
-            <div style={{ background: "rgba(255, 255, 255, 0.03)", padding: "14px", borderRadius: "12px" }}>
-              <div style={{ fontSize: "0.75rem", color: "#94a3b8" }}>Advisory / Notes:</div>
-              <div style={{ color: "#cbd5e1", fontSize: "0.82rem", marginTop: "4px" }}>
+            <div style={{ background: "#f8fafc", border: "1px solid #e2e8f0", padding: "14px", borderRadius: "6px" }}>
+              <div style={{ fontSize: "0.75rem", color: "#64748b", textTransform: "uppercase", fontWeight: "600" }}>Advisory / Notes:</div>
+              <div style={{ color: "#334155", fontSize: "0.85rem", marginTop: "4px", lineHeight: "1.4" }}>
                 {selectedNode.note}
               </div>
             </div>

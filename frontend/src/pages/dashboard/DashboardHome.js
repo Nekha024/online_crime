@@ -126,7 +126,7 @@ const DashboardHome = () => {
         <div className="recent-complaints-card">
           <div className="chart-card-header">
             <h3>
-              <FaShieldAlt style={{ color: "#38bdf8" }} />
+              <FaShieldAlt style={{ color: "#1e3a8a" }} />
               Recent Filed Complaints
             </h3>
             {totalComplaints > 0 && (
@@ -145,7 +145,7 @@ const DashboardHome = () => {
                 <FaInfoCircle />
               </div>
               <h4>No records available yet</h4>
-              <p>You haven't filed any complaints through the CrimeAI portal yet.</p>
+              <p>You haven't filed any complaints through the portal yet.</p>
               <Link to="/dashboard/file-complaint" className="btn-file-empty">
                 <FaPlus /> Start a New Complaint
               </Link>
@@ -155,7 +155,7 @@ const DashboardHome = () => {
               <table className="complaints-table">
                 <thead>
                   <tr>
-                    <th>FIR Number</th>
+                    <th>FIR / Reference</th>
                     <th>Incident Title</th>
                     <th>Category</th>
                     <th>Date</th>
@@ -169,11 +169,11 @@ const DashboardHome = () => {
                       <td>
                         <span className="fir-code-tag">{c.id}</span>
                       </td>
-                      <td style={{ fontWeight: "600", color: "#f8fafc" }}>
+                      <td style={{ fontWeight: "600", color: "#0f172a" }}>
                         {c.title}
                       </td>
-                      <td>{c.category}</td>
-                      <td style={{ fontSize: "0.8rem", color: "#94a3b8" }}>{c.date}</td>
+                      <td style={{ color: "#334155" }}>{c.category}</td>
+                      <td style={{ fontSize: "0.85rem", color: "#64748b" }}>{c.date}</td>
                       <td>
                         <span
                           className={`status-pill ${

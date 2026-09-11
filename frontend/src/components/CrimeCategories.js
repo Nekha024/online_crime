@@ -1,6 +1,6 @@
 import React from "react";
 import "../css/CrimeCategories.css";
-
+import "../css/LandingPage.css";
 import {
   FaUserSecret,
   FaMoneyCheckAlt,
@@ -10,90 +10,86 @@ import {
   FaComments,
   FaUniversity,
   FaExclamationTriangle,
+  FaInfoCircle
 } from "react-icons/fa";
 
 const categories = [
   {
     icon: <FaUserSecret />,
-    title: "Phishing",
+    title: "Phishing & Spoofing",
     description:
-      "Detect fraudulent emails, fake login pages, and credential theft attempts.",
+      "Fraudulent emails, deceptive login portals, and credential theft attempts targeting personal credentials.",
   },
   {
     icon: <FaMoneyCheckAlt />,
-    title: "Online Financial Fraud",
+    title: "Online Financial Scams",
     description:
-      "Identify scams involving UPI, bank transfers, online shopping, and fake investments.",
+      "Scams involving unauthorized UPI transactions, bank transfers, fake investment schemes, or shopping fraud.",
   },
   {
     icon: <FaIdCard />,
     title: "Identity Theft",
     description:
-      "Report misuse of personal information, Aadhaar, PAN, and stolen identities.",
+      "Unauthorized use or misuse of personal documentation, Aadhaar, PAN, or digital credentials to impersonate you.",
   },
   {
     icon: <FaComments />,
-    title: "Cyberbullying",
+    title: "Cyberstalking & Harassment",
     description:
-      "Handle online harassment, abusive messages, threats, and bullying incidents.",
+      "Online threats, abusive digital communications, non-consensual tracking, or continuous cyberbullying.",
   },
   {
     icon: <FaGlobe />,
-    title: "Fake Websites",
+    title: "Malicious & Fake Websites",
     description:
-      "Detect malicious websites designed to steal sensitive user information.",
+      "Cloned payment gateways and deceptive web domains designed to steal banking information or inject malware.",
   },
   {
     icon: <FaEnvelope />,
-    title: "Email Scams",
+    title: "Lottery & Advance Fee Scams",
     description:
-      "Identify fake emails, lottery scams, business email compromise, and spam attacks.",
+      "Fake reward notifications, business email compromise, and inheritance or recruitment fee deceptions.",
   },
   {
     icon: <FaUniversity />,
-    title: "Banking Fraud",
+    title: "Unauthorized Banking Fraud",
     description:
-      "Monitor unauthorized banking activities, card fraud, and account compromise.",
+      "Compromised credit/debit cards, unauthorized OTP usage, or illegal electronic fund withdrawals.",
   },
   {
     icon: <FaExclamationTriangle />,
-    title: "Social Media Harassment",
+    title: "Social Media Impersonation",
     description:
-      "Report fake profiles, impersonation, blackmail, and online abuse on social platforms.",
+      "Fake social profiles, deepfake deceptions, blackmail, extortion, or unauthorized image distribution.",
   },
 ];
 
 const CrimeCategories = () => {
   return (
-    <section className="crime-categories" id="crime-categories">
-      <div className="container">
-
-        <div className="section-title">
-          <h2>Cybercrime Categories</h2>
-
+    <section className="landing-section" id="categories">
+      <div className="landing-container">
+        <div className="landing-header">
+          <div className="landing-pill">
+            <FaInfoCircle /> Crime Information & Awareness
+          </div>
+          <h2>
+            Recognized <span className="highlight">Incident Categories</span>
+          </h2>
           <p>
-            Our AI-powered system intelligently classifies complaints into
-            different cybercrime categories for faster investigation and
-            improved case management.
+            Citizens can lodge reports for any of the following cybercrime categories.
+            Our platform automatically structures the evidence to assist investigating officers.
           </p>
         </div>
 
         <div className="category-grid">
           {categories.map((category, index) => (
             <div className="category-card" key={index}>
-
-              <div className="category-icon">
-                {category.icon}
-              </div>
-
+              <div className="category-icon">{category.icon}</div>
               <h3>{category.title}</h3>
-
               <p>{category.description}</p>
-
             </div>
           ))}
         </div>
-
       </div>
     </section>
   );

@@ -119,171 +119,167 @@ const Login = () => {
 
     return (
         <div className="auth-page-container">
-            <div className="auth-background-glow"></div>
-            
-            <Link to="/" className="auth-back-link">
-                <FaArrowLeft /> Back to Home
-            </Link>
+            <div className="auth-card-wrapper">
+                <Link to="/" className="auth-back-link">
+                    <FaArrowLeft /> Back to Home
+                </Link>
 
-            <div className="auth-card">
-                <div className="auth-card-header">
-                    <FaShieldAlt className="auth-logo-icon" />
-                    <h2>
-                        {loginMethod === 'password' ? 'Welcome Back' : (step === 1 ? 'Welcome Back' : 'Verify Identity')}
-                    </h2>
-                    <p>
-                        {loginMethod === 'password' 
-                            ? 'Securely log in to the CrimeAI Citizen Portal' 
-                            : (step === 1 ? 'Log in securely with your phone number' : 'Enter the 6-digit OTP sent to your phone')}
-                    </p>
-                </div>
+                <div className="auth-card">
+                    <div className="auth-card-header">
+                        <div className="auth-icon-circle">
+                            <FaShieldAlt />
+                        </div>
+                        <h2 className="auth-title">
+                            {loginMethod === 'password' ? 'Citizen Login' : (step === 1 ? 'Citizen Login' : 'Verify Identity')}
+                        </h2>
+                        <p className="auth-subtitle">
+                            {loginMethod === 'password' 
+                                ? 'Access your reports and case tracking portal' 
+                                : (step === 1 ? 'Log in securely with your registered phone number' : 'Enter the 6-digit verification code sent to your phone')}
+                        </p>
+                    </div>
 
-                {error && <div className="auth-error-message">{error}</div>}
-                {successMessage && <div className="auth-success-message" style={{ color: '#4ade80', marginBottom: '15px', textAlign: 'center', fontSize: '0.9rem', backgroundColor: 'rgba(74, 222, 128, 0.1)', padding: '10px', borderRadius: '8px' }}>{successMessage}</div>}
+                    {error && <div className="auth-alert-error">{error}</div>}
+                    {successMessage && <div className="auth-alert-success">{successMessage}</div>}
 
-                {loginMethod === 'otp' ? (
-                    step === 1 ? (
-                        <form onSubmit={handleSendOTP} className="auth-form">
-                            <div className="auth-input-group">
-                                <label htmlFor="phone_number">Phone Number</label>
-                                <div className="auth-input-wrapper">
-                                    <FaPhone className="auth-input-icon" />
-                                    <input
-                                        id="phone_number"
-                                        type="tel"
-                                        placeholder="Enter your phone number"
-                                        value={phoneNumber}
-                                        onChange={e => setPhoneNumber(e.target.value)}
-                                        required
-                                    />
+                    {loginMethod === 'otp' ? (
+                        step === 1 ? (
+                            <form onSubmit={handleSendOTP} className="auth-form">
+                                <div className="auth-input-group">
+                                    <label htmlFor="phone_number">Phone Number</label>
+                                    <div className="auth-input-wrapper">
+                                        <FaPhone className="auth-input-icon" />
+                                        <input
+                                            id="phone_number"
+                                            className="auth-input"
+                                            type="tel"
+                                            placeholder="Enter your phone number"
+                                            value={phoneNumber}
+                                            onChange={e => setPhoneNumber(e.target.value)}
+                                            required
+                                        />
+                                    </div>
                                 </div>
-                            </div>
 
-                            <button 
-                                type="submit" 
-                                className={`auth-submit-btn ${isLoading ? 'loading' : ''}`}
-                                disabled={isLoading}
-                            >
-                                {isLoading ? 'Sending OTP...' : 'Send OTP'}
-                            </button>
-                        </form>
-                    ) : (
-                        <form onSubmit={handleVerifyOTP} className="auth-form">
-                            <div className="auth-input-group">
-                                <label htmlFor="otp">One Time Password (OTP)</label>
-                                <div className="auth-input-wrapper">
-                                    <FaKey className="auth-input-icon" />
-                                    <input
-                                        id="otp"
-                                        type="text"
-                                        maxLength="6"
-                                        placeholder="Enter 6-digit OTP"
-                                        value={otp}
-                                        onChange={e => setOtp(e.target.value)}
-                                        required
-                                        style={{ letterSpacing: '2px', fontWeight: 'bold' }}
-                                    />
-                                </div>
-                            </div>
-
-                            <button 
-                                type="submit" 
-                                className={`auth-submit-btn ${isLoading ? 'loading' : ''}`}
-                                disabled={isLoading}
-                            >
-                                {isLoading ? 'Verifying...' : 'Verify OTP / Login'}
-                            </button>
-                            
-                            <div style={{ textAlign: 'center', marginTop: '15px' }}>
                                 <button 
-                                    type="button" 
-                                    onClick={handleSendOTP} 
-                                    style={{ background: 'none', border: 'none', color: '#38bdf8', cursor: 'pointer', textDecoration: 'underline' }}
+                                    type="submit" 
+                                    className={`auth-submit-btn ${isLoading ? 'loading' : ''}`}
                                     disabled={isLoading}
                                 >
-                                    Resend OTP
+                                    {isLoading ? 'Sending OTP...' : 'Send OTP'}
                                 </button>
-                            </div>
-                        </form>
-                    )
-                ) : (
-                    <form onSubmit={handlePasswordLogin} className="auth-form">
-                        <div className="auth-input-group">
-                            <label htmlFor="email">Email Address</label>
-                            <div className="auth-input-wrapper">
-                                <FaEnvelope className="auth-input-icon" />
-                                <input
-                                    id="email"
-                                    type="email"
-                                    placeholder="Enter your email"
-                                    value={email}
-                                    onChange={e => setEmail(e.target.value)}
-                                    required
-                                />
-                            </div>
-                        </div>
+                            </form>
+                        ) : (
+                            <form onSubmit={handleVerifyOTP} className="auth-form">
+                                <div className="auth-input-group">
+                                    <label htmlFor="otp">One Time Password (OTP)</label>
+                                    <div className="auth-input-wrapper">
+                                        <FaKey className="auth-input-icon" />
+                                        <input
+                                            id="otp"
+                                            className="auth-input"
+                                            type="text"
+                                            maxLength="6"
+                                            placeholder="Enter 6-digit OTP"
+                                            value={otp}
+                                            onChange={e => setOtp(e.target.value)}
+                                            required
+                                            style={{ letterSpacing: '3px', fontWeight: '600' }}
+                                        />
+                                    </div>
+                                </div>
 
-                        <div className="auth-input-group">
-                            <label htmlFor="password">Password</label>
-                            <div className="auth-input-wrapper">
-                                <FaLock className="auth-input-icon" />
-                                <input
-                                    id="password"
-                                    type={showPassword ? "text" : "password"}
-                                    placeholder="Enter your password"
-                                    value={password}
-                                    onChange={e => setPassword(e.target.value)}
-                                    required
-                                />
                                 <button 
-                                    type="button" 
-                                    className="auth-password-toggle"
-                                    onClick={() => setShowPassword(!showPassword)}
+                                    type="submit" 
+                                    className={`auth-submit-btn ${isLoading ? 'loading' : ''}`}
+                                    disabled={isLoading}
                                 >
-                                    {showPassword ? <FaEyeSlash /> : <FaEye />}
+                                    {isLoading ? 'Verifying...' : 'Verify OTP / Login'}
                                 </button>
+                                
+                                <div style={{ textAlign: 'center', marginTop: '12px' }}>
+                                    <button 
+                                        type="button" 
+                                        onClick={handleSendOTP} 
+                                        className="auth-resend-btn"
+                                        disabled={isLoading}
+                                    >
+                                        Resend OTP
+                                    </button>
+                                </div>
+                            </form>
+                        )
+                    ) : (
+                        <form onSubmit={handlePasswordLogin} className="auth-form">
+                            <div className="auth-input-group">
+                                <label htmlFor="email">Email Address</label>
+                                <div className="auth-input-wrapper">
+                                    <FaEnvelope className="auth-input-icon" />
+                                    <input
+                                        id="email"
+                                        className="auth-input"
+                                        type="email"
+                                        placeholder="Enter your email"
+                                        value={email}
+                                        onChange={e => setEmail(e.target.value)}
+                                        required
+                                    />
+                                </div>
                             </div>
-                        </div>
 
-                        <button 
-                            type="submit" 
-                            className={`auth-submit-btn ${isLoading ? 'loading' : ''}`}
-                            disabled={isLoading}
-                        >
-                            {isLoading ? 'Authenticating...' : 'Login Securely'}
-                        </button>
-                    </form>
-                )}
+                            <div className="auth-input-group">
+                                <label htmlFor="password">Password</label>
+                                <div className="auth-input-wrapper">
+                                    <FaLock className="auth-input-icon" />
+                                    <input
+                                        id="password"
+                                        className="auth-input has-toggle"
+                                        type={showPassword ? "text" : "password"}
+                                        placeholder="Enter your password"
+                                        value={password}
+                                        onChange={e => setPassword(e.target.value)}
+                                        required
+                                    />
+                                    <button 
+                                        type="button" 
+                                        className="auth-password-toggle"
+                                        onClick={() => setShowPassword(!showPassword)}
+                                        aria-label={showPassword ? "Hide password" : "Show password"}
+                                    >
+                                        {showPassword ? <FaEyeSlash /> : <FaEye />}
+                                    </button>
+                                </div>
+                            </div>
 
-                <div style={{ textAlign: 'center', marginTop: '25px', marginBottom: '10px' }}>
-                    <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '10px', color: '#64748b' }}>
-                        <hr style={{ flex: 1, borderColor: '#1e293b' }} />
-                        <span style={{ fontSize: '0.9rem' }}>OR</span>
-                        <hr style={{ flex: 1, borderColor: '#1e293b' }} />
+                            <button 
+                                type="submit" 
+                                className={`auth-submit-btn ${isLoading ? 'loading' : ''}`}
+                                disabled={isLoading}
+                            >
+                                {isLoading ? 'Authenticating...' : 'Login Securely'}
+                            </button>
+                        </form>
+                    )}
+
+                    <div className="auth-divider">
+                        <hr className="auth-divider-line" />
+                        <span className="auth-divider-text">OR</span>
+                        <hr className="auth-divider-line" />
                     </div>
+
                     <button 
                         type="button" 
                         onClick={toggleLoginMethod}
-                        style={{ 
-                            marginTop: '15px', 
-                            background: 'transparent', 
-                            border: '1px solid #38bdf8', 
-                            color: '#38bdf8', 
-                            padding: '10px 20px', 
-                            borderRadius: '8px', 
-                            cursor: 'pointer', 
-                            width: '100%',
-                            transition: 'all 0.3s'
-                        }}
+                        className="auth-secondary-btn"
                     >
                         {loginMethod === 'otp' ? 'Login with Email & Password' : 'Login with Phone Number (OTP)'}
                     </button>
-                </div>
 
-                <div className="auth-card-footer">
-                    <p>
-                        Don't have an account? <Link to="/register">Register now</Link>
-                    </p>
+                    <div className="auth-card-footer">
+                        <p>
+                            Don't have an account? <Link to="/register">Register now</Link>
+                        </p>
+                    </div>
                 </div>
             </div>
         </div>

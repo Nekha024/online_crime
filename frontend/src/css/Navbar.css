@@ -1,169 +1,226 @@
-/* Google Font */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+/* ==========================================================================
+   PUBLIC CITIZEN NAVBAR — LIGHT THEME
+   Clean, Professional, Accessible, Mobile-Friendly
+   ========================================================================== */
 
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:'Poppins',sans-serif;
+.navbar {
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  background: #ffffff;
+  border-bottom: 1px solid #e2e8f0;
+  transition: box-shadow 0.2s ease;
 }
 
-html{
-    scroll-behavior:smooth;
+.navbar.scrolled {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
 }
 
-.navbar{
-    width:100%;
-    position:fixed;
-    top:0;
-    left:0;
-    z-index:1000;
-    background:rgba(10,25,47,0.95);
-    backdrop-filter:blur(12px);
-    box-shadow:0 4px 15px rgba(0,0,0,0.25);
-}
-
-.navbar-container{
-    width:90%;
-    max-width:1300px;
-    margin:auto;
-    height:80px;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
+.navbar-container {
+  width: 90%;
+  max-width: 1200px;
+  margin: auto;
+  height: 72px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 /* Logo */
-
-.logo{
-    display:flex;
-    align-items:center;
-    gap:10px;
-    font-size:1.6rem;
-    font-weight:700;
-    color:#38bdf8;
-    cursor:pointer;
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  cursor: pointer;
 }
 
-.logo-icon{
-    color:#60a5fa;
-    font-size:1.9rem;
+.logo-badge {
+  width: 36px;
+  height: 36px;
+  border-radius: 6px;
+  background: #1e3a8a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-/* Navigation */
-
-.nav-links{
-    display:flex;
-    list-style:none;
-    gap:35px;
+.logo-icon {
+  color: #ffffff;
+  font-size: 1.2rem;
 }
 
-.nav-links li a{
-    text-decoration:none;
-    color:#fff;
-    font-size:1rem;
-    font-weight:500;
-    transition:.3s;
+.logo-text-block {
+  display: flex;
+  flex-direction: column;
 }
 
-.nav-links li a:hover{
-    color:#38bdf8;
+.logo-title {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #0f172a;
+  line-height: 1.1;
+  letter-spacing: -0.2px;
 }
 
-/* Buttons */
+.logo-sub {
+  font-size: 0.68rem;
+  font-weight: 600;
+  color: #1e3a8a;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+}
 
-.nav-buttons{
-    display:flex;
-    gap:15px;
+/* Nav links */
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 26px;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-links li a {
+  text-decoration: none;
+  color: #334155;
+  font-size: 0.92rem;
+  font-weight: 500;
+  transition: color 0.15s ease;
+  padding: 6px 0;
+}
+
+.nav-links li a:hover {
+  color: #1e3a8a;
+}
+
+.mobile-auth-item {
+  display: none;
+}
+
+/* Desktop action buttons */
+.nav-buttons {
+  display: flex;
+  align-items: center;
+  gap: 12px;
 }
 
 .login-btn,
-.register-btn{
-    border:none;
-    outline:none;
-    padding:10px 20px;
-    border-radius:30px;
-    cursor:pointer;
-    display:flex;
-    align-items:center;
-    gap:8px;
-    font-size:.95rem;
-    font-weight:600;
-    transition:.3s;
+.register-btn {
+  border: none;
+  outline: none;
+  padding: 8px 18px;
+  border-radius: 6px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.88rem;
+  font-weight: 600;
+  transition: all 0.15s ease;
+  text-decoration: none;
 }
 
-.login-btn{
-    background:transparent;
-    color:#fff;
-    border:2px solid #38bdf8;
+.login-btn {
+  background: transparent;
+  color: #1e3a8a;
+  border: 1px solid #cbd5e1;
 }
 
-.login-btn:hover{
-    background:#38bdf8;
-    color:#fff;
+.login-btn:hover {
+  background: #f8fafc;
+  border-color: #94a3b8;
+  color: #0f2942;
 }
 
-.register-btn{
-    background:linear-gradient(135deg,#2563eb,#38bdf8);
-    color:white;
+.register-btn {
+  background: #1e3a8a;
+  color: #ffffff;
+  border: 1px solid #1e3a8a;
 }
 
-.register-btn:hover{
-    transform:translateY(-3px);
-    box-shadow:0 10px 20px rgba(56,189,248,.35);
+.register-btn:hover {
+  background: #1e40af;
+  border-color: #1e40af;
 }
 
-/* Mobile */
-
-.menu-icon{
-    display:none;
-    color:white;
-    font-size:1.8rem;
-    cursor:pointer;
+/* Mobile Hamburger Toggle */
+.menu-icon {
+  display: none;
+  background: transparent;
+  border: none;
+  color: #0f172a;
+  font-size: 1.4rem;
+  cursor: pointer;
+  padding: 4px;
 }
 
-/* Responsive */
+/* Responsive Media Queries */
+@media (max-width: 992px) {
+  .navbar-container {
+    height: 66px;
+  }
 
-@media(max-width:992px){
+  .nav-buttons {
+    display: none;
+  }
 
-    .nav-links{
-        position:absolute;
-        top:80px;
-        left:-100%;
-        width:100%;
-        background:#081221;
-        display:flex;
-        flex-direction:column;
-        align-items:center;
-        gap:25px;
-        padding:40px 0;
-        transition:.4s;
-    }
+  .menu-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 
-    .nav-links.active{
-        left:0;
-    }
+  .nav-links {
+    position: fixed;
+    top: 66px;
+    left: -100%;
+    width: 100%;
+    height: calc(100vh - 66px);
+    background: #ffffff;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 30px 20px;
+    gap: 20px;
+    transition: left 0.25s ease;
+    border-top: 1px solid #e2e8f0;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05);
+    overflow-y: auto;
+  }
 
-    .nav-buttons{
-        display:none;
-    }
+  .nav-links.active {
+    left: 0;
+  }
 
-    .menu-icon{
-        display:block;
-    }
-}
+  .nav-links li a {
+    font-size: 1.05rem;
+  }
 
-@media(max-width:768px){
+  .mobile-auth-item {
+    display: block;
+    width: 100%;
+    max-width: 260px;
+    margin-top: 12px;
+    padding-top: 18px;
+    border-top: 1px solid #e2e8f0;
+  }
 
-    .navbar-container{
-        width:92%;
-    }
+  .mobile-btn-group {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+  }
 
-    .logo{
-        font-size:1.3rem;
-    }
-
-    .logo-icon{
-        font-size:1.5rem;
-    }
+  .mobile-btn-group .login-btn,
+  .mobile-btn-group .register-btn,
+  .mobile-btn {
+    width: 100%;
+    justify-content: center;
+    padding: 10px;
+    font-size: 0.95rem;
+  }
 }
