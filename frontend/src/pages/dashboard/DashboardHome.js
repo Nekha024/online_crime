@@ -33,11 +33,9 @@ const DashboardHome = () => {
 
         <div className="welcome-user-info">
           <div className="welcome-avatar-wrapper">
-            <img
-              src={userProfile.avatar}
-              alt={userProfile.name}
-              className="welcome-avatar-img"
-            />
+            <div className="welcome-avatar-initials">
+              {userProfile.name ? userProfile.name.charAt(0).toUpperCase() : "C"}
+            </div>
             <div className="verified-badge-icon" title="Identity Verified">
               <FaUserShield />
             </div>

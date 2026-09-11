@@ -65,7 +65,7 @@ const ViewComplaintsPage = () => {
       <div className="dash-page-header">
         <div className="dash-page-title-wrap">
           <h2>
-            <FaListAlt style={{ color: "#38bdf8" }} />
+            <FaListAlt style={{ color: "#1e3a8a" }} />
             My Complaints & FIR Tracker
           </h2>
           <p>
@@ -236,13 +236,7 @@ const ViewComplaintsPage = () => {
               </div>
 
               {/* Station & Officer Info */}
-              <div
-                style={{
-                  display: "grid",
-                  gridTemplateColumns: "1fr 1fr",
-                  gap: "12px"
-                }}
-              >
+              <div className="modal-info-dual">
                 <div style={{ background: "#eff6ff", padding: "12px 14px", borderRadius: "6px", border: "1px solid #bfdbfe" }}>
                   <div style={{ fontSize: "0.72rem", color: "#1e3a8a", textTransform: "uppercase", fontWeight: "700" }}>
                     <FaUserShield style={{ marginRight: "4px" }} /> Assigned Officer

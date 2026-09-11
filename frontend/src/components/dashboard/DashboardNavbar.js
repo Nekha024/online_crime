@@ -114,11 +114,9 @@ const DashboardNavbar = ({ onToggleMobileSidebar }) => {
 
         {/* User Profile Badge */}
         <div className="user-profile-badge" title={`Logged in as ${userProfile.name}`}>
-          <img
-            src={userProfile.avatar}
-            alt={userProfile.name}
-            className="user-avatar-img"
-          />
+          <div className="user-avatar-initials">
+            {userProfile.name ? userProfile.name.charAt(0).toUpperCase() : "C"}
+          </div>
           <div className="user-meta-info">
             <span className="user-name-text">{userProfile.name}</span>
             <span className="user-tag-text">

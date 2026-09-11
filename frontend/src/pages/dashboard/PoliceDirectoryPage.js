@@ -41,6 +41,9 @@ const PoliceDirectoryPage = () => {
     fetchStations();
   }, []);
 
+  const [currentPage, setCurrentPage] = useState(1);
+  const STATIONS_PER_PAGE = 24;
+
   // Compute unique districts from database results
   const districts = ["All", ...Array.from(new Set(stations.map(s => s.police_district).filter(Boolean))).sort()];
 
@@ -58,6 +61,12 @@ const PoliceDirectoryPage = () => {
 
     return matchesSearch && matchesDistrict && matchesType;
   });
+
+  const totalPages = Math.ceil(filteredStations.length / STATIONS_PER_PAGE) || 1;
+  const paginatedStations = filteredStations.slice(
+    (currentPage - 1) * STATIONS_PER_PAGE,
+    currentPage * STATIONS_PER_PAGE
+  );
 
   return (
     <div className="dash-page-container">
@@ -91,7 +100,10 @@ const PoliceDirectoryPage = () => {
             className="form-input" 
             style={{ height: "40px", borderRadius: "6px", padding: "0 12px", background: "#ffffff", color: "#0f172a", border: "1px solid #cbd5e1" }}
             value={selectedDistrict}
-            onChange={(e) => setSelectedDistrict(e.target.value)}
+            onChange={(e) => {
+              setSelectedDistrict(e.target.value);
+              setCurrentPage(1);
+            }}
           >
             {districts.map(d => (
               <option key={d} value={d}>{d === "All" ? "All Districts" : d}</option>
@@ -105,7 +117,10 @@ const PoliceDirectoryPage = () => {
             <button
               key={cat}
               className={`filter-tab-btn ${selectedType === cat ? "active" : ""}`}
-              onClick={() => setSelectedType(cat)}
+              onClick={() => {
+                setSelectedType(cat);
+                setCurrentPage(1);
+              }}
             >
               {cat === "All" ? "All Types" : cat}
             </button>
@@ -129,7 +144,10 @@ const PoliceDirectoryPage = () => {
             style={{ paddingLeft: "38px", height: "40px", borderRadius: "6px", width: "100%" }}
             placeholder="Search by station name, district, or code..."
             value={search}
-            onChange={(e) => setSearch(e.target.value)}
+            onChange={(e) => {
+              setSearch(e.target.value);
+              setCurrentPage(1);
+            }}
           />
         </div>
       </div>
@@ -149,12 +167,12 @@ const PoliceDirectoryPage = () => {
       ) : (
         <>
           <div style={{ marginBottom: "16px", color: "#64748b", fontSize: "0.88rem" }}>
-            Showing <strong>{filteredStations.length}</strong> of <strong>{stations.length}</strong> verified police stations in database
+            Showing <strong>{(currentPage - 1) * STATIONS_PER_PAGE + 1}</strong>–<strong>{Math.min(currentPage * STATIONS_PER_PAGE, filteredStations.length)}</strong> of <strong>{filteredStations.length}</strong> verified police stations in database
           </div>
 
           {/* Directory Grid */}
           <div className="directory-grid">
-            {filteredStations.map((station) => (
+            {paginatedStations.map((station) => (
               <div key={station.id} className="station-card">
                 <div>
                   <div className="station-card-top">
@@ -231,6 +249,40 @@ const PoliceDirectoryPage = () => {
               </div>
             ))}
           </div>
+
+          {/* Pagination Controls */}
+          {totalPages > 1 && (
+            <div className="directory-pagination">
+              <div className="page-info-text">
+                Showing <strong>{(currentPage - 1) * STATIONS_PER_PAGE + 1}</strong>–<strong>{Math.min(currentPage * STATIONS_PER_PAGE, filteredStations.length)}</strong> of <strong>{filteredStations.length}</strong> stations
+              </div>
+              <div className="pagination-controls">
+                <button
+                  className="page-nav-btn"
+                  onClick={() => {
+                    setCurrentPage(prev => Math.max(prev - 1, 1));
+                    window.scrollTo({ top: 120, behavior: "smooth" });
+                  }}
+                  disabled={currentPage === 1}
+                >
+                  ← Previous
+                </button>
+                <span className="page-number-indicator">
+                  Page {currentPage} of {totalPages}
+                </span>
+                <button
+                  className="page-nav-btn"
+                  onClick={() => {
+                    setCurrentPage(prev => Math.min(prev + 1, totalPages));
+                    window.scrollTo({ top: 120, behavior: "smooth" });
+                  }}
+                  disabled={currentPage === totalPages}
+                >
+                  Next →
+                </button>
+              </div>
+            </div>
+          )}
         </>
       )}
     </div>

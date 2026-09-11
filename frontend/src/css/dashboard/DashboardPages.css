@@ -179,7 +179,8 @@
 }
 
 /* Complaints Table Card */
-.complaints-table-card {
+.complaints-table-card,
+.recent-complaints-card {
   background: #ffffff;
   border: 1px solid #cbd5e1;
   border-radius: 8px;
@@ -187,18 +188,22 @@
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
 }
 
-.table-responsive-wrapper {
+.table-responsive-wrapper,
+.table-responsive {
   overflow-x: auto;
+  width: 100%;
 }
 
-.complaints-data-table {
+.complaints-data-table,
+.complaints-table {
   width: 100%;
   border-collapse: collapse;
   text-align: left;
   font-size: 0.88rem;
 }
 
-.complaints-data-table th {
+.complaints-data-table th,
+.complaints-table th {
   background: #f8fafc;
   color: #475569;
   font-weight: 600;
@@ -209,15 +214,175 @@
   letter-spacing: 0.5px;
 }
 
-.complaints-data-table td {
+.complaints-data-table td,
+.complaints-table td {
   padding: 13px 16px;
   border-bottom: 1px solid #f1f5f9;
   color: #334155;
   vertical-align: middle;
 }
 
-.complaints-data-table tr:hover td {
+.complaints-data-table tr:hover td,
+.complaints-table tr:hover td {
   background: #f8fafc;
+}
+
+.fir-code-tag {
+  display: inline-block;
+  font-size: 0.76rem;
+  font-weight: 700;
+  color: #1e3a8a;
+  background: #eff6ff;
+  border: 1px solid #bfdbfe;
+  padding: 3px 8px;
+  border-radius: 4px;
+  letter-spacing: 0.5px;
+}
+
+.status-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 3px 10px;
+  border-radius: 12px;
+  font-size: 0.76rem;
+  font-weight: 600;
+}
+
+.status-pill.pending {
+  background: #fffbeb;
+  color: #b45309;
+  border: 1px solid #fde68a;
+}
+
+.status-pill.investigation {
+  background: #eff6ff;
+  color: #1d4ed8;
+  border: 1px solid #bfdbfe;
+}
+
+.status-pill.resolved {
+  background: #f0fdf4;
+  color: #15803d;
+  border: 1px solid #bbf7d0;
+}
+
+.meta-pill {
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 3px 8px;
+  border-radius: 4px;
+  background: #f1f5f9;
+  color: #475569;
+  border: 1px solid #e2e8f0;
+  display: inline-block;
+}
+
+.meta-pill.verified {
+  background: #f0fdf4;
+  color: #15803d;
+  border-color: #bbf7d0;
+}
+
+.btn-file-quick {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  border-radius: 6px;
+  background: #1e3a8a;
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 0.86rem;
+  border: 1px solid #1e3a8a;
+  text-decoration: none;
+  transition: background 0.15s ease;
+}
+
+.btn-file-quick:hover {
+  background: #1e40af;
+  color: #ffffff;
+}
+
+.btn-dash-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 18px;
+  background: #1e3a8a;
+  color: #ffffff;
+  border: 1px solid #1e3a8a;
+  border-radius: 6px;
+  font-size: 0.88rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+
+.btn-dash-primary:hover {
+  background: #1e40af;
+  border-color: #1e40af;
+}
+
+.modal-info-dual {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 12px;
+}
+
+/* Pagination styles for Police Station Directory */
+.directory-pagination {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 24px;
+  padding: 16px 20px;
+  background: #ffffff;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+}
+
+.page-info-text {
+  font-size: 0.86rem;
+  color: #64748b;
+}
+
+.pagination-controls {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.page-nav-btn {
+  padding: 6px 14px;
+  background: #f8fafc;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  color: #334155;
+  font-size: 0.84rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.page-nav-btn:hover:not(:disabled) {
+  background: #eff6ff;
+  border-color: #1e3a8a;
+  color: #1e3a8a;
+}
+
+.page-nav-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.page-number-indicator {
+  font-size: 0.84rem;
+  font-weight: 600;
+  color: #0f172a;
+  padding: 0 4px;
 }
 
 /* Status Badges (Light Civic Theme) */
@@ -915,5 +1080,46 @@
   .sos-hero-card {
     flex-direction: column;
     text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .dash-page-header {
+    padding: 16px 14px;
+  }
+
+  .dash-page-title-wrap h2 {
+    font-size: 1.18rem;
+  }
+
+  .complaint-form-card,
+  .recent-complaints-card,
+  .crime-map-wrapper {
+    padding: 18px 14px;
+  }
+
+  .modal-overlay-custom {
+    padding: 12px;
+  }
+
+  .modal-header-custom,
+  .modal-body-custom {
+    padding: 14px;
+  }
+
+  .directory-pagination {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 14px;
+  }
+
+  .map-control-overlay {
+    position: relative;
+    top: 0;
+    left: 0;
+    margin-bottom: 12px;
+    width: 100%;
+    box-sizing: border-box;
   }
 }
