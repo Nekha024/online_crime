@@ -30,6 +30,9 @@ const Login = () => {
         if (location.state?.message) {
             setSuccessMessage(location.state.message);
         }
+        if (location.state?.phone_number) {
+            setPhoneNumber(location.state.phone_number);
+        }
     }, [location.state]);
 
     const handleSendOTP = async (e) => {
@@ -39,13 +42,28 @@ const Login = () => {
         setIsLoading(true);
         try {
             const res = await api.post('http://localhost:8000/accounts/send-otp/', {
-                phone_number: phoneNumber
+                phone_number: phoneNumber.trim()
             });
             if (res.data.success) {
                 setSuccessMessage('OTP has been sent to your phone number.');
                 setStep(2);
             }
         } catch (err) {
+            if (
+                err.response?.status === 404 ||
+                err.response?.data?.not_registered ||
+                err.response?.data?.message?.toLowerCase().includes('not found') ||
+                err.response?.data?.message?.toLowerCase().includes('not registered')
+            ) {
+                // Phone number is not registered -> automatically navigate to register / create account
+                navigate('/register', {
+                    state: {
+                        phone_number: phoneNumber.trim(),
+                        message: 'This phone number is not registered yet. Please create your account to proceed.'
+                    }
+                });
+                return;
+            }
             setError(err.response?.data?.message || 'Failed to send OTP. Please try again.');
         } finally {
             setIsLoading(false);

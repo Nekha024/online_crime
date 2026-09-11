@@ -68,7 +68,11 @@ def send_otp_view(request):
     try:
         user = User.objects.get(phone_number=phone_number)
     except User.DoesNotExist:
-        return Response({'success': False, 'message': 'User with this phone number not found.'}, status=status.HTTP_404_NOT_FOUND)
+        return Response({
+            'success': False, 
+            'not_registered': True,
+            'message': 'Phone number is not registered. Please create an account.'
+        }, status=status.HTTP_404_NOT_FOUND)
 
     # Generate a 6-digit numeric OTP
     otp_code = str(random.randint(100000, 999999))

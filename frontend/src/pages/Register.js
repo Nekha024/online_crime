@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { useNavigate, Link } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { useNavigate, Link, useLocation } from 'react-router-dom';
 import api from '../api/api';
 import '../css/Login.css'; // Reusing the common auth styles
 import { FaShieldAlt, FaEnvelope, FaLock, FaEye, FaEyeSlash, FaArrowLeft, FaIdCard, FaPhone } from 'react-icons/fa';
@@ -15,8 +15,22 @@ const Register = () => {
     const [showPassword, setShowPassword] = useState(false);
     const [showConfirmPassword, setShowConfirmPassword] = useState(false);
     const [error, setError] = useState('');
+    const [infoMessage, setInfoMessage] = useState('');
     const [isLoading, setIsLoading] = useState(false);
     const navigate = useNavigate();
+    const location = useLocation();
+
+    useEffect(() => {
+        if (location.state?.phone_number) {
+            setFormData(prev => ({
+                ...prev,
+                phone_number: location.state.phone_number
+            }));
+        }
+        if (location.state?.message) {
+            setInfoMessage(location.state.message);
+        }
+    }, [location.state]);
 
     const handleRegister = async (e) => {
         e.preventDefault();
@@ -39,8 +53,13 @@ const Register = () => {
                 withCredentials: true
             });
             if (res.data.success) {
-                // Navigate to login so they can verify phone
-                navigate('/login', { state: { message: 'Registration successful! Please login with your phone number.' } });
+                // Navigate to login so they can verify phone, prefilling their registered phone
+                navigate('/login', { 
+                    state: { 
+                        phone_number: formData.phone_number,
+                        message: 'Registration successful! Please login with your phone number.' 
+                    } 
+                });
             }
         } catch (err) {
             setError(err.response?.data?.message || 'Registration failed. Please try again.');
@@ -65,6 +84,7 @@ const Register = () => {
                         <p className="auth-subtitle">Register to submit reports and track your case status</p>
                     </div>
 
+                    {infoMessage && <div className="auth-alert-info">{infoMessage}</div>}
                     {error && <div className="auth-alert-error">{error}</div>}
 
                     <form onSubmit={handleRegister} className="auth-form">

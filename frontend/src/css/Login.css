@@ -292,6 +292,21 @@
   text-align: left;
 }
 
+.auth-alert-info {
+  background: #eff6ff;
+  border: 1px solid #bfdbfe;
+  color: #1e3a8a;
+  padding: 11px 14px;
+  border-radius: 6px;
+  font-size: 0.86rem;
+  margin-bottom: 18px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  line-height: 1.4;
+  text-align: left;
+}
+
 /* Divider & Secondary Mode Switch */
 .auth-divider {
   display: flex;
