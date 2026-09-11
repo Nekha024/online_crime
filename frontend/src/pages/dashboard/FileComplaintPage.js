@@ -3,7 +3,6 @@ import { useNavigate } from "react-router-dom";
 import "../../css/dashboard/DashboardPages.css";
 import {
   FaFileSignature,
-  FaRobot,
   FaUpload,
   FaMapMarkerAlt,
   FaCalendarAlt,
@@ -75,11 +74,11 @@ const FileComplaintPage = () => {
       <div className="dash-page-header">
         <div className="dash-page-title-wrap">
           <h2>
-            <FaFileSignature style={{ color: "#38bdf8" }} />
-            File New Crime / FIR Complaint
+            <FaFileSignature style={{ color: "#1e3a8a" }} />
+            File New Crime / Incident Complaint
           </h2>
           <p>
-            Submit incident reports directly to law enforcement authorities with automated AI triage & priority scoring.
+            Submit incident reports directly to law enforcement authorities with verified case logging and jurisdiction dispatch.
           </p>
         </div>
       </div>
@@ -87,15 +86,16 @@ const FileComplaintPage = () => {
       {successMessage && (
         <div
           style={{
-            background: "rgba(16, 185, 129, 0.2)",
-            border: "1px solid #10b981",
-            color: "#34d399",
+            background: "#f0fdf4",
+            border: "1px solid #bbf7d0",
+            color: "#166534",
             padding: "16px 20px",
-            borderRadius: "14px",
+            borderRadius: "8px",
             display: "flex",
             alignItems: "center",
             gap: "10px",
-            fontWeight: "600"
+            fontWeight: "600",
+            fontSize: "0.92rem"
           }}
         >
           <FaCheck /> {successMessage}
@@ -104,20 +104,20 @@ const FileComplaintPage = () => {
 
       {/* Main Complaint Filing Form */}
       <div className="complaint-form-card">
-        {/* AI Assisted Triage Banner */}
+        {/* Incident Triage Notice */}
         <div className="ai-triage-preview">
           <div className="ai-triage-info">
-            <FaRobot className="ai-brain-icon" />
+            <FaShieldAlt style={{ color: "#1e3a8a", fontSize: "1.4rem", flexShrink: 0 }} />
             <div className="ai-triage-text">
-              <h5>CrimeAI Real-Time Case Triage</h5>
+              <h5>Incident Categorization & Jurisdictional Dispatch</h5>
               <p>
-                Our neural classifier assesses case urgency and routes it to the designated specialized cyber cell.
+                Your report is structured for official police review, legal evidence logging, and direct station assignment.
               </p>
             </div>
           </div>
           <div className="ai-risk-tag">
-            <FaExclamationCircle style={{ marginRight: "4px" }} />
-            Priority: {formData.severity}
+            <FaExclamationCircle style={{ marginRight: "6px", color: "#b45309" }} />
+            Urgency: {formData.severity}
           </div>
         </div>
 
@@ -250,15 +250,15 @@ const FileComplaintPage = () => {
                 style={{ display: "none" }}
                 onChange={handleChange}
               />
-              <FaUpload style={{ fontSize: "1.8rem", color: "#38bdf8", marginBottom: "8px" }} />
-              <p style={{ color: "#f1f5f9", fontSize: "0.9rem", margin: "0 0 4px" }}>
+              <FaUpload style={{ fontSize: "1.8rem", color: "#1e3a8a", marginBottom: "8px" }} />
+              <p style={{ color: "#0f172a", fontSize: "0.9rem", margin: "0 0 4px" }}>
                 {formData.evidenceFileName ? (
-                  <span style={{ color: "#38bdf8", fontWeight: "600" }}>📎 {formData.evidenceFileName}</span>
+                  <span style={{ color: "#1e3a8a", fontWeight: "600" }}>📎 {formData.evidenceFileName}</span>
                 ) : (
                   "Click here or drag files (PNG, JPG, PDF up to 25MB)"
                 )}
               </p>
-              <span style={{ color: "#64748b", fontSize: "0.75rem" }}>
+              <span style={{ color: "#64748b", fontSize: "0.78rem" }}>
                 Encrypted with SHA-256 for legal evidence integrity
               </span>
             </div>
@@ -271,7 +271,7 @@ const FileComplaintPage = () => {
               disabled={isSubmitting}
             >
               <FaShieldAlt />
-              {isSubmitting ? "Generating FIR & Filing..." : "Submit Complaint & Generate FIR"}
+              {isSubmitting ? "Registering Incident Report..." : "Submit Incident Report"}
             </button>
           </div>
         </form>

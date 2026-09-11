@@ -65,7 +65,7 @@ const ViewComplaintsPage = () => {
       <div className="dash-page-header">
         <div className="dash-page-title-wrap">
           <h2>
-            <FaListAlt style={{ color: "#38bdf8" }} />
+            <FaListAlt style={{ color: "#1e3a8a" }} />
             My Complaints & FIR Tracker
           </h2>
           <p>
@@ -137,24 +137,24 @@ const ViewComplaintsPage = () => {
                       <span className="fir-code-tag">{c.id}</span>
                     </td>
                     <td>
-                      <div style={{ fontWeight: "600", color: "#f8fafc" }}>
+                      <div style={{ fontWeight: "600", color: "#0f172a" }}>
                         {c.title}
                       </div>
-                      <div style={{ fontSize: "0.75rem", color: "#94a3b8" }}>
+                      <div style={{ fontSize: "0.75rem", color: "#64748b" }}>
                         📍 {c.location}
                       </div>
                     </td>
                     <td>
-                      <span style={{ fontSize: "0.82rem", color: "#cbd5e1" }}>
+                      <span style={{ fontSize: "0.84rem", color: "#334155" }}>
                         {c.category}
                       </span>
                     </td>
-                    <td style={{ fontSize: "0.8rem", color: "#94a3b8" }}>{c.date}</td>
+                    <td style={{ fontSize: "0.85rem", color: "#64748b" }}>{c.date}</td>
                     <td>
-                      <div style={{ fontSize: "0.82rem", color: "#f1f5f9" }}>
+                      <div style={{ fontSize: "0.84rem", color: "#0f172a", fontWeight: "500" }}>
                         {c.officer}
                       </div>
-                      <div style={{ fontSize: "0.72rem", color: "#64748b" }}>
+                      <div style={{ fontSize: "0.74rem", color: "#64748b" }}>
                         {c.station}
                       </div>
                     </td>
@@ -173,7 +173,7 @@ const ViewComplaintsPage = () => {
                     </td>
                     <td>
                       <button
-                        className="complaint-action-btn"
+                        className="btn-view-action"
                         onClick={() => setSelectedComplaint(c)}
                       >
                         <FaEye /> View Case
@@ -183,7 +183,7 @@ const ViewComplaintsPage = () => {
                 ))
               ) : (
                 <tr>
-                  <td colSpan="7" style={{ textAlign: "center", padding: "40px", color: "#94a3b8" }}>
+                  <td colSpan="7" style={{ textAlign: "center", padding: "40px", color: "#64748b" }}>
                     No complaints matching your criteria found.
                   </td>
                 </tr>
@@ -195,100 +195,94 @@ const ViewComplaintsPage = () => {
 
       {/* Case Details & Investigation Timeline Modal */}
       {selectedComplaint && (
-        <div className="modal-backdrop" onClick={() => setSelectedComplaint(null)}>
-          <div className="tracking-modal-card" onClick={(e) => e.stopPropagation()}>
-            <button
-              className="modal-close-btn"
-              onClick={() => setSelectedComplaint(null)}
-              aria-label="Close"
-            >
-              <FaTimes />
-            </button>
+        <div className="modal-overlay-custom" onClick={() => setSelectedComplaint(null)}>
+          <div className="modal-content-custom" onClick={(e) => e.stopPropagation()}>
+            <div className="modal-header-custom">
+              <div>
+                <span className="fir-code-tag">{selectedComplaint.id}</span>
+                <h3 style={{ marginTop: "4px" }}>{selectedComplaint.title}</h3>
+              </div>
+              <button
+                className="modal-close-btn"
+                onClick={() => setSelectedComplaint(null)}
+                aria-label="Close"
+              >
+                <FaTimes />
+              </button>
+            </div>
 
-            {/* Modal Header */}
-            <div style={{ marginBottom: "18px" }}>
-              <span className="fir-code-tag" style={{ fontSize: "0.9rem" }}>
-                {selectedComplaint.id}
-              </span>
-              <h3 style={{ color: "#fff", fontSize: "1.25rem", marginTop: "8px" }}>
-                {selectedComplaint.title}
-              </h3>
-              <div style={{ display: "flex", gap: "10px", marginTop: "6px" }}>
+            <div className="modal-body-custom">
+              <div style={{ display: "flex", gap: "8px", flexWrap: "wrap" }}>
                 <span className="meta-pill">Category: {selectedComplaint.category}</span>
                 <span className="meta-pill">Date: {selectedComplaint.date}</span>
-              </div>
-            </div>
-
-            {/* Description */}
-            <div
-              style={{
-                background: "rgba(255, 255, 255, 0.04)",
-                padding: "14px",
-                borderRadius: "12px",
-                fontSize: "0.85rem",
-                color: "#cbd5e1",
-                marginBottom: "20px",
-                lineHeight: "1.5"
-              }}
-            >
-              <strong>Description:</strong> {selectedComplaint.description}
-            </div>
-
-            {/* Station & Officer Info */}
-            <div
-              style={{
-                display: "grid",
-                gridTemplateColumns: "1fr 1fr",
-                gap: "12px",
-                marginBottom: "20px"
-              }}
-            >
-              <div style={{ background: "rgba(56, 189, 248, 0.08)", padding: "12px", borderRadius: "10px" }}>
-                <div style={{ fontSize: "0.72rem", color: "#38bdf8", textTransform: "uppercase" }}>
-                  <FaUserShield /> Assigned Officer
-                </div>
-                <div style={{ fontWeight: "600", color: "#fff", marginTop: "2px" }}>
-                  {selectedComplaint.officer}
-                </div>
+                <span className="meta-pill" style={{ background: "#f0fdf4", color: "#15803d", borderColor: "#bbf7d0" }}>
+                  Status: {selectedComplaint.status}
+                </span>
               </div>
 
-              <div style={{ background: "rgba(56, 189, 248, 0.08)", padding: "12px", borderRadius: "10px" }}>
-                <div style={{ fontSize: "0.72rem", color: "#38bdf8", textTransform: "uppercase" }}>
-                  <FaBuilding /> Station Jurisdiction
-                </div>
-                <div style={{ fontWeight: "600", color: "#fff", marginTop: "2px" }}>
-                  {selectedComplaint.station}
-                </div>
-              </div>
-            </div>
-
-            {/* Step-by-Step Investigation Timeline Flow */}
-            <h4 style={{ color: "#fff", fontSize: "0.95rem", marginBottom: "12px" }}>
-              Case Investigation Timeline
-            </h4>
-            <div className="case-timeline-flow">
-              {selectedComplaint.timeline && selectedComplaint.timeline.length > 0 ? (
-                selectedComplaint.timeline.map((step, idx) => (
-                  <div key={idx} className="timeline-step-item">
-                    <div className="timeline-step-dot" />
-                    <div className="timeline-step-title">{step.status}</div>
-                    <div className="timeline-step-time">{step.date}</div>
-                    <div className="timeline-step-note">{step.note}</div>
-                  </div>
-                ))
-              ) : (
-                <p style={{ color: "#94a3b8", fontSize: "0.8rem" }}>Timeline initiated.</p>
-              )}
-            </div>
-
-            <div style={{ marginTop: "20px", display: "flex", justifyContent: "flex-end" }}>
-              <button
-                className="complaint-action-btn"
-                style={{ padding: "10px 18px" }}
-                onClick={() => alert(`Downloading official digital FIR copy for ${selectedComplaint.id}...`)}
+              {/* Description */}
+              <div
+                style={{
+                  background: "#f8fafc",
+                  padding: "16px",
+                  borderRadius: "6px",
+                  fontSize: "0.88rem",
+                  color: "#334155",
+                  border: "1px solid #e2e8f0",
+                  lineHeight: "1.6"
+                }}
               >
-                <FaFilePdf /> Download FIR Copy (PDF)
-              </button>
+                <strong style={{ color: "#0f172a" }}>Incident Description:</strong> {selectedComplaint.description}
+              </div>
+
+              {/* Station & Officer Info */}
+              <div className="modal-info-dual">
+                <div style={{ background: "#eff6ff", padding: "12px 14px", borderRadius: "6px", border: "1px solid #bfdbfe" }}>
+                  <div style={{ fontSize: "0.72rem", color: "#1e3a8a", textTransform: "uppercase", fontWeight: "700" }}>
+                    <FaUserShield style={{ marginRight: "4px" }} /> Assigned Officer
+                  </div>
+                  <div style={{ fontWeight: "600", color: "#0f172a", marginTop: "2px", fontSize: "0.92rem" }}>
+                    {selectedComplaint.officer || "Station Duty Officer"}
+                  </div>
+                </div>
+
+                <div style={{ background: "#eff6ff", padding: "12px 14px", borderRadius: "6px", border: "1px solid #bfdbfe" }}>
+                  <div style={{ fontSize: "0.72rem", color: "#1e3a8a", textTransform: "uppercase", fontWeight: "700" }}>
+                    <FaBuilding style={{ marginRight: "4px" }} /> Station Jurisdiction
+                  </div>
+                  <div style={{ fontWeight: "600", color: "#0f172a", marginTop: "2px", fontSize: "0.92rem" }}>
+                    {selectedComplaint.station}
+                  </div>
+                </div>
+              </div>
+
+              {/* Step-by-Step Investigation Timeline Flow */}
+              <h4 style={{ color: "#0f172a", fontSize: "0.98rem", margin: "8px 0 0 0", fontWeight: 700 }}>
+                Case Investigation Progress
+              </h4>
+              <div className="case-timeline-flow" style={{ background: "#f8fafc", border: "1px solid #e2e8f0", borderRadius: "6px", padding: "16px" }}>
+                {selectedComplaint.timeline && selectedComplaint.timeline.length > 0 ? (
+                  selectedComplaint.timeline.map((step, idx) => (
+                    <div key={idx} className="timeline-step-item" style={{ marginBottom: "12px", borderLeft: "2px solid #1e3a8a", paddingLeft: "12px" }}>
+                      <div style={{ fontWeight: 600, color: "#1e3a8a", fontSize: "0.85rem" }}>{step.status}</div>
+                      <div style={{ fontSize: "0.74rem", color: "#64748b" }}>{step.date}</div>
+                      <div style={{ fontSize: "0.84rem", color: "#334155", marginTop: "2px" }}>{step.note}</div>
+                    </div>
+                  ))
+                ) : (
+                  <p style={{ color: "#64748b", fontSize: "0.84rem", margin: 0 }}>Case timeline initiated.</p>
+                )}
+              </div>
+
+              <div style={{ marginTop: "10px", display: "flex", justifyContent: "flex-end" }}>
+                <button
+                  className="btn-dash-primary"
+                  onClick={() => alert(`Downloading official digital FIR copy for ${selectedComplaint.id}...`)}
+                >
+                  <FaFilePdf />
+                  <span>Download Acknowledgment (PDF)</span>
+                </button>
+              </div>
             </div>
           </div>
         </div>

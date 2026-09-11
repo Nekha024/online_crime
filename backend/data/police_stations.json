@@ -1,0 +1,4907 @@
+[
+  {
+    "station_name": "Alappuzha Cyber",
+    "location_name": "Alappuzha Cyber",
+    "police_district": "Alappuzha",
+    "revenue_district": "Alappuzha",
+    "station_type": "Cyber",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Alappuzha North",
+    "location_name": "Alappuzha North",
+    "police_district": "Alappuzha",
+    "revenue_district": "Alappuzha",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Alappuzha South",
+    "location_name": "Alappuzha South",
+    "police_district": "Alappuzha",
+    "revenue_district": "Alappuzha",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Alappuzha Traffic",
+    "location_name": "Alappuzha Traffic",
+    "police_district": "Alappuzha",
+    "revenue_district": "Alappuzha",
+    "station_type": "Traffic",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Alappuzha Vanitha",
+    "location_name": "Alappuzha Vanitha",
+    "police_district": "Alappuzha",
+    "revenue_district": "Alappuzha",
+    "station_type": "Vanitha/Women",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Ambalapuzha",
+    "location_name": "Ambalapuzha",
+    "police_district": "Alappuzha",
+    "revenue_district": "Alappuzha",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Aroor",
+    "location_name": "Aroor",
+    "police_district": "Alappuzha",
+    "revenue_district": "Alappuzha",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Arthungal",
+    "location_name": "Arthungal",
+    "police_district": "Alappuzha",
+    "revenue_district": "Alappuzha",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Arthunkal Coastal",
+    "location_name": "Arthunkal Coastal",
+    "police_district": "Alappuzha",
+    "revenue_district": "Alappuzha",
+    "station_type": "Coastal",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Chengannur",
+    "location_name": "Chengannur",
+    "police_district": "Alappuzha",
+    "revenue_district": "Alappuzha",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Cherthala",
+    "location_name": "Cherthala",
+    "police_district": "Alappuzha",
+    "revenue_district": "Alappuzha",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Edathua",
+    "location_name": "Edathua",
+    "police_district": "Alappuzha",
+    "revenue_district": "Alappuzha",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Haripad",
+    "location_name": "Haripad",
+    "police_district": "Alappuzha",
+    "revenue_district": "Alappuzha",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Kainady",
+    "location_name": "Kainady",
+    "police_district": "Alappuzha",
+    "revenue_district": "Alappuzha",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Kanakakunnu",
+    "location_name": "Kanakakunnu",
+    "police_district": "Alappuzha",
+    "revenue_district": "Alappuzha",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Kareelakulangara",
+    "location_name": "Kareelakulangara",
+    "police_district": "Alappuzha",
+    "revenue_district": "Alappuzha",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Kayamkulam",
+    "location_name": "Kayamkulam",
+    "police_district": "Alappuzha",
+    "revenue_district": "Alappuzha",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Kurathikad",
+    "location_name": "Kurathikad",
+    "police_district": "Alappuzha",
+    "revenue_district": "Alappuzha",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Kuthiathodu",
+    "location_name": "Kuthiathodu",
+    "police_district": "Alappuzha",
+    "revenue_district": "Alappuzha",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Mannanchery",
+    "location_name": "Mannanchery",
+    "police_district": "Alappuzha",
+    "revenue_district": "Alappuzha",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Mannar",
+    "location_name": "Mannar",
+    "police_district": "Alappuzha",
+    "revenue_district": "Alappuzha",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Mararikulam",
+    "location_name": "Mararikulam",
+    "police_district": "Alappuzha",
+    "revenue_district": "Alappuzha",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Mavelikara",
+    "location_name": "Mavelikara",
+    "police_district": "Alappuzha",
+    "revenue_district": "Alappuzha",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Muhamma",
+    "location_name": "Muhamma",
+    "police_district": "Alappuzha",
+    "revenue_district": "Alappuzha",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Nedumudy",
+    "location_name": "Nedumudy",
+    "police_district": "Alappuzha",
+    "revenue_district": "Alappuzha",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Nooranad",
+    "location_name": "Nooranad",
+    "police_district": "Alappuzha",
+    "revenue_district": "Alappuzha",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Pattanakkad",
+    "location_name": "Pattanakkad",
+    "police_district": "Alappuzha",
+    "revenue_district": "Alappuzha",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Poochackal",
+    "location_name": "Poochackal",
+    "police_district": "Alappuzha",
+    "revenue_district": "Alappuzha",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Pulincunnu",
+    "location_name": "Pulincunnu",
+    "police_district": "Alappuzha",
+    "revenue_district": "Alappuzha",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Punnapra",
+    "location_name": "Punnapra",
+    "police_district": "Alappuzha",
+    "revenue_district": "Alappuzha",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Ramankary",
+    "location_name": "Ramankary",
+    "police_district": "Alappuzha",
+    "revenue_district": "Alappuzha",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Thottapally Coastal",
+    "location_name": "Thottapally Coastal",
+    "police_district": "Alappuzha",
+    "revenue_district": "Alappuzha",
+    "station_type": "Coastal",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Trikkunnapuzha",
+    "location_name": "Trikkunnapuzha",
+    "police_district": "Alappuzha",
+    "revenue_district": "Alappuzha",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Vallikunnam",
+    "location_name": "Vallikunnam",
+    "police_district": "Alappuzha",
+    "revenue_district": "Alappuzha",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Veeyapuram",
+    "location_name": "Veeyapuram",
+    "police_district": "Alappuzha",
+    "revenue_district": "Alappuzha",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Venmony",
+    "location_name": "Venmony",
+    "police_district": "Alappuzha",
+    "revenue_district": "Alappuzha",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Ambalamedu",
+    "location_name": "Ambalamedu",
+    "police_district": "Ernakulam City",
+    "revenue_district": "Ernakulam",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Cheranelloor",
+    "location_name": "Cheranelloor",
+    "police_district": "Ernakulam City",
+    "revenue_district": "Ernakulam",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Elamakkara",
+    "location_name": "Elamakkara",
+    "police_district": "Ernakulam City",
+    "revenue_district": "Ernakulam",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Eloor",
+    "location_name": "Eloor",
+    "police_district": "Ernakulam City",
+    "revenue_district": "Ernakulam",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Ernakulam Central",
+    "location_name": "Ernakulam Central",
+    "police_district": "Ernakulam City",
+    "revenue_district": "Ernakulam",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Ernakulam City Cyber",
+    "location_name": "Ernakulam City Cyber",
+    "police_district": "Ernakulam City",
+    "revenue_district": "Ernakulam",
+    "station_type": "Cyber",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Ernakulam City Vanitha",
+    "location_name": "Ernakulam City Vanitha",
+    "police_district": "Ernakulam City",
+    "revenue_district": "Ernakulam",
+    "station_type": "Vanitha/Women",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Ernakulam Town North",
+    "location_name": "Ernakulam Town North",
+    "police_district": "Ernakulam City",
+    "revenue_district": "Ernakulam",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Ernakulam Town South",
+    "location_name": "Ernakulam Town South",
+    "police_district": "Ernakulam City",
+    "revenue_district": "Ernakulam",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Ernakulam Traffic West",
+    "location_name": "Ernakulam Traffic West",
+    "police_district": "Ernakulam City",
+    "revenue_district": "Ernakulam",
+    "station_type": "Traffic",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Fort Kochi",
+    "location_name": "Fort Kochi",
+    "police_district": "Ernakulam City",
+    "revenue_district": "Ernakulam",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Fort Kochi Coastal",
+    "location_name": "Fort Kochi Coastal",
+    "police_district": "Ernakulam City",
+    "revenue_district": "Ernakulam",
+    "station_type": "Coastal",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Harbour",
+    "location_name": "Harbour",
+    "police_district": "Ernakulam City",
+    "revenue_district": "Ernakulam",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Hill Palace",
+    "location_name": "Hill Palace",
+    "police_district": "Ernakulam City",
+    "revenue_district": "Ernakulam",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Infopark",
+    "location_name": "Infopark",
+    "police_district": "Ernakulam City",
+    "revenue_district": "Ernakulam",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Kadavanthra",
+    "location_name": "Kadavanthra",
+    "police_district": "Ernakulam City",
+    "revenue_district": "Ernakulam",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Kalamassery",
+    "location_name": "Kalamassery",
+    "police_district": "Ernakulam City",
+    "revenue_district": "Ernakulam",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Kannamali",
+    "location_name": "Kannamali",
+    "police_district": "Ernakulam City",
+    "revenue_district": "Ernakulam",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Kochi Metro",
+    "location_name": "Kochi Metro",
+    "police_district": "Ernakulam City",
+    "revenue_district": "Ernakulam",
+    "station_type": "Metro",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Maradu",
+    "location_name": "Maradu",
+    "police_district": "Ernakulam City",
+    "revenue_district": "Ernakulam",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Mattancherry",
+    "location_name": "Mattancherry",
+    "police_district": "Ernakulam City",
+    "revenue_district": "Ernakulam",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Mulavukadu",
+    "location_name": "Mulavukadu",
+    "police_district": "Ernakulam City",
+    "revenue_district": "Ernakulam",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Palarivattom",
+    "location_name": "Palarivattom",
+    "police_district": "Ernakulam City",
+    "revenue_district": "Ernakulam",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Palluruthy",
+    "location_name": "Palluruthy",
+    "police_district": "Ernakulam City",
+    "revenue_district": "Ernakulam",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Panangad",
+    "location_name": "Panangad",
+    "police_district": "Ernakulam City",
+    "revenue_district": "Ernakulam",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Thoppumpady",
+    "location_name": "Thoppumpady",
+    "police_district": "Ernakulam City",
+    "revenue_district": "Ernakulam",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Thrikkakara",
+    "location_name": "Thrikkakara",
+    "police_district": "Ernakulam City",
+    "revenue_district": "Ernakulam",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Traffic East",
+    "location_name": "Traffic East",
+    "police_district": "Ernakulam City",
+    "revenue_district": "Ernakulam",
+    "station_type": "Traffic",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Udayamperoor",
+    "location_name": "Udayamperoor",
+    "police_district": "Ernakulam City",
+    "revenue_district": "Ernakulam",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Aluva East",
+    "location_name": "Aluva East",
+    "police_district": "Ernakulam Rural",
+    "revenue_district": "Ernakulam",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Aluva West",
+    "location_name": "Aluva West",
+    "police_district": "Ernakulam Rural",
+    "revenue_district": "Ernakulam",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Angamaly",
+    "location_name": "Angamaly",
+    "police_district": "Ernakulam Rural",
+    "revenue_district": "Ernakulam",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Ayyampuzha",
+    "location_name": "Ayyampuzha",
+    "police_district": "Ernakulam Rural",
+    "revenue_district": "Ernakulam",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Binanipuram",
+    "location_name": "Binanipuram",
+    "police_district": "Ernakulam Rural",
+    "revenue_district": "Ernakulam",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Chengamanadu",
+    "location_name": "Chengamanadu",
+    "police_district": "Ernakulam Rural",
+    "revenue_district": "Ernakulam",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Chottanikkara",
+    "location_name": "Chottanikkara",
+    "police_district": "Ernakulam Rural",
+    "revenue_district": "Ernakulam",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Edathala",
+    "location_name": "Edathala",
+    "police_district": "Ernakulam Rural",
+    "revenue_district": "Ernakulam",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Ernakulam Rural Cyber",
+    "location_name": "Ernakulam Rural Cyber",
+    "police_district": "Ernakulam Rural",
+    "revenue_district": "Ernakulam",
+    "station_type": "Cyber",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Kalady",
+    "location_name": "Kalady",
+    "police_district": "Ernakulam Rural",
+    "revenue_district": "Ernakulam",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Kalloorkad",
+    "location_name": "Kalloorkad",
+    "police_district": "Ernakulam Rural",
+    "revenue_district": "Ernakulam",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Kodanadu",
+    "location_name": "Kodanadu",
+    "police_district": "Ernakulam Rural",
+    "revenue_district": "Ernakulam",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Koothattukulam",
+    "location_name": "Koothattukulam",
+    "police_district": "Ernakulam Rural",
+    "revenue_district": "Ernakulam",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Kothamangalam",
+    "location_name": "Kothamangalam",
+    "police_district": "Ernakulam Rural",
+    "revenue_district": "Ernakulam",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Kottappady",
+    "location_name": "Kottappady",
+    "police_district": "Ernakulam Rural",
+    "revenue_district": "Ernakulam",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Kunnathunadu",
+    "location_name": "Kunnathunadu",
+    "police_district": "Ernakulam Rural",
+    "revenue_district": "Ernakulam",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Kuruppampady",
+    "location_name": "Kuruppampady",
+    "police_district": "Ernakulam Rural",
+    "revenue_district": "Ernakulam",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Kuttampuzha",
+    "location_name": "Kuttampuzha",
+    "police_district": "Ernakulam Rural",
+    "revenue_district": "Ernakulam",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Mulanthuruthy",
+    "location_name": "Mulanthuruthy",
+    "police_district": "Ernakulam Rural",
+    "revenue_district": "Ernakulam",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Munambam",
+    "location_name": "Munambam",
+    "police_district": "Ernakulam Rural",
+    "revenue_district": "Ernakulam",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Muvattupuzha",
+    "location_name": "Muvattupuzha",
+    "police_district": "Ernakulam Rural",
+    "revenue_district": "Ernakulam",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Nedumbassery",
+    "location_name": "Nedumbassery",
+    "police_district": "Ernakulam Rural",
+    "revenue_district": "Ernakulam",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Njarakkal",
+    "location_name": "Njarakkal",
+    "police_district": "Ernakulam Rural",
+    "revenue_district": "Ernakulam",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "North Paravoor",
+    "location_name": "North Paravoor",
+    "police_district": "Ernakulam Rural",
+    "revenue_district": "Ernakulam",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Oonnukal",
+    "location_name": "Oonnukal",
+    "police_district": "Ernakulam Rural",
+    "revenue_district": "Ernakulam",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Perumbavoor",
+    "location_name": "Perumbavoor",
+    "police_district": "Ernakulam Rural",
+    "revenue_district": "Ernakulam",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Piravom",
+    "location_name": "Piravom",
+    "police_district": "Ernakulam Rural",
+    "revenue_district": "Ernakulam",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Pothanikad",
+    "location_name": "Pothanikad",
+    "police_district": "Ernakulam Rural",
+    "revenue_district": "Ernakulam",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Puthencruz",
+    "location_name": "Puthencruz",
+    "police_district": "Ernakulam Rural",
+    "revenue_district": "Ernakulam",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Puthenvelikkara",
+    "location_name": "Puthenvelikkara",
+    "police_district": "Ernakulam Rural",
+    "revenue_district": "Ernakulam",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Ramamangalam",
+    "location_name": "Ramamangalam",
+    "police_district": "Ernakulam Rural",
+    "revenue_district": "Ernakulam",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Thadiyittaparambu",
+    "location_name": "Thadiyittaparambu",
+    "police_district": "Ernakulam Rural",
+    "revenue_district": "Ernakulam",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Vadakkekara",
+    "location_name": "Vadakkekara",
+    "police_district": "Ernakulam Rural",
+    "revenue_district": "Ernakulam",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Varapuzha",
+    "location_name": "Varapuzha",
+    "police_district": "Ernakulam Rural",
+    "revenue_district": "Ernakulam",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Vazhakulam",
+    "location_name": "Vazhakulam",
+    "police_district": "Ernakulam Rural",
+    "revenue_district": "Ernakulam",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Adimali",
+    "location_name": "Adimali",
+    "police_district": "Idukki",
+    "revenue_district": "Idukki",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Cumbummettu",
+    "location_name": "Cumbummettu",
+    "police_district": "Idukki",
+    "revenue_district": "Idukki",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Devikulam",
+    "location_name": "Devikulam",
+    "police_district": "Idukki",
+    "revenue_district": "Idukki",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Idukki",
+    "location_name": "Idukki",
+    "police_district": "Idukki",
+    "revenue_district": "Idukki",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Idukki Cyber Crime",
+    "location_name": "Idukki Cyber Crime",
+    "police_district": "Idukki",
+    "revenue_district": "Idukki",
+    "station_type": "Cyber",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Idukki Vanitha",
+    "location_name": "Idukki Vanitha",
+    "police_district": "Idukki",
+    "revenue_district": "Idukki",
+    "station_type": "Vanitha/Women",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Kaliyar",
+    "location_name": "Kaliyar",
+    "police_district": "Idukki",
+    "revenue_district": "Idukki",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Kanjar",
+    "location_name": "Kanjar",
+    "police_district": "Idukki",
+    "revenue_district": "Idukki",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Kanjikuzhy",
+    "location_name": "Kanjikuzhy",
+    "police_district": "Idukki",
+    "revenue_district": "Idukki",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Karimanal",
+    "location_name": "Karimanal",
+    "police_district": "Idukki",
+    "revenue_district": "Idukki",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Karimannoor",
+    "location_name": "Karimannoor",
+    "police_district": "Idukki",
+    "revenue_district": "Idukki",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Karimkunnam",
+    "location_name": "Karimkunnam",
+    "police_district": "Idukki",
+    "revenue_district": "Idukki",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Kattappana",
+    "location_name": "Kattappana",
+    "police_district": "Idukki",
+    "revenue_district": "Idukki",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Kulamavu",
+    "location_name": "Kulamavu",
+    "police_district": "Idukki",
+    "revenue_district": "Idukki",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Kumali",
+    "location_name": "Kumali",
+    "police_district": "Idukki",
+    "revenue_district": "Idukki",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Marayoor",
+    "location_name": "Marayoor",
+    "police_district": "Idukki",
+    "revenue_district": "Idukki",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Mullaperiyar",
+    "location_name": "Mullaperiyar",
+    "police_district": "Idukki",
+    "revenue_district": "Idukki",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Munnar",
+    "location_name": "Munnar",
+    "police_district": "Idukki",
+    "revenue_district": "Idukki",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Murikkasseri",
+    "location_name": "Murikkasseri",
+    "police_district": "Idukki",
+    "revenue_district": "Idukki",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Muttom",
+    "location_name": "Muttom",
+    "police_district": "Idukki",
+    "revenue_district": "Idukki",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Nedumkandam",
+    "location_name": "Nedumkandam",
+    "police_district": "Idukki",
+    "revenue_district": "Idukki",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Peerumedu",
+    "location_name": "Peerumedu",
+    "police_district": "Idukki",
+    "revenue_district": "Idukki",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Peruvanthanam",
+    "location_name": "Peruvanthanam",
+    "police_district": "Idukki",
+    "revenue_district": "Idukki",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Rajakkadu",
+    "location_name": "Rajakkadu",
+    "police_district": "Idukki",
+    "revenue_district": "Idukki",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Santhanpara",
+    "location_name": "Santhanpara",
+    "police_district": "Idukki",
+    "revenue_district": "Idukki",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Thankamani",
+    "location_name": "Thankamani",
+    "police_district": "Idukki",
+    "revenue_district": "Idukki",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Thodupuzha",
+    "location_name": "Thodupuzha",
+    "police_district": "Idukki",
+    "revenue_district": "Idukki",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Udumbanchola",
+    "location_name": "Udumbanchola",
+    "police_district": "Idukki",
+    "revenue_district": "Idukki",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Upputhara",
+    "location_name": "Upputhara",
+    "police_district": "Idukki",
+    "revenue_district": "Idukki",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Vandanmedu",
+    "location_name": "Vandanmedu",
+    "police_district": "Idukki",
+    "revenue_district": "Idukki",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Vandiperiyar",
+    "location_name": "Vandiperiyar",
+    "police_district": "Idukki",
+    "revenue_district": "Idukki",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Vellathooval",
+    "location_name": "Vellathooval",
+    "police_district": "Idukki",
+    "revenue_district": "Idukki",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Wagamon",
+    "location_name": "Wagamon",
+    "police_district": "Idukki",
+    "revenue_district": "Idukki",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Azheekal Coastal",
+    "location_name": "Azheekal Coastal",
+    "police_district": "Kannur City",
+    "revenue_district": "Kannur",
+    "station_type": "Coastal",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Chakkarakkal",
+    "location_name": "Chakkarakkal",
+    "police_district": "Kannur City",
+    "revenue_district": "Kannur",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Chockli",
+    "location_name": "Chockli",
+    "police_district": "Kannur City",
+    "revenue_district": "Kannur",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Dharmadam",
+    "location_name": "Dharmadam",
+    "police_district": "Kannur City",
+    "revenue_district": "Kannur",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Edakkad",
+    "location_name": "Edakkad",
+    "police_district": "Kannur City",
+    "revenue_district": "Kannur",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Kannapuram",
+    "location_name": "Kannapuram",
+    "police_district": "Kannur City",
+    "revenue_district": "Kannur",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Kannavam",
+    "location_name": "Kannavam",
+    "police_district": "Kannur City",
+    "revenue_district": "Kannur",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Kannur City",
+    "location_name": "Kannur City",
+    "police_district": "Kannur City",
+    "revenue_district": "Kannur",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Kannur Cyber",
+    "location_name": "Kannur Cyber",
+    "police_district": "Kannur City",
+    "revenue_district": "Kannur",
+    "station_type": "Cyber",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Kannur Town",
+    "location_name": "Kannur Town",
+    "police_district": "Kannur City",
+    "revenue_district": "Kannur",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Kannur Traffic",
+    "location_name": "Kannur Traffic",
+    "police_district": "Kannur City",
+    "revenue_district": "Kannur",
+    "station_type": "Traffic",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Kannur Vanitha",
+    "location_name": "Kannur Vanitha",
+    "police_district": "Kannur City",
+    "revenue_district": "Kannur",
+    "station_type": "Vanitha/Women",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Kathirur",
+    "location_name": "Kathirur",
+    "police_district": "Kannur City",
+    "revenue_district": "Kannur",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Kolavallur",
+    "location_name": "Kolavallur",
+    "police_district": "Kannur City",
+    "revenue_district": "Kannur",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Kuthuparamba",
+    "location_name": "Kuthuparamba",
+    "police_district": "Kannur City",
+    "revenue_district": "Kannur",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Mattannur",
+    "location_name": "Mattannur",
+    "police_district": "Kannur City",
+    "revenue_district": "Kannur",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Mattannur Airport",
+    "location_name": "Mattannur Airport",
+    "police_district": "Kannur City",
+    "revenue_district": "Kannur",
+    "station_type": "Airport",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Mayyil",
+    "location_name": "Mayyil",
+    "police_district": "Kannur City",
+    "revenue_district": "Kannur",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "New Mahe",
+    "location_name": "New Mahe",
+    "police_district": "Kannur City",
+    "revenue_district": "Kannur",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Panoor",
+    "location_name": "Panoor",
+    "police_district": "Kannur City",
+    "revenue_district": "Kannur",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Pinarayi",
+    "location_name": "Pinarayi",
+    "police_district": "Kannur City",
+    "revenue_district": "Kannur",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Thalassery",
+    "location_name": "Thalassery",
+    "police_district": "Kannur City",
+    "revenue_district": "Kannur",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Thalassery Coastal",
+    "location_name": "Thalassery Coastal",
+    "police_district": "Kannur City",
+    "revenue_district": "Kannur",
+    "station_type": "Coastal",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Valapattanam",
+    "location_name": "Valapattanam",
+    "police_district": "Kannur City",
+    "revenue_district": "Kannur",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Alakode",
+    "location_name": "Alakode",
+    "police_district": "Kannur Rural",
+    "revenue_district": "Kannur",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Aralam",
+    "location_name": "Aralam",
+    "police_district": "Kannur Rural",
+    "revenue_district": "Kannur",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Cherupuzha",
+    "location_name": "Cherupuzha",
+    "police_district": "Kannur Rural",
+    "revenue_district": "Kannur",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Irikkur",
+    "location_name": "Irikkur",
+    "police_district": "Kannur Rural",
+    "revenue_district": "Kannur",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Iritty",
+    "location_name": "Iritty",
+    "police_district": "Kannur Rural",
+    "revenue_district": "Kannur",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Karikkottakari",
+    "location_name": "Karikkottakari",
+    "police_district": "Kannur Rural",
+    "revenue_district": "Kannur",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Kelakam",
+    "location_name": "Kelakam",
+    "police_district": "Kannur Rural",
+    "revenue_district": "Kannur",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Kudiyanmala",
+    "location_name": "Kudiyanmala",
+    "police_district": "Kannur Rural",
+    "revenue_district": "Kannur",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Maloor",
+    "location_name": "Maloor",
+    "police_district": "Kannur Rural",
+    "revenue_district": "Kannur",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Muzhakkunnu",
+    "location_name": "Muzhakkunnu",
+    "police_district": "Kannur Rural",
+    "revenue_district": "Kannur",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Pariyaram MCPS",
+    "location_name": "Pariyaram MCPS",
+    "police_district": "Kannur Rural",
+    "revenue_district": "Kannur",
+    "station_type": "Medical College",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Payyannur",
+    "location_name": "Payyannur",
+    "police_district": "Kannur Rural",
+    "revenue_district": "Kannur",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Payyavoor",
+    "location_name": "Payyavoor",
+    "police_district": "Kannur Rural",
+    "revenue_district": "Kannur",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Pazhayangadi",
+    "location_name": "Pazhayangadi",
+    "police_district": "Kannur Rural",
+    "revenue_district": "Kannur",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Peravoor",
+    "location_name": "Peravoor",
+    "police_district": "Kannur Rural",
+    "revenue_district": "Kannur",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Peringome",
+    "location_name": "Peringome",
+    "police_district": "Kannur Rural",
+    "revenue_district": "Kannur",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Sreekandapuram",
+    "location_name": "Sreekandapuram",
+    "police_district": "Kannur Rural",
+    "revenue_district": "Kannur",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Taliparamba",
+    "location_name": "Taliparamba",
+    "police_district": "Kannur Rural",
+    "revenue_district": "Kannur",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Ulikkal",
+    "location_name": "Ulikkal",
+    "police_district": "Kannur Rural",
+    "revenue_district": "Kannur",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Adhur",
+    "location_name": "Adhur",
+    "police_district": "Kasaragod",
+    "revenue_district": "Kasaragod",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Ambalathara",
+    "location_name": "Ambalathara",
+    "police_district": "Kasaragod",
+    "revenue_district": "Kasaragod",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Badiadka",
+    "location_name": "Badiadka",
+    "police_district": "Kasaragod",
+    "revenue_district": "Kasaragod",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Bedakam",
+    "location_name": "Bedakam",
+    "police_district": "Kasaragod",
+    "revenue_district": "Kasaragod",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Bekal",
+    "location_name": "Bekal",
+    "police_district": "Kasaragod",
+    "revenue_district": "Kasaragod",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Bekal Coastal",
+    "location_name": "Bekal Coastal",
+    "police_district": "Kasaragod",
+    "revenue_district": "Kasaragod",
+    "station_type": "Coastal",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Chandera",
+    "location_name": "Chandera",
+    "police_district": "Kasaragod",
+    "revenue_district": "Kasaragod",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Cheemeni",
+    "location_name": "Cheemeni",
+    "police_district": "Kasaragod",
+    "revenue_district": "Kasaragod",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Chittarikkal",
+    "location_name": "Chittarikkal",
+    "police_district": "Kasaragod",
+    "revenue_district": "Kasaragod",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Hosdurg",
+    "location_name": "Hosdurg",
+    "police_district": "Kasaragod",
+    "revenue_district": "Kasaragod",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Kasaragod",
+    "location_name": "Kasaragod",
+    "police_district": "Kasaragod",
+    "revenue_district": "Kasaragod",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Kasaragod Cyber",
+    "location_name": "Kasaragod Cyber",
+    "police_district": "Kasaragod",
+    "revenue_district": "Kasaragod",
+    "station_type": "Cyber",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Kasaragod Traffic",
+    "location_name": "Kasaragod Traffic",
+    "police_district": "Kasaragod",
+    "revenue_district": "Kasaragod",
+    "station_type": "Traffic",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Kumbla",
+    "location_name": "Kumbla",
+    "police_district": "Kasaragod",
+    "revenue_district": "Kasaragod",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Kumbla Coastal",
+    "location_name": "Kumbla Coastal",
+    "police_district": "Kasaragod",
+    "revenue_district": "Kasaragod",
+    "station_type": "Coastal",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Manjeswar",
+    "location_name": "Manjeswar",
+    "police_district": "Kasaragod",
+    "revenue_district": "Kasaragod",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Melparamba",
+    "location_name": "Melparamba",
+    "police_district": "Kasaragod",
+    "revenue_district": "Kasaragod",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Nileshwar",
+    "location_name": "Nileshwar",
+    "police_district": "Kasaragod",
+    "revenue_district": "Kasaragod",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Rajapuram",
+    "location_name": "Rajapuram",
+    "police_district": "Kasaragod",
+    "revenue_district": "Kasaragod",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Trikarpur Coastal",
+    "location_name": "Trikarpur Coastal",
+    "police_district": "Kasaragod",
+    "revenue_district": "Kasaragod",
+    "station_type": "Coastal",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Vellarikundu",
+    "location_name": "Vellarikundu",
+    "police_district": "Kasaragod",
+    "revenue_district": "Kasaragod",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Vidyanagar",
+    "location_name": "Vidyanagar",
+    "police_district": "Kasaragod",
+    "revenue_district": "Kasaragod",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Anchalummoodu",
+    "location_name": "Anchalummoodu",
+    "police_district": "Kollam City",
+    "revenue_district": "Kollam",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Chathannur",
+    "location_name": "Chathannur",
+    "police_district": "Kollam City",
+    "revenue_district": "Kollam",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Chavara",
+    "location_name": "Chavara",
+    "police_district": "Kollam City",
+    "revenue_district": "Kollam",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Chavara Thekkumbhagam",
+    "location_name": "Chavara Thekkumbhagam",
+    "police_district": "Kollam City",
+    "revenue_district": "Kollam",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Eravipuram",
+    "location_name": "Eravipuram",
+    "police_district": "Kollam City",
+    "revenue_district": "Kollam",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Kannanalloor",
+    "location_name": "Kannanalloor",
+    "police_district": "Kollam City",
+    "revenue_district": "Kollam",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Karunagappally",
+    "location_name": "Karunagappally",
+    "police_district": "Kollam City",
+    "revenue_district": "Kollam",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Kilikolloor",
+    "location_name": "Kilikolloor",
+    "police_district": "Kollam City",
+    "revenue_district": "Kollam",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Kollam City Cyber",
+    "location_name": "Kollam City Cyber",
+    "police_district": "Kollam City",
+    "revenue_district": "Kollam",
+    "station_type": "Cyber",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Kollam East",
+    "location_name": "Kollam East",
+    "police_district": "Kollam City",
+    "revenue_district": "Kollam",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Kollam Traffic",
+    "location_name": "Kollam Traffic",
+    "police_district": "Kollam City",
+    "revenue_district": "Kollam",
+    "station_type": "Traffic",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Kollam Vanitha",
+    "location_name": "Kollam Vanitha",
+    "police_district": "Kollam City",
+    "revenue_district": "Kollam",
+    "station_type": "Vanitha/Women",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Kollam West",
+    "location_name": "Kollam West",
+    "police_district": "Kollam City",
+    "revenue_district": "Kollam",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Kottiyam",
+    "location_name": "Kottiyam",
+    "police_district": "Kollam City",
+    "revenue_district": "Kollam",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Neendakara Coastal",
+    "location_name": "Neendakara Coastal",
+    "police_district": "Kollam City",
+    "revenue_district": "Kollam",
+    "station_type": "Coastal",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Oachira",
+    "location_name": "Oachira",
+    "police_district": "Kollam City",
+    "revenue_district": "Kollam",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Pallithottam",
+    "location_name": "Pallithottam",
+    "police_district": "Kollam City",
+    "revenue_district": "Kollam",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Paravoor",
+    "location_name": "Paravoor",
+    "police_district": "Kollam City",
+    "revenue_district": "Kollam",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Parippally",
+    "location_name": "Parippally",
+    "police_district": "Kollam City",
+    "revenue_district": "Kollam",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Sakthikulangara",
+    "location_name": "Sakthikulangara",
+    "police_district": "Kollam City",
+    "revenue_district": "Kollam",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Achancovil",
+    "location_name": "Achancovil",
+    "police_district": "Kollam Rural",
+    "revenue_district": "Kollam",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Anchal",
+    "location_name": "Anchal",
+    "police_district": "Kollam Rural",
+    "revenue_district": "Kollam",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Chadayamangalam",
+    "location_name": "Chadayamangalam",
+    "police_district": "Kollam Rural",
+    "revenue_district": "Kollam",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Chithara",
+    "location_name": "Chithara",
+    "police_district": "Kollam Rural",
+    "revenue_district": "Kollam",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "East Kallada",
+    "location_name": "East Kallada",
+    "police_district": "Kollam Rural",
+    "revenue_district": "Kollam",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Ezhukone",
+    "location_name": "Ezhukone",
+    "police_district": "Kollam Rural",
+    "revenue_district": "Kollam",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Kadakkal",
+    "location_name": "Kadakkal",
+    "police_district": "Kollam Rural",
+    "revenue_district": "Kollam",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Kollam Rural Cyber",
+    "location_name": "Kollam Rural Cyber",
+    "police_district": "Kollam Rural",
+    "revenue_district": "Kollam",
+    "station_type": "Cyber",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Kottarakkara",
+    "location_name": "Kottarakkara",
+    "police_district": "Kollam Rural",
+    "revenue_district": "Kollam",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Kulathupuzha",
+    "location_name": "Kulathupuzha",
+    "police_district": "Kollam Rural",
+    "revenue_district": "Kollam",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Kundara",
+    "location_name": "Kundara",
+    "police_district": "Kollam Rural",
+    "revenue_district": "Kollam",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Kunnicode",
+    "location_name": "Kunnicode",
+    "police_district": "Kollam Rural",
+    "revenue_district": "Kollam",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Pathanapuram",
+    "location_name": "Pathanapuram",
+    "police_district": "Kollam Rural",
+    "revenue_district": "Kollam",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Pooyapally",
+    "location_name": "Pooyapally",
+    "police_district": "Kollam Rural",
+    "revenue_district": "Kollam",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Punalur",
+    "location_name": "Punalur",
+    "police_district": "Kollam Rural",
+    "revenue_district": "Kollam",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Puthoor",
+    "location_name": "Puthoor",
+    "police_district": "Kollam Rural",
+    "revenue_district": "Kollam",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Sasthamcotta",
+    "location_name": "Sasthamcotta",
+    "police_district": "Kollam Rural",
+    "revenue_district": "Kollam",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Sooranadu",
+    "location_name": "Sooranadu",
+    "police_district": "Kollam Rural",
+    "revenue_district": "Kollam",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Thenmala",
+    "location_name": "Thenmala",
+    "police_district": "Kollam Rural",
+    "revenue_district": "Kollam",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Yeroor",
+    "location_name": "Yeroor",
+    "police_district": "Kollam Rural",
+    "revenue_district": "Kollam",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Ayarkunnam",
+    "location_name": "Ayarkunnam",
+    "police_district": "Kottayam",
+    "revenue_district": "Kottayam",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Changanacherry",
+    "location_name": "Changanacherry",
+    "police_district": "Kottayam",
+    "revenue_district": "Kottayam",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Chingavanam",
+    "location_name": "Chingavanam",
+    "police_district": "Kottayam",
+    "revenue_district": "Kottayam",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Erattupetta",
+    "location_name": "Erattupetta",
+    "police_district": "Kottayam",
+    "revenue_district": "Kottayam",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Erumely",
+    "location_name": "Erumely",
+    "police_district": "Kottayam",
+    "revenue_district": "Kottayam",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Ettumanoor",
+    "location_name": "Ettumanoor",
+    "police_district": "Kottayam",
+    "revenue_district": "Kottayam",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Gandhinagar",
+    "location_name": "Gandhinagar",
+    "police_district": "Kottayam",
+    "revenue_district": "Kottayam",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Kaduthuruthy",
+    "location_name": "Kaduthuruthy",
+    "police_district": "Kottayam",
+    "revenue_district": "Kottayam",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Kanjirappally",
+    "location_name": "Kanjirappally",
+    "police_district": "Kottayam",
+    "revenue_district": "Kottayam",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Karukachal",
+    "location_name": "Karukachal",
+    "police_district": "Kottayam",
+    "revenue_district": "Kottayam",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Kidangoor",
+    "location_name": "Kidangoor",
+    "police_district": "Kottayam",
+    "revenue_district": "Kottayam",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Kottayam Cyber",
+    "location_name": "Kottayam Cyber",
+    "police_district": "Kottayam",
+    "revenue_district": "Kottayam",
+    "station_type": "Cyber",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Kottayam East",
+    "location_name": "Kottayam East",
+    "police_district": "Kottayam",
+    "revenue_district": "Kottayam",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Kottayam Traffic",
+    "location_name": "Kottayam Traffic",
+    "police_district": "Kottayam",
+    "revenue_district": "Kottayam",
+    "station_type": "Traffic",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Kottayam Vanitha",
+    "location_name": "Kottayam Vanitha",
+    "police_district": "Kottayam",
+    "revenue_district": "Kottayam",
+    "station_type": "Vanitha/Women",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Kottayam West",
+    "location_name": "Kottayam West",
+    "police_district": "Kottayam",
+    "revenue_district": "Kottayam",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Kumarakom",
+    "location_name": "Kumarakom",
+    "police_district": "Kottayam",
+    "revenue_district": "Kottayam",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Kuravilangadu",
+    "location_name": "Kuravilangadu",
+    "police_district": "Kottayam",
+    "revenue_district": "Kottayam",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Manarcadu",
+    "location_name": "Manarcadu",
+    "police_district": "Kottayam",
+    "revenue_district": "Kottayam",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Manimala",
+    "location_name": "Manimala",
+    "police_district": "Kottayam",
+    "revenue_district": "Kottayam",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Marangattupilly",
+    "location_name": "Marangattupilly",
+    "police_district": "Kottayam",
+    "revenue_district": "Kottayam",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Melukavu",
+    "location_name": "Melukavu",
+    "police_district": "Kottayam",
+    "revenue_district": "Kottayam",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Mundakkayam",
+    "location_name": "Mundakkayam",
+    "police_district": "Kottayam",
+    "revenue_district": "Kottayam",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Pala",
+    "location_name": "Pala",
+    "police_district": "Kottayam",
+    "revenue_district": "Kottayam",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Pallickathodu",
+    "location_name": "Pallickathodu",
+    "police_district": "Kottayam",
+    "revenue_district": "Kottayam",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Pampady",
+    "location_name": "Pampady",
+    "police_district": "Kottayam",
+    "revenue_district": "Kottayam",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Ponkunnam",
+    "location_name": "Ponkunnam",
+    "police_district": "Kottayam",
+    "revenue_district": "Kottayam",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Ramapuram",
+    "location_name": "Ramapuram",
+    "police_district": "Kottayam",
+    "revenue_district": "Kottayam",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Thalayolaparambu",
+    "location_name": "Thalayolaparambu",
+    "police_district": "Kottayam",
+    "revenue_district": "Kottayam",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Thidanad",
+    "location_name": "Thidanad",
+    "police_district": "Kottayam",
+    "revenue_district": "Kottayam",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Thrikodithanam",
+    "location_name": "Thrikodithanam",
+    "police_district": "Kottayam",
+    "revenue_district": "Kottayam",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Vaikom",
+    "location_name": "Vaikom",
+    "police_district": "Kottayam",
+    "revenue_district": "Kottayam",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Vakathanam",
+    "location_name": "Vakathanam",
+    "police_district": "Kottayam",
+    "revenue_district": "Kottayam",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Velloor",
+    "location_name": "Velloor",
+    "police_district": "Kottayam",
+    "revenue_district": "Kottayam",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Beypore",
+    "location_name": "Beypore",
+    "police_district": "Kozhikode City",
+    "revenue_district": "Kozhikode",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Beypore Coastal",
+    "location_name": "Beypore Coastal",
+    "police_district": "Kozhikode City",
+    "revenue_district": "Kozhikode",
+    "station_type": "Coastal",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Chemmangad",
+    "location_name": "Chemmangad",
+    "police_district": "Kozhikode City",
+    "revenue_district": "Kozhikode",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Chevayur",
+    "location_name": "Chevayur",
+    "police_district": "Kozhikode City",
+    "revenue_district": "Kozhikode",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Elathur",
+    "location_name": "Elathur",
+    "police_district": "Kozhikode City",
+    "revenue_district": "Kozhikode",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Elathur Coastal",
+    "location_name": "Elathur Coastal",
+    "police_district": "Kozhikode City",
+    "revenue_district": "Kozhikode",
+    "station_type": "Coastal",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Feroke",
+    "location_name": "Feroke",
+    "police_district": "Kozhikode City",
+    "revenue_district": "Kozhikode",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Kozhikode City Cyber",
+    "location_name": "Kozhikode City Cyber",
+    "police_district": "Kozhikode City",
+    "revenue_district": "Kozhikode",
+    "station_type": "Cyber",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Kozhikode City Kasaba",
+    "location_name": "Kozhikode City Kasaba",
+    "police_district": "Kozhikode City",
+    "revenue_district": "Kozhikode",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Kozhikode City Medical College",
+    "location_name": "Kozhikode City Medical College",
+    "police_district": "Kozhikode City",
+    "revenue_district": "Kozhikode",
+    "station_type": "Medical College",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Kozhikode City Town",
+    "location_name": "Kozhikode City Town",
+    "police_district": "Kozhikode City",
+    "revenue_district": "Kozhikode",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Kozhikode City Traffic",
+    "location_name": "Kozhikode City Traffic",
+    "police_district": "Kozhikode City",
+    "revenue_district": "Kozhikode",
+    "station_type": "Traffic",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Kozhikode City Vanitha",
+    "location_name": "Kozhikode City Vanitha",
+    "police_district": "Kozhikode City",
+    "revenue_district": "Kozhikode",
+    "station_type": "Vanitha/Women",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Kunnamangalam",
+    "location_name": "Kunnamangalam",
+    "police_district": "Kozhikode City",
+    "revenue_district": "Kozhikode",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Marad",
+    "location_name": "Marad",
+    "police_district": "Kozhikode City",
+    "revenue_district": "Kozhikode",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Mavoor",
+    "location_name": "Mavoor",
+    "police_district": "Kozhikode City",
+    "revenue_district": "Kozhikode",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Nadakkave",
+    "location_name": "Nadakkave",
+    "police_district": "Kozhikode City",
+    "revenue_district": "Kozhikode",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Nallalam",
+    "location_name": "Nallalam",
+    "police_district": "Kozhikode City",
+    "revenue_district": "Kozhikode",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Panniyankara",
+    "location_name": "Panniyankara",
+    "police_district": "Kozhikode City",
+    "revenue_district": "Kozhikode",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Pantheerankavu",
+    "location_name": "Pantheerankavu",
+    "police_district": "Kozhikode City",
+    "revenue_district": "Kozhikode",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Vellayil",
+    "location_name": "Vellayil",
+    "police_district": "Kozhikode City",
+    "revenue_district": "Kozhikode",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Atholi",
+    "location_name": "Atholi",
+    "police_district": "Kozhikode Rural",
+    "revenue_district": "Kozhikode",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Balussery",
+    "location_name": "Balussery",
+    "police_district": "Kozhikode Rural",
+    "revenue_district": "Kozhikode",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Chompala",
+    "location_name": "Chompala",
+    "police_district": "Kozhikode Rural",
+    "revenue_district": "Kozhikode",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Edachery",
+    "location_name": "Edachery",
+    "police_district": "Kozhikode Rural",
+    "revenue_district": "Kozhikode",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Kakkur",
+    "location_name": "Kakkur",
+    "police_district": "Kozhikode Rural",
+    "revenue_district": "Kozhikode",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Kodenchery",
+    "location_name": "Kodenchery",
+    "police_district": "Kozhikode Rural",
+    "revenue_district": "Kozhikode",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Koduvally",
+    "location_name": "Koduvally",
+    "police_district": "Kozhikode Rural",
+    "revenue_district": "Kozhikode",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Koorachundu",
+    "location_name": "Koorachundu",
+    "police_district": "Kozhikode Rural",
+    "revenue_district": "Kozhikode",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Koyilandy",
+    "location_name": "Koyilandy",
+    "police_district": "Kozhikode Rural",
+    "revenue_district": "Kozhikode",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Kozhikode Rural Cyber",
+    "location_name": "Kozhikode Rural Cyber",
+    "police_district": "Kozhikode Rural",
+    "revenue_district": "Kozhikode",
+    "station_type": "Cyber",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Kuttiady",
+    "location_name": "Kuttiady",
+    "police_district": "Kozhikode Rural",
+    "revenue_district": "Kozhikode",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Meppayur",
+    "location_name": "Meppayur",
+    "police_district": "Kozhikode Rural",
+    "revenue_district": "Kozhikode",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Mukkom",
+    "location_name": "Mukkom",
+    "police_district": "Kozhikode Rural",
+    "revenue_district": "Kozhikode",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Nadapuram",
+    "location_name": "Nadapuram",
+    "police_district": "Kozhikode Rural",
+    "revenue_district": "Kozhikode",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Payyoli",
+    "location_name": "Payyoli",
+    "police_district": "Kozhikode Rural",
+    "revenue_district": "Kozhikode",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Perambra",
+    "location_name": "Perambra",
+    "police_district": "Kozhikode Rural",
+    "revenue_district": "Kozhikode",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Peruvannamoozhi",
+    "location_name": "Peruvannamoozhi",
+    "police_district": "Kozhikode Rural",
+    "revenue_district": "Kozhikode",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Thamarassery",
+    "location_name": "Thamarassery",
+    "police_district": "Kozhikode Rural",
+    "revenue_district": "Kozhikode",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Thiruvambady",
+    "location_name": "Thiruvambady",
+    "police_district": "Kozhikode Rural",
+    "revenue_district": "Kozhikode",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Thottilpalam",
+    "location_name": "Thottilpalam",
+    "police_district": "Kozhikode Rural",
+    "revenue_district": "Kozhikode",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Valayam",
+    "location_name": "Valayam",
+    "police_district": "Kozhikode Rural",
+    "revenue_district": "Kozhikode",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Vatakara",
+    "location_name": "Vatakara",
+    "police_district": "Kozhikode Rural",
+    "revenue_district": "Kozhikode",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Vatakara Coastal",
+    "location_name": "Vatakara Coastal",
+    "police_district": "Kozhikode Rural",
+    "revenue_district": "Kozhikode",
+    "station_type": "Coastal",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Areekode",
+    "location_name": "Areekode",
+    "police_district": "Malappuram",
+    "revenue_district": "Malappuram",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Changaramkulam",
+    "location_name": "Changaramkulam",
+    "police_district": "Malappuram",
+    "revenue_district": "Malappuram",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Edakkara",
+    "location_name": "Edakkara",
+    "police_district": "Malappuram",
+    "revenue_district": "Malappuram",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Edavanna",
+    "location_name": "Edavanna",
+    "police_district": "Malappuram",
+    "revenue_district": "Malappuram",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Kadampuzha",
+    "location_name": "Kadampuzha",
+    "police_district": "Malappuram",
+    "revenue_district": "Malappuram",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Kalikavu",
+    "location_name": "Kalikavu",
+    "police_district": "Malappuram",
+    "revenue_district": "Malappuram",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Kalpakanchery",
+    "location_name": "Kalpakanchery",
+    "police_district": "Malappuram",
+    "revenue_district": "Malappuram",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Karippur",
+    "location_name": "Karippur",
+    "police_district": "Malappuram",
+    "revenue_district": "Malappuram",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Karuvarakundu",
+    "location_name": "Karuvarakundu",
+    "police_district": "Malappuram",
+    "revenue_district": "Malappuram",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Kolathur",
+    "location_name": "Kolathur",
+    "police_district": "Malappuram",
+    "revenue_district": "Malappuram",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Kondotty",
+    "location_name": "Kondotty",
+    "police_district": "Malappuram",
+    "revenue_district": "Malappuram",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Kottakkal",
+    "location_name": "Kottakkal",
+    "police_district": "Malappuram",
+    "revenue_district": "Malappuram",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Kuttippuram",
+    "location_name": "Kuttippuram",
+    "police_district": "Malappuram",
+    "revenue_district": "Malappuram",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Malappuram",
+    "location_name": "Malappuram",
+    "police_district": "Malappuram",
+    "revenue_district": "Malappuram",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Malappuram Cyber",
+    "location_name": "Malappuram Cyber",
+    "police_district": "Malappuram",
+    "revenue_district": "Malappuram",
+    "station_type": "Cyber",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Malappuram Vanitha",
+    "location_name": "Malappuram Vanitha",
+    "police_district": "Malappuram",
+    "revenue_district": "Malappuram",
+    "station_type": "Vanitha/Women",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Manjeri",
+    "location_name": "Manjeri",
+    "police_district": "Malappuram",
+    "revenue_district": "Malappuram",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Mankada",
+    "location_name": "Mankada",
+    "police_district": "Malappuram",
+    "revenue_district": "Malappuram",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Melattur",
+    "location_name": "Melattur",
+    "police_district": "Malappuram",
+    "revenue_district": "Malappuram",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Nilambur",
+    "location_name": "Nilambur",
+    "police_district": "Malappuram",
+    "revenue_district": "Malappuram",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Pandikkad",
+    "location_name": "Pandikkad",
+    "police_district": "Malappuram",
+    "revenue_district": "Malappuram",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Parappanangadi",
+    "location_name": "Parappanangadi",
+    "police_district": "Malappuram",
+    "revenue_district": "Malappuram",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Perinthalmanna",
+    "location_name": "Perinthalmanna",
+    "police_district": "Malappuram",
+    "revenue_district": "Malappuram",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Perumpadappu",
+    "location_name": "Perumpadappu",
+    "police_district": "Malappuram",
+    "revenue_district": "Malappuram",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Ponnani",
+    "location_name": "Ponnani",
+    "police_district": "Malappuram",
+    "revenue_district": "Malappuram",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Ponnani Coastal",
+    "location_name": "Ponnani Coastal",
+    "police_district": "Malappuram",
+    "revenue_district": "Malappuram",
+    "station_type": "Coastal",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Pookkottumpadam",
+    "location_name": "Pookkottumpadam",
+    "police_district": "Malappuram",
+    "revenue_district": "Malappuram",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Pothukallu",
+    "location_name": "Pothukallu",
+    "police_district": "Malappuram",
+    "revenue_district": "Malappuram",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Tanur",
+    "location_name": "Tanur",
+    "police_district": "Malappuram",
+    "revenue_district": "Malappuram",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Thenhipalam",
+    "location_name": "Thenhipalam",
+    "police_district": "Malappuram",
+    "revenue_district": "Malappuram",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Tirur",
+    "location_name": "Tirur",
+    "police_district": "Malappuram",
+    "revenue_district": "Malappuram",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Tirurangadi",
+    "location_name": "Tirurangadi",
+    "police_district": "Malappuram",
+    "revenue_district": "Malappuram",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Valanchery",
+    "location_name": "Valanchery",
+    "police_district": "Malappuram",
+    "revenue_district": "Malappuram",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Vazhakkad",
+    "location_name": "Vazhakkad",
+    "police_district": "Malappuram",
+    "revenue_district": "Malappuram",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Vazhikkadavu",
+    "location_name": "Vazhikkadavu",
+    "police_district": "Malappuram",
+    "revenue_district": "Malappuram",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Vengara",
+    "location_name": "Vengara",
+    "police_district": "Malappuram",
+    "revenue_district": "Malappuram",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Wandoor",
+    "location_name": "Wandoor",
+    "police_district": "Malappuram",
+    "revenue_district": "Malappuram",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Agali",
+    "location_name": "Agali",
+    "police_district": "Palakkad",
+    "revenue_district": "Palakkad",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Alathur",
+    "location_name": "Alathur",
+    "police_district": "Palakkad",
+    "revenue_district": "Palakkad",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Chalissery",
+    "location_name": "Chalissery",
+    "police_district": "Palakkad",
+    "revenue_district": "Palakkad",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Cherpulassery",
+    "location_name": "Cherpulassery",
+    "police_district": "Palakkad",
+    "revenue_district": "Palakkad",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Chittur",
+    "location_name": "Chittur",
+    "police_district": "Palakkad",
+    "revenue_district": "Palakkad",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Hemambika Nagar",
+    "location_name": "Hemambika Nagar",
+    "police_district": "Palakkad",
+    "revenue_district": "Palakkad",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Kalladikkode",
+    "location_name": "Kalladikkode",
+    "police_district": "Palakkad",
+    "revenue_district": "Palakkad",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Kollengode",
+    "location_name": "Kollengode",
+    "police_district": "Palakkad",
+    "revenue_district": "Palakkad",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Kongad",
+    "location_name": "Kongad",
+    "police_district": "Palakkad",
+    "revenue_district": "Palakkad",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Koppam",
+    "location_name": "Koppam",
+    "police_district": "Palakkad",
+    "revenue_district": "Palakkad",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Kottayi",
+    "location_name": "Kottayi",
+    "police_district": "Palakkad",
+    "revenue_district": "Palakkad",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Kozhinjampara",
+    "location_name": "Kozhinjampara",
+    "police_district": "Palakkad",
+    "revenue_district": "Palakkad",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Kuzhalmannam",
+    "location_name": "Kuzhalmannam",
+    "police_district": "Palakkad",
+    "revenue_district": "Palakkad",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Malampuzha",
+    "location_name": "Malampuzha",
+    "police_district": "Palakkad",
+    "revenue_district": "Palakkad",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Mangalam Dam",
+    "location_name": "Mangalam Dam",
+    "police_district": "Palakkad",
+    "revenue_district": "Palakkad",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Mankara",
+    "location_name": "Mankara",
+    "police_district": "Palakkad",
+    "revenue_district": "Palakkad",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Mannarkkad",
+    "location_name": "Mannarkkad",
+    "police_district": "Palakkad",
+    "revenue_district": "Palakkad",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Mannarkkad Traffic",
+    "location_name": "Mannarkkad Traffic",
+    "police_district": "Palakkad",
+    "revenue_district": "Palakkad",
+    "station_type": "Traffic",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Meenakshipuram",
+    "location_name": "Meenakshipuram",
+    "police_district": "Palakkad",
+    "revenue_district": "Palakkad",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Nattukal",
+    "location_name": "Nattukal",
+    "police_district": "Palakkad",
+    "revenue_district": "Palakkad",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Nemmara",
+    "location_name": "Nemmara",
+    "police_district": "Palakkad",
+    "revenue_district": "Palakkad",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Ottappalam",
+    "location_name": "Ottappalam",
+    "police_district": "Palakkad",
+    "revenue_district": "Palakkad",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Padagiri",
+    "location_name": "Padagiri",
+    "police_district": "Palakkad",
+    "revenue_district": "Palakkad",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Palakkad Cyber",
+    "location_name": "Palakkad Cyber",
+    "police_district": "Palakkad",
+    "revenue_district": "Palakkad",
+    "station_type": "Cyber",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Palakkad Kasaba",
+    "location_name": "Palakkad Kasaba",
+    "police_district": "Palakkad",
+    "revenue_district": "Palakkad",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Palakkad Town North",
+    "location_name": "Palakkad Town North",
+    "police_district": "Palakkad",
+    "revenue_district": "Palakkad",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Palakkad Town South",
+    "location_name": "Palakkad Town South",
+    "police_district": "Palakkad",
+    "revenue_district": "Palakkad",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Palakkad Town Traffic",
+    "location_name": "Palakkad Town Traffic",
+    "police_district": "Palakkad",
+    "revenue_district": "Palakkad",
+    "station_type": "Traffic",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Palakkad Vanitha",
+    "location_name": "Palakkad Vanitha",
+    "police_district": "Palakkad",
+    "revenue_district": "Palakkad",
+    "station_type": "Vanitha/Women",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Parambikulam",
+    "location_name": "Parambikulam",
+    "police_district": "Palakkad",
+    "revenue_district": "Palakkad",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Pattambi",
+    "location_name": "Pattambi",
+    "police_district": "Palakkad",
+    "revenue_district": "Palakkad",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Pudunagaram",
+    "location_name": "Pudunagaram",
+    "police_district": "Palakkad",
+    "revenue_district": "Palakkad",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Pudur",
+    "location_name": "Pudur",
+    "police_district": "Palakkad",
+    "revenue_district": "Palakkad",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Sholayur",
+    "location_name": "Sholayur",
+    "police_district": "Palakkad",
+    "revenue_district": "Palakkad",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Shornur",
+    "location_name": "Shornur",
+    "police_district": "Palakkad",
+    "revenue_district": "Palakkad",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Sreekrishnapuram",
+    "location_name": "Sreekrishnapuram",
+    "police_district": "Palakkad",
+    "revenue_district": "Palakkad",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Thrithala",
+    "location_name": "Thrithala",
+    "police_district": "Palakkad",
+    "revenue_district": "Palakkad",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Vadakkenchery",
+    "location_name": "Vadakkenchery",
+    "police_district": "Palakkad",
+    "revenue_district": "Palakkad",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Walayar",
+    "location_name": "Walayar",
+    "police_district": "Palakkad",
+    "revenue_district": "Palakkad",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Adoor",
+    "location_name": "Adoor",
+    "police_district": "Pathanamthitta",
+    "revenue_district": "Pathanamthitta",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Aranmula",
+    "location_name": "Aranmula",
+    "police_district": "Pathanamthitta",
+    "revenue_district": "Pathanamthitta",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Chittar",
+    "location_name": "Chittar",
+    "police_district": "Pathanamthitta",
+    "revenue_district": "Pathanamthitta",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Elavumthitta",
+    "location_name": "Elavumthitta",
+    "police_district": "Pathanamthitta",
+    "revenue_district": "Pathanamthitta",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Enathu",
+    "location_name": "Enathu",
+    "police_district": "Pathanamthitta",
+    "revenue_district": "Pathanamthitta",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Keezhvaipur",
+    "location_name": "Keezhvaipur",
+    "police_district": "Pathanamthitta",
+    "revenue_district": "Pathanamthitta",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Kodumon",
+    "location_name": "Kodumon",
+    "police_district": "Pathanamthitta",
+    "revenue_district": "Pathanamthitta",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Koipuram",
+    "location_name": "Koipuram",
+    "police_district": "Pathanamthitta",
+    "revenue_district": "Pathanamthitta",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Konni",
+    "location_name": "Konni",
+    "police_district": "Pathanamthitta",
+    "revenue_district": "Pathanamthitta",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Koodal",
+    "location_name": "Koodal",
+    "police_district": "Pathanamthitta",
+    "revenue_district": "Pathanamthitta",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Malayalapuzha",
+    "location_name": "Malayalapuzha",
+    "police_district": "Pathanamthitta",
+    "revenue_district": "Pathanamthitta",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Moozhiyar",
+    "location_name": "Moozhiyar",
+    "police_district": "Pathanamthitta",
+    "revenue_district": "Pathanamthitta",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Pampa",
+    "location_name": "Pampa",
+    "police_district": "Pathanamthitta",
+    "revenue_district": "Pathanamthitta",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Pandalam",
+    "location_name": "Pandalam",
+    "police_district": "Pathanamthitta",
+    "revenue_district": "Pathanamthitta",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Pathanamthitta",
+    "location_name": "Pathanamthitta",
+    "police_district": "Pathanamthitta",
+    "revenue_district": "Pathanamthitta",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Pathanamthitta Cyber Crime",
+    "location_name": "Pathanamthitta Cyber Crime",
+    "police_district": "Pathanamthitta",
+    "revenue_district": "Pathanamthitta",
+    "station_type": "Cyber",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Pathanamthitta Vanitha",
+    "location_name": "Pathanamthitta Vanitha",
+    "police_district": "Pathanamthitta",
+    "revenue_district": "Pathanamthitta",
+    "station_type": "Vanitha/Women",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Perumpetty",
+    "location_name": "Perumpetty",
+    "police_district": "Pathanamthitta",
+    "revenue_district": "Pathanamthitta",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Perunadu",
+    "location_name": "Perunadu",
+    "police_district": "Pathanamthitta",
+    "revenue_district": "Pathanamthitta",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Pulikeezhu",
+    "location_name": "Pulikeezhu",
+    "police_district": "Pathanamthitta",
+    "revenue_district": "Pathanamthitta",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Ranny",
+    "location_name": "Ranny",
+    "police_district": "Pathanamthitta",
+    "revenue_district": "Pathanamthitta",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Sannidhanam",
+    "location_name": "Sannidhanam",
+    "police_district": "Pathanamthitta",
+    "revenue_district": "Pathanamthitta",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Thannithodu",
+    "location_name": "Thannithodu",
+    "police_district": "Pathanamthitta",
+    "revenue_district": "Pathanamthitta",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Thiruvalla",
+    "location_name": "Thiruvalla",
+    "police_district": "Pathanamthitta",
+    "revenue_district": "Pathanamthitta",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Vechoochira",
+    "location_name": "Vechoochira",
+    "police_district": "Pathanamthitta",
+    "revenue_district": "Pathanamthitta",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Cantonment",
+    "location_name": "Cantonment",
+    "police_district": "Thiruvananthapuram City",
+    "revenue_district": "Thiruvananthapuram",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Fort",
+    "location_name": "Fort",
+    "police_district": "Thiruvananthapuram City",
+    "revenue_district": "Thiruvananthapuram",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Karamana",
+    "location_name": "Karamana",
+    "police_district": "Thiruvananthapuram City",
+    "revenue_district": "Thiruvananthapuram",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Kazhakkuttom",
+    "location_name": "Kazhakkuttom",
+    "police_district": "Thiruvananthapuram City",
+    "revenue_district": "Thiruvananthapuram",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Kovalam",
+    "location_name": "Kovalam",
+    "police_district": "Thiruvananthapuram City",
+    "revenue_district": "Thiruvananthapuram",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Mannanthala",
+    "location_name": "Mannanthala",
+    "police_district": "Thiruvananthapuram City",
+    "revenue_district": "Thiruvananthapuram",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Museum",
+    "location_name": "Museum",
+    "police_district": "Thiruvananthapuram City",
+    "revenue_district": "Thiruvananthapuram",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Nemom",
+    "location_name": "Nemom",
+    "police_district": "Thiruvananthapuram City",
+    "revenue_district": "Thiruvananthapuram",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Peroorkada",
+    "location_name": "Peroorkada",
+    "police_district": "Thiruvananthapuram City",
+    "revenue_district": "Thiruvananthapuram",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Pettah",
+    "location_name": "Pettah",
+    "police_district": "Thiruvananthapuram City",
+    "revenue_district": "Thiruvananthapuram",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Poojappura",
+    "location_name": "Poojappura",
+    "police_district": "Thiruvananthapuram City",
+    "revenue_district": "Thiruvananthapuram",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Poonthura",
+    "location_name": "Poonthura",
+    "police_district": "Thiruvananthapuram City",
+    "revenue_district": "Thiruvananthapuram",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Sreekaryam",
+    "location_name": "Sreekaryam",
+    "police_district": "Thiruvananthapuram City",
+    "revenue_district": "Thiruvananthapuram",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Thampanoor",
+    "location_name": "Thampanoor",
+    "police_district": "Thiruvananthapuram City",
+    "revenue_district": "Thiruvananthapuram",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Thiruvallam",
+    "location_name": "Thiruvallam",
+    "police_district": "Thiruvananthapuram City",
+    "revenue_district": "Thiruvananthapuram",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Thiruvananthapuram City Medical College",
+    "location_name": "Thiruvananthapuram City Medical College",
+    "police_district": "Thiruvananthapuram City",
+    "revenue_district": "Thiruvananthapuram",
+    "station_type": "Medical College",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Thiruvananthapuram City Traffic",
+    "location_name": "Thiruvananthapuram City Traffic",
+    "police_district": "Thiruvananthapuram City",
+    "revenue_district": "Thiruvananthapuram",
+    "station_type": "Traffic",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Thiruvananthapuram City Vanitha",
+    "location_name": "Thiruvananthapuram City Vanitha",
+    "police_district": "Thiruvananthapuram City",
+    "revenue_district": "Thiruvananthapuram",
+    "station_type": "Vanitha/Women",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Thumba",
+    "location_name": "Thumba",
+    "police_district": "Thiruvananthapuram City",
+    "revenue_district": "Thiruvananthapuram",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Valiyathura",
+    "location_name": "Valiyathura",
+    "police_district": "Thiruvananthapuram City",
+    "revenue_district": "Thiruvananthapuram",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Vanchiyoor",
+    "location_name": "Vanchiyoor",
+    "police_district": "Thiruvananthapuram City",
+    "revenue_district": "Thiruvananthapuram",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Vattiyoorkavu",
+    "location_name": "Vattiyoorkavu",
+    "police_district": "Thiruvananthapuram City",
+    "revenue_district": "Thiruvananthapuram",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Vizhinjam",
+    "location_name": "Vizhinjam",
+    "police_district": "Thiruvananthapuram City",
+    "revenue_district": "Thiruvananthapuram",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Vizhinjam Coastal",
+    "location_name": "Vizhinjam Coastal",
+    "police_district": "Thiruvananthapuram City",
+    "revenue_district": "Thiruvananthapuram",
+    "station_type": "Coastal",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Anchuthengu",
+    "location_name": "Anchuthengu",
+    "police_district": "Thiruvananthapuram Rural",
+    "revenue_district": "Thiruvananthapuram",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Anchuthengu Coastal",
+    "location_name": "Anchuthengu Coastal",
+    "police_district": "Thiruvananthapuram Rural",
+    "revenue_district": "Thiruvananthapuram",
+    "station_type": "Coastal",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Aruvikkara",
+    "location_name": "Aruvikkara",
+    "police_district": "Thiruvananthapuram Rural",
+    "revenue_district": "Thiruvananthapuram",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Aryanad",
+    "location_name": "Aryanad",
+    "police_district": "Thiruvananthapuram Rural",
+    "revenue_district": "Thiruvananthapuram",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Aryancode",
+    "location_name": "Aryancode",
+    "police_district": "Thiruvananthapuram Rural",
+    "revenue_district": "Thiruvananthapuram",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Attingal",
+    "location_name": "Attingal",
+    "police_district": "Thiruvananthapuram Rural",
+    "revenue_district": "Thiruvananthapuram",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Ayiroor",
+    "location_name": "Ayiroor",
+    "police_district": "Thiruvananthapuram Rural",
+    "revenue_district": "Thiruvananthapuram",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Balaramapuram",
+    "location_name": "Balaramapuram",
+    "police_district": "Thiruvananthapuram Rural",
+    "revenue_district": "Thiruvananthapuram",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Chirayinkeezhu",
+    "location_name": "Chirayinkeezhu",
+    "police_district": "Thiruvananthapuram Rural",
+    "revenue_district": "Thiruvananthapuram",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Kadakkavoor",
+    "location_name": "Kadakkavoor",
+    "police_district": "Thiruvananthapuram Rural",
+    "revenue_district": "Thiruvananthapuram",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Kadinamkulam",
+    "location_name": "Kadinamkulam",
+    "police_district": "Thiruvananthapuram Rural",
+    "revenue_district": "Thiruvananthapuram",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Kallambalam",
+    "location_name": "Kallambalam",
+    "police_district": "Thiruvananthapuram Rural",
+    "revenue_district": "Thiruvananthapuram",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Kanjiramkulam",
+    "location_name": "Kanjiramkulam",
+    "police_district": "Thiruvananthapuram Rural",
+    "revenue_district": "Thiruvananthapuram",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Kattakada",
+    "location_name": "Kattakada",
+    "police_district": "Thiruvananthapuram Rural",
+    "revenue_district": "Thiruvananthapuram",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Kilimanoor",
+    "location_name": "Kilimanoor",
+    "police_district": "Thiruvananthapuram Rural",
+    "revenue_district": "Thiruvananthapuram",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Malayinkeezhu",
+    "location_name": "Malayinkeezhu",
+    "police_district": "Thiruvananthapuram Rural",
+    "revenue_district": "Thiruvananthapuram",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Mangalapuram",
+    "location_name": "Mangalapuram",
+    "police_district": "Thiruvananthapuram Rural",
+    "revenue_district": "Thiruvananthapuram",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Maranalloor",
+    "location_name": "Maranalloor",
+    "police_district": "Thiruvananthapuram Rural",
+    "revenue_district": "Thiruvananthapuram",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Marayamuttom",
+    "location_name": "Marayamuttom",
+    "police_district": "Thiruvananthapuram Rural",
+    "revenue_district": "Thiruvananthapuram",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Nagaroor",
+    "location_name": "Nagaroor",
+    "police_district": "Thiruvananthapuram Rural",
+    "revenue_district": "Thiruvananthapuram",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Naruvamoodu",
+    "location_name": "Naruvamoodu",
+    "police_district": "Thiruvananthapuram Rural",
+    "revenue_district": "Thiruvananthapuram",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Nedumangad",
+    "location_name": "Nedumangad",
+    "police_district": "Thiruvananthapuram Rural",
+    "revenue_district": "Thiruvananthapuram",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Neyyardam",
+    "location_name": "Neyyardam",
+    "police_district": "Thiruvananthapuram Rural",
+    "revenue_district": "Thiruvananthapuram",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Neyyattinkara",
+    "location_name": "Neyyattinkara",
+    "police_district": "Thiruvananthapuram Rural",
+    "revenue_district": "Thiruvananthapuram",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Pallickal",
+    "location_name": "Pallickal",
+    "police_district": "Thiruvananthapuram Rural",
+    "revenue_district": "Thiruvananthapuram",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Palode",
+    "location_name": "Palode",
+    "police_district": "Thiruvananthapuram Rural",
+    "revenue_district": "Thiruvananthapuram",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Pangodu",
+    "location_name": "Pangodu",
+    "police_district": "Thiruvananthapuram Rural",
+    "revenue_district": "Thiruvananthapuram",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Parassala",
+    "location_name": "Parassala",
+    "police_district": "Thiruvananthapuram Rural",
+    "revenue_district": "Thiruvananthapuram",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Ponmudi",
+    "location_name": "Ponmudi",
+    "police_district": "Thiruvananthapuram Rural",
+    "revenue_district": "Thiruvananthapuram",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Poovar",
+    "location_name": "Poovar",
+    "police_district": "Thiruvananthapuram Rural",
+    "revenue_district": "Thiruvananthapuram",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Poovar Coastal",
+    "location_name": "Poovar Coastal",
+    "police_district": "Thiruvananthapuram Rural",
+    "revenue_district": "Thiruvananthapuram",
+    "station_type": "Coastal",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Pothencode",
+    "location_name": "Pothencode",
+    "police_district": "Thiruvananthapuram Rural",
+    "revenue_district": "Thiruvananthapuram",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Pozhiyoor",
+    "location_name": "Pozhiyoor",
+    "police_district": "Thiruvananthapuram Rural",
+    "revenue_district": "Thiruvananthapuram",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Thiruvananthapuram Rural Cyber",
+    "location_name": "Thiruvananthapuram Rural Cyber",
+    "police_district": "Thiruvananthapuram Rural",
+    "revenue_district": "Thiruvananthapuram",
+    "station_type": "Cyber",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Valiyamala",
+    "location_name": "Valiyamala",
+    "police_district": "Thiruvananthapuram Rural",
+    "revenue_district": "Thiruvananthapuram",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Varkala",
+    "location_name": "Varkala",
+    "police_district": "Thiruvananthapuram Rural",
+    "revenue_district": "Thiruvananthapuram",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Vattappara",
+    "location_name": "Vattappara",
+    "police_district": "Thiruvananthapuram Rural",
+    "revenue_district": "Thiruvananthapuram",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Vellarada",
+    "location_name": "Vellarada",
+    "police_district": "Thiruvananthapuram Rural",
+    "revenue_district": "Thiruvananthapuram",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Venjaramoodu",
+    "location_name": "Venjaramoodu",
+    "police_district": "Thiruvananthapuram Rural",
+    "revenue_district": "Thiruvananthapuram",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Vilappilsala",
+    "location_name": "Vilappilsala",
+    "police_district": "Thiruvananthapuram Rural",
+    "revenue_district": "Thiruvananthapuram",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Vithura",
+    "location_name": "Vithura",
+    "police_district": "Thiruvananthapuram Rural",
+    "revenue_district": "Thiruvananthapuram",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Chavakkad",
+    "location_name": "Chavakkad",
+    "police_district": "Thrissur City",
+    "revenue_district": "Thrissur",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Chelakkara",
+    "location_name": "Chelakkara",
+    "police_district": "Thrissur City",
+    "revenue_district": "Thrissur",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Cheruthuruthy",
+    "location_name": "Cheruthuruthy",
+    "police_district": "Thrissur City",
+    "revenue_district": "Thrissur",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Erumapetty",
+    "location_name": "Erumapetty",
+    "police_district": "Thrissur City",
+    "revenue_district": "Thrissur",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Guruvayoor",
+    "location_name": "Guruvayoor",
+    "police_district": "Thrissur City",
+    "revenue_district": "Thrissur",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Guruvayoor Temple",
+    "location_name": "Guruvayoor Temple",
+    "police_district": "Thrissur City",
+    "revenue_district": "Thrissur",
+    "station_type": "Temple",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Kunnamkulam",
+    "location_name": "Kunnamkulam",
+    "police_district": "Thrissur City",
+    "revenue_district": "Thrissur",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Mannuthy",
+    "location_name": "Mannuthy",
+    "police_district": "Thrissur City",
+    "revenue_district": "Thrissur",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Munakkakadavu",
+    "location_name": "Munakkakadavu",
+    "police_district": "Thrissur City",
+    "revenue_district": "Thrissur",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Nedupuzha",
+    "location_name": "Nedupuzha",
+    "police_district": "Thrissur City",
+    "revenue_district": "Thrissur",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Ollur",
+    "location_name": "Ollur",
+    "police_district": "Thrissur City",
+    "revenue_district": "Thrissur",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Pavaratty",
+    "location_name": "Pavaratty",
+    "police_district": "Thrissur City",
+    "revenue_district": "Thrissur",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Pazhayannur",
+    "location_name": "Pazhayannur",
+    "police_district": "Thrissur City",
+    "revenue_district": "Thrissur",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Peechi",
+    "location_name": "Peechi",
+    "police_district": "Thrissur City",
+    "revenue_district": "Thrissur",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Peramangalam",
+    "location_name": "Peramangalam",
+    "police_district": "Thrissur City",
+    "revenue_district": "Thrissur",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Thrissur City Cyber",
+    "location_name": "Thrissur City Cyber",
+    "police_district": "Thrissur City",
+    "revenue_district": "Thrissur",
+    "station_type": "Cyber",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Thrissur City Vanitha",
+    "location_name": "Thrissur City Vanitha",
+    "police_district": "Thrissur City",
+    "revenue_district": "Thrissur",
+    "station_type": "Vanitha/Women",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Thrissur Medical College",
+    "location_name": "Thrissur Medical College",
+    "police_district": "Thrissur City",
+    "revenue_district": "Thrissur",
+    "station_type": "Medical College",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Thrissur Town East",
+    "location_name": "Thrissur Town East",
+    "police_district": "Thrissur City",
+    "revenue_district": "Thrissur",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Thrissur Town West",
+    "location_name": "Thrissur Town West",
+    "police_district": "Thrissur City",
+    "revenue_district": "Thrissur",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Thrissur Traffic",
+    "location_name": "Thrissur Traffic",
+    "police_district": "Thrissur City",
+    "revenue_district": "Thrissur",
+    "station_type": "Traffic",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Vadakkekad",
+    "location_name": "Vadakkekad",
+    "police_district": "Thrissur City",
+    "revenue_district": "Thrissur",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Viyyur",
+    "location_name": "Viyyur",
+    "police_district": "Thrissur City",
+    "revenue_district": "Thrissur",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Wadakkanchery",
+    "location_name": "Wadakkanchery",
+    "police_district": "Thrissur City",
+    "revenue_district": "Thrissur",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Aloor",
+    "location_name": "Aloor",
+    "police_district": "Thrissur Rural",
+    "revenue_district": "Thrissur",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Anthikad",
+    "location_name": "Anthikad",
+    "police_district": "Thrissur Rural",
+    "revenue_district": "Thrissur",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Athirappilly",
+    "location_name": "Athirappilly",
+    "police_district": "Thrissur Rural",
+    "revenue_district": "Thrissur",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Azheekodu Coastal",
+    "location_name": "Azheekodu Coastal",
+    "police_district": "Thrissur Rural",
+    "revenue_district": "Thrissur",
+    "station_type": "Coastal",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Chalakkudy",
+    "location_name": "Chalakkudy",
+    "police_district": "Thrissur Rural",
+    "revenue_district": "Thrissur",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Cherpu",
+    "location_name": "Cherpu",
+    "police_district": "Thrissur Rural",
+    "revenue_district": "Thrissur",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Irinjalakuda",
+    "location_name": "Irinjalakuda",
+    "police_district": "Thrissur Rural",
+    "revenue_district": "Thrissur",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Kaipamangalam",
+    "location_name": "Kaipamangalam",
+    "police_district": "Thrissur Rural",
+    "revenue_district": "Thrissur",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Kattoor",
+    "location_name": "Kattoor",
+    "police_district": "Thrissur Rural",
+    "revenue_district": "Thrissur",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Kodakara",
+    "location_name": "Kodakara",
+    "police_district": "Thrissur Rural",
+    "revenue_district": "Thrissur",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Kodungallur",
+    "location_name": "Kodungallur",
+    "police_district": "Thrissur Rural",
+    "revenue_district": "Thrissur",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Koratty",
+    "location_name": "Koratty",
+    "police_district": "Thrissur Rural",
+    "revenue_district": "Thrissur",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Mala",
+    "location_name": "Mala",
+    "police_district": "Thrissur Rural",
+    "revenue_district": "Thrissur",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Malakkappara",
+    "location_name": "Malakkappara",
+    "police_district": "Thrissur Rural",
+    "revenue_district": "Thrissur",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Mathilakam",
+    "location_name": "Mathilakam",
+    "police_district": "Thrissur Rural",
+    "revenue_district": "Thrissur",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Pudukkad",
+    "location_name": "Pudukkad",
+    "police_district": "Thrissur Rural",
+    "revenue_district": "Thrissur",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Thrissur Rural Cyber",
+    "location_name": "Thrissur Rural Cyber",
+    "police_district": "Thrissur Rural",
+    "revenue_district": "Thrissur",
+    "station_type": "Cyber",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Thrissur Rural Vanitha",
+    "location_name": "Thrissur Rural Vanitha",
+    "police_district": "Thrissur Rural",
+    "revenue_district": "Thrissur",
+    "station_type": "Vanitha/Women",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Vadanappilly",
+    "location_name": "Vadanappilly",
+    "police_district": "Thrissur Rural",
+    "revenue_district": "Thrissur",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Valappad",
+    "location_name": "Valappad",
+    "police_district": "Thrissur Rural",
+    "revenue_district": "Thrissur",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Varantharappilly",
+    "location_name": "Varantharappilly",
+    "police_district": "Thrissur Rural",
+    "revenue_district": "Thrissur",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Vellikulangara",
+    "location_name": "Vellikulangara",
+    "police_district": "Thrissur Rural",
+    "revenue_district": "Thrissur",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Ambalavayal",
+    "location_name": "Ambalavayal",
+    "police_district": "Wayanad",
+    "revenue_district": "Wayanad",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Kalpetta",
+    "location_name": "Kalpetta",
+    "police_district": "Wayanad",
+    "revenue_district": "Wayanad",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Kambalakkad",
+    "location_name": "Kambalakkad",
+    "police_district": "Wayanad",
+    "revenue_district": "Wayanad",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Kenichira",
+    "location_name": "Kenichira",
+    "police_district": "Wayanad",
+    "revenue_district": "Wayanad",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Mananthavady",
+    "location_name": "Mananthavady",
+    "police_district": "Wayanad",
+    "revenue_district": "Wayanad",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Meenangadi",
+    "location_name": "Meenangadi",
+    "police_district": "Wayanad",
+    "revenue_district": "Wayanad",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Meppadi",
+    "location_name": "Meppadi",
+    "police_district": "Wayanad",
+    "revenue_district": "Wayanad",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Padinjarathara",
+    "location_name": "Padinjarathara",
+    "police_district": "Wayanad",
+    "revenue_district": "Wayanad",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Panamaram",
+    "location_name": "Panamaram",
+    "police_district": "Wayanad",
+    "revenue_district": "Wayanad",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Pulpally",
+    "location_name": "Pulpally",
+    "police_district": "Wayanad",
+    "revenue_district": "Wayanad",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Sulthan Bathery",
+    "location_name": "Sulthan Bathery",
+    "police_district": "Wayanad",
+    "revenue_district": "Wayanad",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Thalappuzha",
+    "location_name": "Thalappuzha",
+    "police_district": "Wayanad",
+    "revenue_district": "Wayanad",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Thirunelli",
+    "location_name": "Thirunelli",
+    "police_district": "Wayanad",
+    "revenue_district": "Wayanad",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Thondarnadu",
+    "location_name": "Thondarnadu",
+    "police_district": "Wayanad",
+    "revenue_district": "Wayanad",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Vellamunda",
+    "location_name": "Vellamunda",
+    "police_district": "Wayanad",
+    "revenue_district": "Wayanad",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Vythiri",
+    "location_name": "Vythiri",
+    "police_district": "Wayanad",
+    "revenue_district": "Wayanad",
+    "station_type": "General",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "station_name": "Wayanad Cyber",
+    "location_name": "Wayanad Cyber",
+    "police_district": "Wayanad",
+    "revenue_district": "Wayanad",
+    "station_type": "Cyber",
+    "state": "Kerala",
+    "country": "India"
+  }
+]

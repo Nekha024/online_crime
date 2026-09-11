@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 import "../../css/dashboard/DashboardPages.css";
 import {
   FaBuilding,
@@ -8,107 +9,64 @@ import {
   FaUserShield,
   FaEnvelope,
   FaDirections,
-  FaShieldAlt
+  FaShieldAlt,
+  FaSyncAlt
 } from "react-icons/fa";
 
-const stationsData = [
-  {
-    id: 1,
-    name: "Central Cyber Crime Police Station",
-    jurisdiction: "Central Zone & Tech Park",
-    sho: "Inspector Rajesh Verma",
-    phone: "+91 11-2345-6789",
-    altPhone: "1930 (Cyber Helpline)",
-    email: "cyber.central@police.gov.in",
-    address: "Cyber Cell HQ, Block 4, Metro Police Complex, Metro City",
-    timing: "24/7 Active Duty",
-    distance: "1.8 km",
-    specialty: "Cyber Fraud, Data Theft, Phishing, Online Scams"
-  },
-  {
-    id: 2,
-    name: "Metro North Division Police Station",
-    jurisdiction: "North District & Suburbs",
-    sho: "ACP Vikramaditya Roy",
-    phone: "+91 11-2871-3344",
-    altPhone: "100",
-    email: "north.division@police.gov.in",
-    address: "Old Secretariat Road, Sector 8, North District",
-    timing: "24/7 Active Duty",
-    distance: "3.4 km",
-    specialty: "General Civil Law, Theft, FIR Registration"
-  },
-  {
-    id: 3,
-    name: "Women & Child Safety Special Cell",
-    jurisdiction: "Metropolitan Area",
-    sho: "Sub-Inspector Priya Sharma",
-    phone: "+91 11-2655-9090",
-    altPhone: "1091 (Women Helpline)",
-    email: "women.safety@police.gov.in",
-    address: "Civic Centre Tower, 2nd Floor, Downtown Avenue",
-    timing: "24/7 Dedicated Support",
-    distance: "2.6 km",
-    specialty: "Harassment, Stalking, Cyber Defamation, Child Protection"
-  },
-  {
-    id: 4,
-    name: "Financial Crime & Economic Offenses Wing",
-    jurisdiction: "Commercial & Banking Hub",
-    sho: "DCP Anand Saxena",
-    phone: "+91 11-2490-1122",
-    altPhone: "+91 11-2490-1123",
-    email: "eow.crime@police.gov.in",
-    address: "Bank Street, Financial Towers, South Enclave",
-    timing: "09:00 AM - 08:00 PM (Emergency Desk 24/7)",
-    distance: "4.1 km",
-    specialty: "Banking Frauds, Ponzi Schemes, E-commerce scams"
-  },
-  {
-    id: 5,
-    name: "South Hills Police Station",
-    jurisdiction: "South Zone & University Campus",
-    sho: "Inspector Deepa Menon",
-    phone: "+91 11-2980-4567",
-    altPhone: "112",
-    email: "south.hills@police.gov.in",
-    address: "Near University Gate 3, South Hills Road",
-    timing: "24/7 Active Duty",
-    distance: "5.0 km",
-    specialty: "Campus Security, Public Safety, Cyber Cell Desk"
-  },
-  {
-    id: 6,
-    name: "East Coast Traffic & Crime Precinct",
-    jurisdiction: "East Harbor & Coastal Highway",
-    sho: "Inspector Tariq Khan",
-    phone: "+91 11-2311-8899",
-    altPhone: "103 (Traffic Police)",
-    email: "east.precinct@police.gov.in",
-    address: "Harbor Ring Road, Sector 12",
-    timing: "24/7 Active Duty",
-    distance: "6.7 km",
-    specialty: "Highway Patrol, Emergency Response, Traffic Incidents"
-  }
-];
-
 const PoliceDirectoryPage = () => {
+  const [stations, setStations] = useState([]);
   const [search, setSearch] = useState("");
-  const [selectedJurisdiction, setSelectedJurisdiction] = useState("All");
+  const [selectedDistrict, setSelectedDistrict] = useState("All");
+  const [selectedType, setSelectedType] = useState("All");
+  const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState("");
 
-  const filteredStations = stationsData.filter((st) => {
+  const fetchStations = async () => {
+    setIsLoading(true);
+    setError("");
+    try {
+      const res = await axios.get("http://localhost:8000/api/police/stations/");
+      if (res.data?.success) {
+        setStations(res.data.stations || []);
+      }
+    } catch (err) {
+      console.error("Error fetching police stations from database:", err);
+      setError("Unable to load live police stations from database. Please ensure backend server is running.");
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    fetchStations();
+  }, []);
+
+  const [currentPage, setCurrentPage] = useState(1);
+  const STATIONS_PER_PAGE = 24;
+
+  // Compute unique districts from database results
+  const districts = ["All", ...Array.from(new Set(stations.map(s => s.police_district).filter(Boolean))).sort()];
+
+  const filteredStations = stations.filter((st) => {
+    const term = search.toLowerCase();
     const matchesSearch =
-      st.name.toLowerCase().includes(search.toLowerCase()) ||
-      st.jurisdiction.toLowerCase().includes(search.toLowerCase()) ||
-      st.sho.toLowerCase().includes(search.toLowerCase()) ||
-      st.specialty.toLowerCase().includes(search.toLowerCase());
+      st.station_name.toLowerCase().includes(term) ||
+      st.police_district.toLowerCase().includes(term) ||
+      st.station_code.toLowerCase().includes(term) ||
+      (st.station_type && st.station_type.toLowerCase().includes(term)) ||
+      (st.location_name && st.location_name.toLowerCase().includes(term));
 
-    const matchesFilter =
-      selectedJurisdiction === "All" ||
-      st.specialty.toLowerCase().includes(selectedJurisdiction.toLowerCase());
+    const matchesDistrict = selectedDistrict === "All" || st.police_district === selectedDistrict;
+    const matchesType = selectedType === "All" || (st.station_type && st.station_type.toLowerCase().includes(selectedType.toLowerCase()));
 
-    return matchesSearch && matchesFilter;
+    return matchesSearch && matchesDistrict && matchesType;
   });
+
+  const totalPages = Math.ceil(filteredStations.length / STATIONS_PER_PAGE) || 1;
+  const paginatedStations = filteredStations.slice(
+    (currentPage - 1) * STATIONS_PER_PAGE,
+    currentPage * STATIONS_PER_PAGE
+  );
 
   return (
     <div className="dash-page-container">
@@ -116,32 +74,61 @@ const PoliceDirectoryPage = () => {
       <div className="dash-page-header">
         <div className="dash-page-title-wrap">
           <h2>
-            <FaBuilding style={{ color: "#38bdf8" }} />
+            <FaBuilding style={{ color: "#1e3a8a" }} />
             Police Station & Cyber Cell Directory
           </h2>
           <p>
-            Find authorized stations, station house officers (SHO), 24/7 contact phone numbers, and jurisdiction details.
+            Official Kerala Police Directory synced from the central database. Filter by district, station type, or search by station name.
           </p>
         </div>
+
+        <button 
+          onClick={fetchStations} 
+          className="complaint-action-btn"
+          style={{ display: "flex", alignItems: "center", gap: "8px", padding: "8px 16px" }}
+          title="Refresh database records"
+        >
+          <FaSyncAlt className={isLoading ? "fa-spin" : ""} /> Refresh
+        </button>
       </div>
 
       {/* Filter and Search Bar */}
-      <div className="complaints-filter-bar">
-        {/* Specialty Filter */}
+      <div className="complaints-filter-bar" style={{ flexWrap: "wrap", gap: "12px" }}>
+        {/* District Selector */}
+        <div style={{ minWidth: "180px" }}>
+          <select 
+            className="form-input" 
+            style={{ height: "40px", borderRadius: "6px", padding: "0 12px", background: "#ffffff", color: "#0f172a", border: "1px solid #cbd5e1" }}
+            value={selectedDistrict}
+            onChange={(e) => {
+              setSelectedDistrict(e.target.value);
+              setCurrentPage(1);
+            }}
+          >
+            {districts.map(d => (
+              <option key={d} value={d}>{d === "All" ? "All Districts" : d}</option>
+            ))}
+          </select>
+        </div>
+
+        {/* Type Filter Tabs */}
         <div className="filter-tabs-group">
-          {["All", "Cyber", "Women", "Financial", "General"].map((cat) => (
+          {["All", "Cyber", "Traffic", "Women", "Coastal", "General"].map((cat) => (
             <button
               key={cat}
-              className={`filter-tab-btn ${selectedJurisdiction === cat ? "active" : ""}`}
-              onClick={() => setSelectedJurisdiction(cat)}
+              className={`filter-tab-btn ${selectedType === cat ? "active" : ""}`}
+              onClick={() => {
+                setSelectedType(cat);
+                setCurrentPage(1);
+              }}
             >
-              {cat === "All" ? "All Stations" : `${cat} Cell`}
+              {cat === "All" ? "All Types" : cat}
             </button>
           ))}
         </div>
 
         {/* Search */}
-        <div style={{ position: "relative", minWidth: "280px" }}>
+        <div style={{ position: "relative", flex: 1, minWidth: "220px" }}>
           <FaSearch
             style={{
               position: "absolute",
@@ -154,90 +141,150 @@ const PoliceDirectoryPage = () => {
           <input
             type="text"
             className="form-input"
-            style={{ paddingLeft: "38px", height: "42px", borderRadius: "20px" }}
-            placeholder="Search by station, officer, or crime type..."
+            style={{ paddingLeft: "38px", height: "40px", borderRadius: "6px", width: "100%" }}
+            placeholder="Search by station name, district, or code..."
             value={search}
-            onChange={(e) => setSearch(e.target.value)}
+            onChange={(e) => {
+              setSearch(e.target.value);
+              setCurrentPage(1);
+            }}
           />
         </div>
       </div>
 
-      {/* Directory Grid */}
-      <div className="directory-grid">
-        {filteredStations.map((station) => (
-          <div key={station.id} className="station-card">
-            <div>
-              <div className="station-card-top">
-                <span className="station-badge-jurisdiction">
-                  📍 {station.distance} away
-                </span>
-                <span
-                  style={{
-                    fontSize: "0.72rem",
-                    color: "#34d399",
-                    background: "rgba(16, 185, 129, 0.15)",
-                    padding: "3px 8px",
-                    borderRadius: "6px",
-                    fontWeight: "600"
-                  }}
-                >
-                  {station.timing}
-                </span>
-              </div>
+      {/* Status Indicators */}
+      {error && (
+        <div style={{ background: "#fef2f2", color: "#991b1b", border: "1px solid #fecaca", padding: "12px 16px", borderRadius: "6px", marginBottom: "20px" }}>
+          {error}
+        </div>
+      )}
 
-              <h3 className="station-card-name">{station.name}</h3>
-
-              <div style={{ marginTop: "14px" }}>
-                <div className="station-info-row">
-                  <FaUserShield className="station-info-icon" />
-                  <span>
-                    <strong>SHO / In-Charge:</strong> {station.sho}
-                  </span>
-                </div>
-
-                <div className="station-info-row">
-                  <FaMapMarkerAlt className="station-info-icon" />
-                  <span>{station.address}</span>
-                </div>
-
-                <div className="station-info-row">
-                  <FaShieldAlt className="station-info-icon" />
-                  <span style={{ color: "#94a3b8", fontSize: "0.78rem" }}>
-                    <strong>Specialization:</strong> {station.specialty}
-                  </span>
-                </div>
-
-                <div className="station-info-row">
-                  <FaEnvelope className="station-info-icon" />
-                  <span>{station.email}</span>
-                </div>
-              </div>
-            </div>
-
-            {/* Bottom Actions */}
-            <div style={{ display: "flex", gap: "10px", marginTop: "10px" }}>
-              <a
-                href={`tel:${station.phone}`}
-                className="btn-station-call"
-                style={{ flex: 1 }}
-              >
-                <FaPhoneAlt /> Call ({station.phone})
-              </a>
-
-              <button
-                className="complaint-action-btn"
-                style={{ padding: "8px 14px" }}
-                onClick={() =>
-                  alert(`Navigating to ${station.name} via GPS Map (Simulated)...`)
-                }
-                title="Get Directions"
-              >
-                <FaDirections /> Route
-              </button>
-            </div>
+      {isLoading ? (
+        <div style={{ textAlign: "center", padding: "40px", color: "#1e3a8a" }}>
+          <FaSyncAlt className="fa-spin" style={{ fontSize: "1.8rem", marginBottom: "12px" }} />
+          <div>Loading verified police stations from database...</div>
+        </div>
+      ) : (
+        <>
+          <div style={{ marginBottom: "16px", color: "#64748b", fontSize: "0.88rem" }}>
+            Showing <strong>{(currentPage - 1) * STATIONS_PER_PAGE + 1}</strong>–<strong>{Math.min(currentPage * STATIONS_PER_PAGE, filteredStations.length)}</strong> of <strong>{filteredStations.length}</strong> verified police stations in database
           </div>
-        ))}
-      </div>
+
+          {/* Directory Grid */}
+          <div className="directory-grid">
+            {paginatedStations.map((station) => (
+              <div key={station.id} className="station-card">
+                <div>
+                  <div className="station-card-top">
+                    <span className="station-badge-jurisdiction">
+                      📍 {station.police_district}
+                    </span>
+                    <span
+                      style={{
+                        fontSize: "0.74rem",
+                        color: station.station_type === "Cyber" ? "#1e3a8a" : "#166534",
+                        background: station.station_type === "Cyber" ? "#eff6ff" : "#f0fdf4",
+                        border: station.station_type === "Cyber" ? "1px solid #bfdbfe" : "1px solid #bbf7d0",
+                        padding: "3px 8px",
+                        borderRadius: "4px",
+                        fontWeight: "600"
+                      }}
+                    >
+                      {station.station_type || "General"}
+                    </span>
+                  </div>
+
+                  <h3 className="station-card-name">{station.station_name}</h3>
+
+                  <div style={{ marginTop: "14px" }}>
+                    <div className="station-info-row">
+                      <FaUserShield className="station-info-icon" />
+                      <span>
+                        <strong>Code:</strong> {station.station_code}
+                      </span>
+                    </div>
+
+                    <div className="station-info-row">
+                      <FaMapMarkerAlt className="station-info-icon" />
+                      <span>{station.address || `${station.location_name || station.station_name}, ${station.revenue_district}, ${station.state}`}</span>
+                    </div>
+
+                    <div className="station-info-row">
+                      <FaShieldAlt className="station-info-icon" />
+                      <span style={{ color: "#64748b", fontSize: "0.78rem" }}>
+                        <strong>Jurisdiction:</strong> {station.police_district} Division
+                      </span>
+                    </div>
+
+                    {station.email && (
+                      <div className="station-info-row">
+                        <FaEnvelope className="station-info-icon" />
+                        <span>{station.email}</span>
+                      </div>
+                    )}
+                  </div>
+                </div>
+
+                {/* Bottom Actions */}
+                <div style={{ display: "flex", gap: "10px", marginTop: "14px" }}>
+                  <a
+                    href={`tel:${station.phone || "112"}`}
+                    className="btn-station-call"
+                    style={{ flex: 1 }}
+                  >
+                    <FaPhoneAlt /> {station.phone ? `Call (${station.phone})` : "Helpline (112)"}
+                  </a>
+
+                  <button
+                    className="complaint-action-btn"
+                    style={{ padding: "8px 14px" }}
+                    onClick={() =>
+                      alert(`GPS location for ${station.station_name} (${station.police_district})`)
+                    }
+                    title="Station Location"
+                  >
+                    <FaDirections /> Location
+                  </button>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* Pagination Controls */}
+          {totalPages > 1 && (
+            <div className="directory-pagination">
+              <div className="page-info-text">
+                Showing <strong>{(currentPage - 1) * STATIONS_PER_PAGE + 1}</strong>–<strong>{Math.min(currentPage * STATIONS_PER_PAGE, filteredStations.length)}</strong> of <strong>{filteredStations.length}</strong> stations
+              </div>
+              <div className="pagination-controls">
+                <button
+                  className="page-nav-btn"
+                  onClick={() => {
+                    setCurrentPage(prev => Math.max(prev - 1, 1));
+                    window.scrollTo({ top: 120, behavior: "smooth" });
+                  }}
+                  disabled={currentPage === 1}
+                >
+                  ← Previous
+                </button>
+                <span className="page-number-indicator">
+                  Page {currentPage} of {totalPages}
+                </span>
+                <button
+                  className="page-nav-btn"
+                  onClick={() => {
+                    setCurrentPage(prev => Math.min(prev + 1, totalPages));
+                    window.scrollTo({ top: 120, behavior: "smooth" });
+                  }}
+                  disabled={currentPage === totalPages}
+                >
+                  Next →
+                </button>
+              </div>
+            </div>
+          )}
+        </>
+      )}
     </div>
   );
 };
