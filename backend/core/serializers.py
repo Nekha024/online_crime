@@ -95,6 +95,7 @@ class CrimeReportDetailSerializer(serializers.ModelSerializer):
             'priority',
             'status',
             'evidence_info',
+            'evidence_file',
             'investigation_notes',
             'assigned_officer',
             'complainant_name',
@@ -162,6 +163,10 @@ class ComplaintDetailSerializer(serializers.ModelSerializer):
             'priority',
             'status',
             'evidence_info',
+            'evidence_file',
+            'audio_file',
+            'latitude',
+            'longitude',
             'investigation_notes',
             'assigned_officer',
             'complainant_name',
@@ -172,6 +177,12 @@ class ComplaintDetailSerializer(serializers.ModelSerializer):
             'history',
             'created_at',
             'updated_at'
+        ]
+        read_only_fields = [
+            'id', 'complaint_id', 'date', 'formatted_date',
+            'station_name', 'station_code', 'police_district',
+            'history', 'created_at', 'updated_at',
+            'latitude', 'longitude',
         ]
 
     def get_formatted_date(self, obj):

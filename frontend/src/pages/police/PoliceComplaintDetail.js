@@ -11,7 +11,9 @@ import {
   FaClock,
   FaShieldAlt,
   FaUserShield,
-  FaFileAlt
+  FaFileAlt,
+  FaMapMarkerAlt,
+  FaMicrophone
 } from 'react-icons/fa';
 import '../../css/PoliceDashboard.css';
 
@@ -204,13 +206,53 @@ const PoliceComplaintDetail = () => {
                 <FaClipboardList /> Submitted Evidence & Information
               </h3>
             </div>
-            {complaint.evidence_info ? (
-              <div style={{ background: '#f8fafc', border: '1px solid #e2e8f0', borderRadius: '6px', padding: '14px', color: '#334155', fontSize: '0.88rem', fontFamily: 'monospace' }}>
+            {complaint.evidence_info && (
+              <div style={{ background: '#f8fafc', border: '1px solid #e2e8f0', borderRadius: '6px', padding: '14px', color: '#334155', fontSize: '0.88rem', fontFamily: 'monospace', marginBottom: '10px' }}>
+                <div style={{ fontSize: '0.72rem', color: '#64748b', textTransform: 'uppercase', fontWeight: 600, marginBottom: '4px' }}>Suspect / Additional Info</div>
                 {complaint.evidence_info}
               </div>
-            ) : (
+            )}
+
+            {complaint.evidence_file && (
+              <div style={{ marginTop: '10px', marginBottom: '10px' }}>
+                <a href={`http://localhost:8000${complaint.evidence_file}`} target="_blank" rel="noreferrer" className="btn-view-details" style={{ display: 'inline-flex', alignItems: 'center', gap: '8px' }}>
+                  <FaFileAlt /> View Uploaded Evidence File
+                </a>
+              </div>
+            )}
+
+            {complaint.audio_file && (
+              <div style={{ marginTop: '12px', background: '#f0f9ff', border: '1px solid #bae6fd', borderRadius: '8px', padding: '12px' }}>
+                <div style={{ fontSize: '0.72rem', color: '#0c4a6e', textTransform: 'uppercase', fontWeight: 700, marginBottom: '8px', display: 'flex', alignItems: 'center', gap: '6px' }}>
+                  <FaMicrophone /> Voice Statement Recording
+                </div>
+                <audio controls src={`http://localhost:8000${complaint.audio_file}`} style={{ width: '100%', height: '36px' }} />
+              </div>
+            )}
+
+            {complaint.latitude && complaint.longitude && (
+              <div style={{ marginTop: '12px', background: '#f0fdf4', border: '1px solid #bbf7d0', borderRadius: '8px', padding: '12px' }}>
+                <div style={{ fontSize: '0.72rem', color: '#14532d', textTransform: 'uppercase', fontWeight: 700, marginBottom: '6px', display: 'flex', alignItems: 'center', gap: '6px' }}>
+                  <FaMapMarkerAlt /> GPS Coordinates
+                </div>
+                <p style={{ margin: '0 0 8px', fontFamily: 'monospace', color: '#374151', fontSize: '0.88rem' }}>
+                  {parseFloat(complaint.latitude).toFixed(6)}°N, {parseFloat(complaint.longitude).toFixed(6)}°E
+                </p>
+                <a
+                  href={`https://www.google.com/maps?q=${complaint.latitude},${complaint.longitude}`}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="btn-view-details"
+                  style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', fontSize: '0.82rem' }}
+                >
+                  <FaMapMarkerAlt /> Open in Google Maps
+                </a>
+              </div>
+            )}
+
+            {!complaint.evidence_info && !complaint.evidence_file && !complaint.audio_file && !complaint.latitude && (
               <p style={{ color: '#64748b', fontStyle: 'italic', margin: 0 }}>
-                No supplementary digital evidence provided by complainant.
+                No supplementary evidence provided by complainant.
               </p>
             )}
           </div>
