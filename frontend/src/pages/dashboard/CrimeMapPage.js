@@ -1,4 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { MapContainer, TileLayer, Marker, Popup, useMap } from "react-leaflet";
+import L from "leaflet";
+import "leaflet/dist/leaflet.css";
 import "../../css/dashboard/DashboardPages.css";
 import {
   FaMapMarkedAlt,
@@ -9,83 +12,75 @@ import {
   FaInfoCircle
 } from "react-icons/fa";
 
-const mapNodes = [
-  {
-    id: 1,
-    name: "Downtown Financial District",
-    type: "high",
-    risk: "High Alert",
-    top: "35%",
-    left: "48%",
-    incidents: "14 reported this week",
-    station: "Cyber Crime Cell - Central",
-    note: "High volume of banking phishing & card skimming reports."
-  },
-  {
-    id: 2,
-    name: "Tech Park & IT Corridor",
-    type: "medium",
-    risk: "Moderate Risk",
-    top: "22%",
-    left: "68%",
-    incidents: "6 reported this week",
-    station: "East Coast Precinct",
-    note: "E-Commerce delivery fraud & scam job offers."
-  },
-  {
-    id: 3,
-    name: "Greenwood Residential Suburb",
-    type: "safe",
-    risk: "Safe Zone",
-    top: "65%",
-    left: "30%",
-    incidents: "1 reported this month",
-    station: "Metro North Division",
-    note: "Active community policing and low incident density."
-  },
-  {
-    id: 4,
-    name: "Central Metro Transit Terminal",
-    type: "high",
-    risk: "High Alert",
-    top: "48%",
-    left: "25%",
-    incidents: "11 reported this week",
-    station: "Central Cyber Crime Police Station",
-    note: "Public Wi-Fi packet sniffing & fake QR code scams reported."
-  },
-  {
-    id: 5,
-    name: "University Campus Enclave",
-    type: "safe",
-    risk: "Safe Zone",
-    top: "75%",
-    left: "72%",
-    incidents: "2 reported this month",
-    station: "South Hills Police Station",
-    note: "Dedicated student safety patrols active 24/7."
-  },
-  {
-    id: 6,
-    name: "North Commercial Complex",
-    type: "medium",
-    risk: "Moderate Risk",
-    top: "18%",
-    left: "32%",
-    incidents: "5 reported this week",
-    station: "North Division Station",
-    note: "Counterfeit merchant POS devices under investigation."
-  }
-];
+// Marker icon fix
+delete L.Icon.Default.prototype._getIconUrl;
+L.Icon.Default.mergeOptions({
+  iconRetinaUrl: require("leaflet/dist/images/marker-icon-2x.png"),
+  iconUrl: require("leaflet/dist/images/marker-icon.png"),
+  shadowUrl: require("leaflet/dist/images/marker-shadow.png"),
+});
+
+// Custom colored icons based on priority
+const createCustomIcon = (color) => {
+  const markerHtmlStyles = `
+    background-color: ${color};
+    width: 24px;
+    height: 24px;
+    display: block;
+    left: -12px;
+    top: -12px;
+    position: relative;
+    border-radius: 50%;
+    border: 3px solid #FFFFFF;
+    box-shadow: 0 0 4px rgba(0,0,0,0.4);
+  `;
+  return L.divIcon({
+    className: "custom-pin",
+    iconAnchor: [0, 24],
+    popupAnchor: [0, -30],
+    html: `<span style="${markerHtmlStyles}" />`
+  });
+};
+
+const iconCritical = createCustomIcon("#dc2626"); // Red
+const iconHigh = createCustomIcon("#ea580c");     // Orange
+const iconMedium = createCustomIcon("#eab308");   // Yellow
+const iconLow = createCustomIcon("#22c55e");      // Green
 
 const CrimeMapPage = () => {
-  const [selectedNode, setSelectedNode] = useState(mapNodes[0]);
+  const [mapNodes, setMapNodes] = useState([]);
   const [activeFilter, setActiveFilter] = useState("all");
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    fetch("http://127.0.0.1:8000/api/public/map-data/")
+      .then(res => res.json())
+      .then(data => {
+        if (data.success) {
+          setMapNodes(data.nodes);
+        }
+      })
+      .catch(console.error)
+      .finally(() => setLoading(false));
+  }, []);
 
   const filteredNodes = mapNodes.filter((node) => {
     if (activeFilter === "all") return true;
-    return node.type === activeFilter;
+    if (activeFilter === "high" && (node.priority === "Critical" || node.priority === "High")) return true;
+    if (activeFilter === "medium" && node.priority === "Medium") return true;
+    if (activeFilter === "safe" && node.priority === "Low") return true;
+    return false;
   });
+
+  const getIconForPriority = (priority) => {
+    switch (priority) {
+      case "Critical": return iconCritical;
+      case "High": return iconHigh;
+      case "Medium": return iconMedium;
+      case "Low": return iconLow;
+      default: return iconMedium;
+    }
+  };
 
   return (
     <div className="dash-page-container">
@@ -97,139 +92,81 @@ const CrimeMapPage = () => {
             Live Crime & Safety Hotspot Map
           </h2>
           <p>
-            Interactive GIS map visual highlighting regional risk zones, police patrol coverage, and active incident hotspots.
+            Interactive map displaying real reported incidents across the city.
           </p>
         </div>
       </div>
 
       {/* Main Map Canvas Card */}
-      <div className="crime-map-wrapper">
+      <div className="crime-map-wrapper" style={{ position: "relative" }}>
+        
         {/* Floating Map Control Info */}
-        <div className="map-control-overlay">
-          <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
+        <div className="map-control-overlay" style={{ position: "absolute", top: "20px", right: "20px", zIndex: 1000, background: "white", padding: "10px", borderRadius: "8px", boxShadow: "0 2px 10px rgba(0,0,0,0.1)" }}>
+          <div style={{ display: "flex", alignItems: "center", gap: "8px", marginBottom: "8px" }}>
             <FaCompass style={{ color: "#1e3a8a" }} />
             <strong style={{ color: "#0f172a", fontSize: "0.88rem" }}>
-              District Incident Index
+              Filter by Priority
             </strong>
           </div>
-
-          <div className="map-legend-pills">
-            <button
-              onClick={() => setActiveFilter("all")}
-              className={`filter-tab-btn ${activeFilter === "all" ? "active" : ""}`}
-              style={{ padding: "4px 10px", fontSize: "0.76rem" }}
-            >
-              All Zones
+          <div className="map-legend-pills" style={{ display: "flex", flexDirection: "column", gap: "6px" }}>
+            <button onClick={() => setActiveFilter("all")} className={`filter-tab-btn ${activeFilter === "all" ? "active" : ""}`} style={{ fontSize: "0.76rem" }}>
+              All Zones ({mapNodes.length})
             </button>
-            <button
-              onClick={() => setActiveFilter("high")}
-              className={`filter-tab-btn ${activeFilter === "high" ? "active" : ""}`}
-              style={{ padding: "4px 10px", fontSize: "0.76rem" }}
-            >
-              <span className="legend-color-dot high" style={{ display: "inline-block", marginRight: "4px" }} /> High Alert
+            <button onClick={() => setActiveFilter("high")} className={`filter-tab-btn ${activeFilter === "high" ? "active" : ""}`} style={{ fontSize: "0.76rem" }}>
+              <span className="legend-color-dot high" style={{ display: "inline-block", marginRight: "4px", background: "#dc2626", width: "10px", height: "10px", borderRadius: "50%" }} /> High/Critical Alert
             </button>
-            <button
-              onClick={() => setActiveFilter("medium")}
-              className={`filter-tab-btn ${activeFilter === "medium" ? "active" : ""}`}
-              style={{ padding: "4px 10px", fontSize: "0.76rem" }}
-            >
-              <span className="legend-color-dot medium" style={{ display: "inline-block", marginRight: "4px" }} /> Moderate
+            <button onClick={() => setActiveFilter("medium")} className={`filter-tab-btn ${activeFilter === "medium" ? "active" : ""}`} style={{ fontSize: "0.76rem" }}>
+              <span className="legend-color-dot medium" style={{ display: "inline-block", marginRight: "4px", background: "#eab308", width: "10px", height: "10px", borderRadius: "50%" }} /> Moderate Risk
             </button>
-            <button
-              onClick={() => setActiveFilter("safe")}
-              className={`filter-tab-btn ${activeFilter === "safe" ? "active" : ""}`}
-              style={{ padding: "4px 10px", fontSize: "0.76rem" }}
-            >
-              <span className="legend-color-dot safe" style={{ display: "inline-block", marginRight: "4px" }} /> Safe
+            <button onClick={() => setActiveFilter("safe")} className={`filter-tab-btn ${activeFilter === "safe" ? "active" : ""}`} style={{ fontSize: "0.76rem" }}>
+              <span className="legend-color-dot safe" style={{ display: "inline-block", marginRight: "4px", background: "#22c55e", width: "10px", height: "10px", borderRadius: "50%" }} /> Low Risk
             </button>
           </div>
         </div>
 
         {/* Map Canvas Background */}
-        <div className="map-canvas-visual">
-          <div className="map-grid-lines" />
-
-          {/* Render Zone Node Pins */}
-          {filteredNodes.map((node) => (
-            <div
-              key={node.id}
-              className="map-zone-node"
-              style={{ top: node.top, left: node.left }}
-              onClick={() => setSelectedNode(node)}
-            >
-              <div className={`zone-pulse-circle ${node.type}`}>
-                {node.type === "high" && <FaExclamationTriangle />}
-                {node.type === "medium" && <FaInfoCircle />}
-                {node.type === "safe" && <FaCheckCircle />}
-              </div>
-
-              {selectedNode && selectedNode.id === node.id && (
-                <div className="zone-tooltip-card">
-                  <div style={{ fontWeight: "700", color: "#fff", fontSize: "0.85rem" }}>
-                    {node.name}
-                  </div>
-                  <div style={{ fontSize: "0.75rem", color: "#93c5fd" }}>
-                    {node.risk} • {node.incidents}
-                  </div>
-                </div>
-              )}
+        <div style={{ height: "600px", borderRadius: "12px", overflow: "hidden", border: "2px solid #e2e8f0" }}>
+          {loading ? (
+            <div style={{ display: "flex", alignItems: "center", justifyContent: "center", height: "100%", background: "#f8fafc" }}>
+              Loading map data...
             </div>
-          ))}
+          ) : (
+            <MapContainer center={[10.8505, 76.2711]} zoom={9} style={{ height: "100%", width: "100%", zIndex: 1 }}>
+              <TileLayer
+                attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+                url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+              />
+              
+              {filteredNodes.map((node) => (
+                <Marker 
+                  key={node.id} 
+                  position={[node.lat, node.lng]}
+                  icon={getIconForPriority(node.priority)}
+                >
+                  <Popup>
+                    <div style={{ padding: "4px" }}>
+                      <div style={{ fontSize: "0.7rem", color: "#64748b", fontWeight: 700, textTransform: "uppercase" }}>
+                        {node.priority} Priority
+                      </div>
+                      <h4 style={{ margin: "4px 0", color: "#0f172a", fontSize: "0.95rem" }}>
+                        {node.title}
+                      </h4>
+                      <p style={{ margin: "0 0 6px", color: "#334155", fontSize: "0.8rem" }}>
+                        {node.category}
+                      </p>
+                      <div style={{ borderTop: "1px solid #e2e8f0", paddingTop: "6px", fontSize: "0.75rem", color: "#475569" }}>
+                        <strong>Station:</strong> {node.station}<br/>
+                        <strong>Status:</strong> {node.status}<br/>
+                        <strong>Date:</strong> {node.date}
+                      </div>
+                    </div>
+                  </Popup>
+                </Marker>
+              ))}
+            </MapContainer>
+          )}
         </div>
       </div>
-
-      {/* Zone Details & Safety Advisory Box */}
-      {selectedNode && (
-        <div className="recent-complaints-card">
-          <div className="chart-card-header">
-            <h3>
-              <FaShieldAlt style={{ color: "#1e3a8a" }} />
-              Zone Safety Analysis: {selectedNode.name}
-            </h3>
-            <span
-              className={`badge-priority ${
-                selectedNode.type === "high"
-                  ? "priority-critical"
-                  : selectedNode.type === "medium"
-                  ? "priority-high"
-                  : "priority-low"
-              }`}
-            >
-              {selectedNode.risk}
-            </span>
-          </div>
-
-          <div
-            style={{
-              display: "grid",
-              gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))",
-              gap: "16px",
-              marginTop: "14px"
-            }}
-          >
-            <div style={{ background: "#f8fafc", border: "1px solid #e2e8f0", padding: "14px", borderRadius: "6px" }}>
-              <div style={{ fontSize: "0.75rem", color: "#64748b", textTransform: "uppercase", fontWeight: "600" }}>Recent Incidents:</div>
-              <div style={{ fontWeight: "700", color: "#0f172a", fontSize: "1rem", marginTop: "4px" }}>
-                {selectedNode.incidents}
-              </div>
-            </div>
-
-            <div style={{ background: "#f8fafc", border: "1px solid #e2e8f0", padding: "14px", borderRadius: "6px" }}>
-              <div style={{ fontSize: "0.75rem", color: "#64748b", textTransform: "uppercase", fontWeight: "600" }}>Station In Charge:</div>
-              <div style={{ fontWeight: "700", color: "#1e3a8a", fontSize: "0.95rem", marginTop: "4px" }}>
-                {selectedNode.station}
-              </div>
-            </div>
-
-            <div style={{ background: "#f8fafc", border: "1px solid #e2e8f0", padding: "14px", borderRadius: "6px" }}>
-              <div style={{ fontSize: "0.75rem", color: "#64748b", textTransform: "uppercase", fontWeight: "600" }}>Advisory / Notes:</div>
-              <div style={{ color: "#334155", fontSize: "0.85rem", marginTop: "4px", lineHeight: "1.4" }}>
-                {selectedNode.note}
-              </div>
-            </div>
-          </div>
-        </div>
-      )}
     </div>
   );
 };

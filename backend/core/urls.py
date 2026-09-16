@@ -4,6 +4,9 @@ from . import views_police
 
 urlpatterns = [
     path("test/", views.test_api, name="test_api"),
+    path("complaints/submit/", views.create_complaint, name="submit_complaint"),
+    path("complaints/my/", views.get_my_complaints, name="my_complaints"),
+    path("public/map-data/", views.public_map_data, name="public_map_data"),
     
     # Police Authentication & Session Management
     path("police/login/", views_police.police_login_view, name="police_login"),

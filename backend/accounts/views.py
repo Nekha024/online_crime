@@ -1,5 +1,8 @@
+from django.contrib.auth import login, logout, authenticate
+from django.contrib.auth.models import User
 from django.contrib.auth import login, logout
 from django.views.decorators.csrf import csrf_exempt
+from rest_framework.decorators import api_view, permission_classes
 from rest_framework.decorators import api_view, permission_classes, authentication_classes
 from rest_framework.permissions import AllowAny, IsAuthenticated
 from rest_framework.response import Response
@@ -18,10 +21,14 @@ User = get_user_model()
 @authentication_classes([])
 @permission_classes([AllowAny])
 def register_view(request):
+    username = request.data.get('username')
     full_name = request.data.get('full_name')
     phone_number = request.data.get('phone_number')
     email = request.data.get('email')
     password = request.data.get('password')
+    
+    if not username or not password:
+        return Response({'success': False, 'message': 'Username and password required.'}, status=status.HTTP_400_BAD_REQUEST)
     confirm_password = request.data.get('confirm_password')
 
     if not all([full_name, phone_number, email, password, confirm_password]):
@@ -33,6 +40,12 @@ def register_view(request):
     if User.objects.filter(phone_number=phone_number).exists():
         return Response({'success': False, 'message': 'Phone number already registered.'}, status=status.HTTP_400_BAD_REQUEST)
         
+    if User.objects.filter(username=username).exists():
+        return Response({'success': False, 'message': 'Username already exists.'}, status=status.HTTP_400_BAD_REQUEST)
+        
+    user = User.objects.create_user(username=username, email=email, password=password)
+    login(request, user)
+    return Response({'success': True, 'message': 'Account created successfully.', 'user': {'username': user.username}}, status=status.HTTP_201_CREATED)
     if User.objects.filter(email=email).exists():
         return Response({'success': False, 'message': 'Email already registered.'}, status=status.HTTP_400_BAD_REQUEST)
 
@@ -98,7 +111,6 @@ def login_view(request):
     # Check if this is an email/password login
     email = request.data.get('email')
     password = request.data.get('password')
-    
     if email and password:
         try:
             user = User.objects.get(email=email)

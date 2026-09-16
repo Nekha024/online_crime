@@ -23,12 +23,13 @@ const ViewComplaintsPage = () => {
 
   // Check URL query parameters if coming from search or quick link
   useEffect(() => {
+    if (complaints.length === 0) return;
     const params = new URLSearchParams(location.search);
     const idParam = params.get("id");
     const searchParam = params.get("search");
 
     if (idParam) {
-      const match = complaints.find((c) => c.id === idParam);
+      const match = complaints.find((c) => c.complaint_id === idParam || c.id === idParam);
       if (match) setSelectedComplaint(match);
     }
 
@@ -39,22 +40,29 @@ const ViewComplaintsPage = () => {
 
   // Filter complaints based on tab and search query
   const filteredComplaints = complaints.filter((item) => {
+    const status = item.status || "Submitted";
     const matchesTab =
       activeTab === "All"
         ? true
         : activeTab === "Pending"
-        ? item.status === "Pending Review"
+        ? (status === "Submitted" || status === "Under Review")
         : activeTab === "Investigation"
-        ? item.status === "Under Investigation"
+        ? (status === "Under Investigation" || status === "Assigned")
         : activeTab === "Resolved"
-        ? item.status === "Resolved"
+        ? (status === "Resolved" || status === "Closed")
         : true;
 
+    const searchLower = searchTerm.toLowerCase();
+    const title = item.title || "";
+    const category = item.complaint_type || "";
+    const loc = item.location || "";
+    const c_id = item.complaint_id || "";
+
     const matchesSearch =
-      item.id.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      item.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      item.category.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      item.location.toLowerCase().includes(searchTerm.toLowerCase());
+      c_id.toLowerCase().includes(searchLower) ||
+      title.toLowerCase().includes(searchLower) ||
+      category.toLowerCase().includes(searchLower) ||
+      loc.toLowerCase().includes(searchLower);
 
     return matchesTab && matchesSearch;
   });
@@ -132,9 +140,9 @@ const ViewComplaintsPage = () => {
             <tbody>
               {filteredComplaints.length > 0 ? (
                 filteredComplaints.map((c) => (
-                  <tr key={c.id}>
+                  <tr key={c.id || c.complaint_id}>
                     <td>
-                      <span className="fir-code-tag">{c.id}</span>
+                      <span className="fir-code-tag">{c.complaint_id}</span>
                     </td>
                     <td>
                       <div style={{ fontWeight: "600", color: "#0f172a" }}>
@@ -146,24 +154,24 @@ const ViewComplaintsPage = () => {
                     </td>
                     <td>
                       <span style={{ fontSize: "0.84rem", color: "#334155" }}>
-                        {c.category}
+                        {c.complaint_type}
                       </span>
                     </td>
-                    <td style={{ fontSize: "0.85rem", color: "#64748b" }}>{c.date}</td>
+                    <td style={{ fontSize: "0.85rem", color: "#64748b" }}>{c.formatted_date || c.date}</td>
                     <td>
                       <div style={{ fontSize: "0.84rem", color: "#0f172a", fontWeight: "500" }}>
-                        {c.officer}
+                        {c.assigned_officer || 'Pending'}
                       </div>
                       <div style={{ fontSize: "0.74rem", color: "#64748b" }}>
-                        {c.station}
+                        {c.station_name || c.station}
                       </div>
                     </td>
                     <td>
                       <span
                         className={`status-pill ${
-                          c.status === "Resolved"
+                          c.status === "Resolved" || c.status === "Closed"
                             ? "resolved"
-                            : c.status === "Under Investigation"
+                            : c.status === "Under Investigation" || c.status === "Assigned"
                             ? "investigation"
                             : "pending"
                         }`}
@@ -199,7 +207,7 @@ const ViewComplaintsPage = () => {
           <div className="modal-content-custom" onClick={(e) => e.stopPropagation()}>
             <div className="modal-header-custom">
               <div>
-                <span className="fir-code-tag">{selectedComplaint.id}</span>
+                <span className="fir-code-tag">{selectedComplaint.complaint_id}</span>
                 <h3 style={{ marginTop: "4px" }}>{selectedComplaint.title}</h3>
               </div>
               <button
@@ -213,8 +221,8 @@ const ViewComplaintsPage = () => {
 
             <div className="modal-body-custom">
               <div style={{ display: "flex", gap: "8px", flexWrap: "wrap" }}>
-                <span className="meta-pill">Category: {selectedComplaint.category}</span>
-                <span className="meta-pill">Date: {selectedComplaint.date}</span>
+                <span className="meta-pill">Category: {selectedComplaint.complaint_type}</span>
+                <span className="meta-pill">Date: {selectedComplaint.formatted_date || selectedComplaint.date}</span>
                 <span className="meta-pill" style={{ background: "#f0fdf4", color: "#15803d", borderColor: "#bbf7d0" }}>
                   Status: {selectedComplaint.status}
                 </span>
@@ -242,7 +250,7 @@ const ViewComplaintsPage = () => {
                     <FaUserShield style={{ marginRight: "4px" }} /> Assigned Officer
                   </div>
                   <div style={{ fontWeight: "600", color: "#0f172a", marginTop: "2px", fontSize: "0.92rem" }}>
-                    {selectedComplaint.officer || "Station Duty Officer"}
+                    {selectedComplaint.assigned_officer || "Pending Assignment"}
                   </div>
                 </div>
 
@@ -251,7 +259,7 @@ const ViewComplaintsPage = () => {
                     <FaBuilding style={{ marginRight: "4px" }} /> Station Jurisdiction
                   </div>
                   <div style={{ fontWeight: "600", color: "#0f172a", marginTop: "2px", fontSize: "0.92rem" }}>
-                    {selectedComplaint.station}
+                    {selectedComplaint.station_name || selectedComplaint.station}
                   </div>
                 </div>
               </div>
@@ -261,12 +269,12 @@ const ViewComplaintsPage = () => {
                 Case Investigation Progress
               </h4>
               <div className="case-timeline-flow" style={{ background: "#f8fafc", border: "1px solid #e2e8f0", borderRadius: "6px", padding: "16px" }}>
-                {selectedComplaint.timeline && selectedComplaint.timeline.length > 0 ? (
-                  selectedComplaint.timeline.map((step, idx) => (
+                {selectedComplaint.history && selectedComplaint.history.length > 0 ? (
+                  selectedComplaint.history.map((step, idx) => (
                     <div key={idx} className="timeline-step-item" style={{ marginBottom: "12px", borderLeft: "2px solid #1e3a8a", paddingLeft: "12px" }}>
-                      <div style={{ fontWeight: 600, color: "#1e3a8a", fontSize: "0.85rem" }}>{step.status}</div>
-                      <div style={{ fontSize: "0.74rem", color: "#64748b" }}>{step.date}</div>
-                      <div style={{ fontSize: "0.84rem", color: "#334155", marginTop: "2px" }}>{step.note}</div>
+                      <div style={{ fontWeight: 600, color: "#1e3a8a", fontSize: "0.85rem" }}>{step.new_status}</div>
+                      <div style={{ fontSize: "0.74rem", color: "#64748b" }}>{step.timestamp}</div>
+                      <div style={{ fontSize: "0.84rem", color: "#334155", marginTop: "2px" }}>{step.remarks}</div>
                     </div>
                   ))
                 ) : (
@@ -277,7 +285,7 @@ const ViewComplaintsPage = () => {
               <div style={{ marginTop: "10px", display: "flex", justifyContent: "flex-end" }}>
                 <button
                   className="btn-dash-primary"
-                  onClick={() => alert(`Downloading official digital FIR copy for ${selectedComplaint.id}...`)}
+                  onClick={() => alert(`Downloading official digital FIR copy for ${selectedComplaint.complaint_id}...`)}
                 >
                   <FaFilePdf />
                   <span>Download Acknowledgment (PDF)</span>

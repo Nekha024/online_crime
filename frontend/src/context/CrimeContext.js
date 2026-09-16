@@ -3,10 +3,8 @@ import api from "../api/api";
 
 const CrimeContext = createContext();
 
-const initialComplaints = [];
-
 export const CrimeProvider = ({ children }) => {
-  const [complaints, setComplaints] = useState(initialComplaints);
+  const [complaints, setComplaints] = useState([]);
   const [userProfile, setUserProfile] = useState({
     name: "Loading...", 
     email: "",
@@ -21,7 +19,7 @@ export const CrimeProvider = ({ children }) => {
   const [notifications, setNotifications] = useState([]);
 
   useEffect(() => {
-    const fetchUser = async () => {
+    const fetchUserAndComplaints = async () => {
       try {
         const res = await api.get('http://localhost:8000/accounts/me/', {
           withCredentials: true
@@ -35,50 +33,45 @@ export const CrimeProvider = ({ children }) => {
           }));
         }
       } catch (err) {
-        // If not authenticated or error, we can set a guest name or leave as is
         setUserProfile(prev => ({
           ...prev,
           name: "Citizen"
         }));
       }
-    };
-    fetchUser();
-  }, []);
 
-  const addComplaint = (newComplaint) => {
-    const complaintObj = {
-      ...newComplaint,
-      id: `FIR-${new Date().getFullYear()}-${Math.floor(1000 + Math.random() * 9000)}`,
-      date: new Date().toISOString().split("T")[0],
-      status: "Pending Review",
-      officer: "Assigning Officer...",
-      station: "Central Cyber Crime Cell",
-      timeline: [
-        {
-          status: "FIR Registered",
-          date: new Date().toLocaleString(),
-          note: "Complaint submitted through Citizen Portal and dispatched to triage."
-        },
-        {
-          status: "AI Automated Triage",
-          date: new Date().toLocaleString(),
-          note: `Severity assessed as ${newComplaint.severity || "Medium"}. Awaiting officer assignment.`
+      // Fetch complaints
+      try {
+        const myIds = JSON.parse(localStorage.getItem('myComplaintIds') || '[]');
+        let url = 'http://127.0.0.1:8000/api/complaints/my/';
+        if (myIds.length > 0) {
+           url += `?ids=${myIds.join(',')}`;
         }
-      ]
+        
+        const resComplaints = await fetch(url);
+        if (resComplaints.ok) {
+          const data = await resComplaints.json();
+          if (data.success) {
+            // Map backend fields to frontend expected fields for DashboardHome
+            const mapped = data.complaints.map(c => ({
+               id: c.complaint_id,
+               title: c.title,
+               category: c.complaint_type,
+               date: c.formatted_date || c.date,
+               status: c.status,
+               officer: c.assigned_officer,
+               station: c.station_name || c.station_code,
+               location: c.location,
+               ...c // Keep everything else
+            }));
+            setComplaints(mapped);
+          }
+        }
+      } catch (e) {
+        console.error("Failed to fetch complaints", e);
+      }
     };
-    setComplaints([complaintObj, ...complaints]);
-    setNotifications([
-      {
-        id: Date.now(),
-        title: "Complaint Lodged",
-        message: `Your complaint #${complaintObj.id} has been successfully recorded.`,
-        time: "Just now",
-        unread: true
-      },
-      ...notifications
-    ]);
-    return complaintObj;
-  };
+    fetchUserAndComplaints();
+  }, []);
 
   const markAllNotificationsRead = () => {
     setNotifications(notifications.map(n => ({ ...n, unread: false })));
@@ -88,10 +81,10 @@ export const CrimeProvider = ({ children }) => {
     <CrimeContext.Provider
       value={{
         complaints,
+        setComplaints, // allow forcing a refresh if needed
         userProfile,
         setUserProfile,
         notifications,
-        addComplaint,
         markAllNotificationsRead
       }}
     >
