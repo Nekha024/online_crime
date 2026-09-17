@@ -42,12 +42,12 @@ export const CrimeProvider = ({ children }) => {
       // Fetch complaints
       try {
         const myIds = JSON.parse(localStorage.getItem('myComplaintIds') || '[]');
-        let url = 'http://127.0.0.1:8000/api/complaints/my/';
+        let url = 'http://localhost:8000/api/complaints/my/';
         if (myIds.length > 0) {
            url += `?ids=${myIds.join(',')}`;
         }
         
-        const resComplaints = await fetch(url);
+        const resComplaints = await fetch(url, { credentials: "include" });
         if (resComplaints.ok) {
           const data = await resComplaints.json();
           if (data.success) {

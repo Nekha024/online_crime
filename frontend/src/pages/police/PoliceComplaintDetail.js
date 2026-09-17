@@ -114,6 +114,22 @@ const PoliceComplaintDetail = () => {
     return `badge-priority priority-${p}`;
   };
 
+  const getAIBadge = (severity) => {
+    const s = (severity || 'unknown').toLowerCase();
+    let badgeClass = 'badge-priority';
+    if (s.includes('critical')) badgeClass += ' priority-critical';
+    else if (s.includes('high')) badgeClass += ' priority-high';
+    else if (s.includes('medium')) badgeClass += ' priority-medium';
+    else if (s.includes('low')) badgeClass += ' priority-low';
+    else badgeClass += ' priority-low'; // default fallback
+    
+    return (
+      <span className={badgeClass} style={{ display: 'inline-flex', alignItems: 'center', gap: '4px' }}>
+        <span style={{ fontSize: '10px' }}>🤖</span> {severity || 'Analyzing...'}
+      </span>
+    );
+  };
+
   if (isLoading) {
     return (
       <div className="police-loading-state">
@@ -182,6 +198,40 @@ const PoliceComplaintDetail = () => {
       <div className="police-detail-grid">
         {/* Left Column: Complaint Data */}
         <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
+          
+          {/* AI Insights Card */}
+          {(complaint.ai_severity || complaint.ai_summary) && (
+          <div className="police-card" style={{ margin: 0, borderLeft: '4px solid #6366f1', background: '#fafaf9' }}>
+            <div className="police-card-header" style={{ borderBottom: '1px solid #e7e5e4', paddingBottom: '10px', marginBottom: '14px' }}>
+              <h3 style={{ color: '#4338ca', display: 'flex', alignItems: 'center', gap: '8px' }}>
+                🤖 AI Automated Insights
+              </h3>
+            </div>
+            <div style={{ display: 'grid', gridTemplateColumns: '1fr 2fr', gap: '20px' }}>
+              <div>
+                <div style={{ fontSize: '0.75rem', color: '#64748b', textTransform: 'uppercase', fontWeight: 600 }}>Detected Severity</div>
+                <div style={{ marginTop: '8px' }}>
+                  {getAIBadge(complaint.ai_severity)}
+                </div>
+              </div>
+              <div>
+                <div style={{ fontSize: '0.75rem', color: '#64748b', textTransform: 'uppercase', fontWeight: 600 }}>Executive Summary</div>
+                <div style={{ color: '#1e293b', fontSize: '0.92rem', lineHeight: 1.5, marginTop: '8px', fontWeight: 500 }}>
+                  {complaint.ai_summary}
+                </div>
+              </div>
+            </div>
+            {complaint.ai_analysis && (
+              <div style={{ marginTop: '16px', paddingTop: '16px', borderTop: '1px solid #e7e5e4' }}>
+                <div style={{ fontSize: '0.75rem', color: '#64748b', textTransform: 'uppercase', fontWeight: 600 }}>Extracted Entities & Details</div>
+                <div style={{ color: '#334155', fontSize: '0.9rem', marginTop: '8px', whiteSpace: 'pre-line', fontFamily: 'monospace' }}>
+                  {complaint.ai_analysis}
+                </div>
+              </div>
+            )}
+          </div>
+          )}
+
           {/* Complaint Text */}
           <div className="police-card" style={{ margin: 0 }}>
             <div className="police-card-header">

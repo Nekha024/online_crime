@@ -23,6 +23,7 @@ import CrimeMapPage from "./pages/dashboard/CrimeMapPage";
 import EmergencyNumbersPage from "./pages/dashboard/EmergencyNumbersPage";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
+import UserProtectedRoute from "./components/UserProtectedRoute";
 
 // Isolated Police Command Architecture
 import PoliceLogin from "./pages/police/PoliceLogin";
@@ -67,7 +68,7 @@ function App() {
         <Route path="/register" element={<Register />} />
 
         {/* User Dashboard Section with Nested Routes */}
-        <Route path="/dashboard" element={<DashboardLayout />}>
+        <Route path="/dashboard" element={<UserProtectedRoute><DashboardLayout /></UserProtectedRoute>}>
           <Route index element={<DashboardHome />} />
           <Route path="file-complaint" element={<FileComplaintPage />} />
           <Route path="my-complaints" element={<ViewComplaintsPage />} />

@@ -80,6 +80,12 @@ class CrimeReport(models.Model):
     assigned_officer = models.CharField(max_length=150, blank=True, default='Pending Assignment')
     complainant_name = models.CharField(max_length=150, blank=True, default='Anonymous')
     complainant_contact = models.CharField(max_length=50, blank=True, default='')
+    
+    # AI Analysis Fields
+    ai_severity = models.CharField(max_length=20, blank=True, default='')
+    ai_summary = models.TextField(blank=True, default='')
+    ai_analysis = models.TextField(blank=True, default='')
+
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
@@ -111,6 +117,12 @@ class Complaint(models.Model):
     assigned_officer = models.CharField(max_length=150, blank=True, default='Pending Assignment')
     complainant_name = models.CharField(max_length=150, blank=True, default='Citizen')
     complainant_contact = models.CharField(max_length=50, blank=True, default='')
+
+    # AI Analysis Fields
+    ai_severity = models.CharField(max_length=20, blank=True, default='')
+    ai_summary = models.TextField(blank=True, default='')
+    ai_analysis = models.TextField(blank=True, default='')
+
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 

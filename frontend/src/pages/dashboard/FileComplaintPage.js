@@ -95,7 +95,7 @@ const FileComplaintPage = () => {
   // Fetch police stations on mount
   useEffect(() => {
     setLoadingStations(true);
-    fetch("http://127.0.0.1:8000/api/police/stations/")
+    fetch("http://localhost:8000/api/police/stations/")
       .then((res) => res.json())
       .then((data) => {
         if (data.stations) setStations(data.stations);
@@ -190,9 +190,10 @@ const FileComplaintPage = () => {
       if (evidenceFile) fd.append("evidence_file", evidenceFile);
       if (audioBlob) fd.append("audio_file", audioBlob, "voice_statement.webm");
 
-      const response = await fetch("http://127.0.0.1:8000/api/complaints/submit/", {
+      const response = await fetch("http://localhost:8000/api/complaints/submit/", {
         method: "POST",
         body: fd,
+        credentials: "include",
       });
 
       if (response.ok) {

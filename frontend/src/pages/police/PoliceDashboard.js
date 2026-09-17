@@ -68,6 +68,22 @@ const PoliceDashboard = () => {
     return `badge-priority priority-${p}`;
   };
 
+  const getAIBadge = (severity) => {
+    const s = (severity || 'unknown').toLowerCase();
+    let badgeClass = 'badge-priority';
+    if (s.includes('critical')) badgeClass += ' priority-critical';
+    else if (s.includes('high')) badgeClass += ' priority-high';
+    else if (s.includes('medium')) badgeClass += ' priority-medium';
+    else if (s.includes('low')) badgeClass += ' priority-low';
+    else badgeClass += ' priority-low'; // default fallback
+    
+    return (
+      <span className={badgeClass} style={{ display: 'inline-flex', alignItems: 'center', gap: '4px' }}>
+        <span style={{ fontSize: '10px' }}>🤖</span> {severity || 'Analyzing...'}
+      </span>
+    );
+  };
+
   return (
     <div>
       {/* Page Title */}
@@ -193,6 +209,7 @@ const PoliceDashboard = () => {
                       <tr>
                         <th>Case ID</th>
                         <th>Category / Title</th>
+                        <th>AI Severity</th>
                         <th>Priority</th>
                         <th>Status</th>
                         <th>Date</th>
@@ -210,6 +227,9 @@ const PoliceDashboard = () => {
                           <td>
                             <div style={{ fontWeight: 600, color: '#0f172a' }}>{report.title}</div>
                             <div style={{ fontSize: '0.76rem', color: '#64748b' }}>{report.type}</div>
+                          </td>
+                          <td>
+                            {getAIBadge(report.ai_severity)}
                           </td>
                           <td>
                             <span className={getPriorityBadge(report.priority)}>

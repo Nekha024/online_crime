@@ -53,7 +53,7 @@ const CrimeMapPage = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch("http://127.0.0.1:8000/api/public/map-data/")
+    fetch("http://localhost:8000/api/public/map-data/")
       .then(res => res.json())
       .then(data => {
         if (data.success) {

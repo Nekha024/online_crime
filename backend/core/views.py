@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from rest_framework.decorators import api_view, parser_classes
+from rest_framework.decorators import api_view, parser_classes, authentication_classes
 from rest_framework.parsers import MultiPartParser, FormParser
 from rest_framework.response import Response
 from rest_framework import status
@@ -14,6 +14,32 @@ def test_api(request):
     })
 
 import math
+import threading
+from .decorators import loginrequired
+from .ai_utils import analyze_text_with_groq
+from .authentication import CsrfExemptSessionAuthentication
+
+def run_ai_analysis(complaint):
+    text_to_analyze = f"Title: {complaint.title}\nType: {complaint.complaint_type}\nDescription: {complaint.description}\nLocation: {complaint.location}"
+    result = analyze_text_with_groq(text_to_analyze)
+    
+    complaint.ai_severity = result.get('severity', 'Medium')
+    complaint.ai_summary = result.get('summary', '')
+    complaint.ai_analysis = result.get('analysis', '')
+    
+    severity = complaint.ai_severity.lower()
+    if 'critical' in severity:
+        complaint.priority = 'Critical'
+    elif 'high' in severity:
+        complaint.priority = 'High'
+    elif 'medium' in severity:
+        complaint.priority = 'Medium'
+    elif 'low' in severity:
+        complaint.priority = 'Low'
+        
+    complaint.save()
+
+import math
 
 def haversine(lat1, lon1, lat2, lon2):
     R = 6371.0 # Earth radius in km
@@ -23,7 +49,9 @@ def haversine(lat1, lon1, lat2, lon2):
     return R * (2 * math.atan2(math.sqrt(a), math.sqrt(1-a)))
 
 @api_view(["POST"])
+@authentication_classes([CsrfExemptSessionAuthentication])
 @parser_classes([MultiPartParser, FormParser])
+@loginrequired
 def create_complaint(request):
     data = request.data.copy()
     
@@ -80,17 +108,23 @@ def create_complaint(request):
 
     serializer = ComplaintDetailSerializer(data=data)
     if serializer.is_valid():
-        serializer.save(
+        complaint = serializer.save(
             complaint_id=complaint_id,
             police_station=station,
             status='Submitted',
             latitude=clean_lat,
             longitude=clean_lon,
         )
+        
+        # Trigger background AI analysis
+        thread = threading.Thread(target=run_ai_analysis, args=(complaint,))
+        thread.start()
+        
         return Response(serializer.data, status=status.HTTP_201_CREATED)
     return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 @api_view(["GET"])
+@loginrequired
 def get_my_complaints(request):
     # Fetch complaints by phone number (if logged in) or allow frontend to pass a list of IDs
     phone = request.user.phone_number if hasattr(request.user, 'phone_number') and request.user.is_authenticated else None

@@ -65,6 +65,22 @@ const PoliceComplaintsList = () => {
     return `badge-priority priority-${p}`;
   };
 
+  const getAIBadge = (severity) => {
+    const s = (severity || 'unknown').toLowerCase();
+    let badgeClass = 'badge-priority';
+    if (s.includes('critical')) badgeClass += ' priority-critical';
+    else if (s.includes('high')) badgeClass += ' priority-high';
+    else if (s.includes('medium')) badgeClass += ' priority-medium';
+    else if (s.includes('low')) badgeClass += ' priority-low';
+    else badgeClass += ' priority-low'; // default fallback
+    
+    return (
+      <span className={badgeClass} style={{ display: 'inline-flex', alignItems: 'center', gap: '4px' }}>
+        <span style={{ fontSize: '10px' }}>🤖</span> {severity || 'Analyzing...'}
+      </span>
+    );
+  };
+
   return (
     <div>
       {/* Page Header */}
@@ -156,6 +172,7 @@ const PoliceComplaintsList = () => {
                     <th>Date</th>
                     <th>Location</th>
                     <th>Status</th>
+                    <th>AI Severity</th>
                     <th>Priority</th>
                     <th>Short Description</th>
                     <th>Action</th>
@@ -183,6 +200,9 @@ const PoliceComplaintsList = () => {
                         <span className={getStatusBadge(c.status)}>
                           {c.status}
                         </span>
+                      </td>
+                      <td>
+                        {getAIBadge(c.ai_severity)}
                       </td>
                       <td>
                         <span className={getPriorityBadge(c.priority)}>
