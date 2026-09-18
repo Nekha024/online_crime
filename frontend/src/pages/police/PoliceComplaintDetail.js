@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { useParams, Link } from 'react-router-dom';
-import axios from 'axios';
+import api from "../../api/api";
 import {
   FaClipboardList,
   FaArrowLeft,
@@ -41,7 +41,7 @@ const PoliceComplaintDetail = () => {
     const token = sessionStorage.getItem('police_token');
 
     try {
-      const res = await axios.get(`http://localhost:8000/api/police/complaints/${id}/`, {
+      const res = await api.get(`api/police/complaints/${id}/`, {
         headers: {
           Authorization: `Bearer ${token}`
         },
@@ -78,7 +78,7 @@ const PoliceComplaintDetail = () => {
     const token = sessionStorage.getItem('police_token');
 
     try {
-      const res = await axios.post(`http://localhost:8000/api/police/complaints/${id}/status/`, {
+      const res = await api.post(`api/police/complaints/${id}/status/`, {
         status: newStatus,
         remarks: remarks.trim(),
         assigned_officer: assignedOfficer.trim(),

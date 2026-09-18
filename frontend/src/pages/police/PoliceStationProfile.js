@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import api from "../../api/api";
 import {
   FaBuilding,
   FaMapMarkerAlt,
@@ -23,7 +23,7 @@ const PoliceStationProfile = () => {
     const token = sessionStorage.getItem('police_token');
 
     try {
-      const res = await axios.get('http://localhost:8000/api/police/station/', {
+      const res = await api.get("api/police/station/", {
         headers: {
           Authorization: `Bearer ${token}`
         },

@@ -12,6 +12,7 @@ import {
   FaCheckDouble
 } from "react-icons/fa";
 import { useCrime } from "../../context/CrimeContext";
+import api from "../../api/api";
 
 const DashboardNavbar = ({ onToggleMobileSidebar }) => {
   const { userProfile, notifications, markAllNotificationsRead } = useCrime();
@@ -21,9 +22,14 @@ const DashboardNavbar = ({ onToggleMobileSidebar }) => {
 
   const unreadCount = notifications.filter((n) => n.unread).length;
 
-  const handleLogout = () => {
+  const handleLogout = async () => {
     const confirmLogout = window.confirm("Are you sure you want to log out of the Citizen Portal?");
     if (confirmLogout) {
+      try {
+        await api.post('accounts/logout/');
+      } catch (err) {
+        console.error("Logout error:", err);
+      }
       navigate("/");
     }
   };

@@ -47,7 +47,7 @@ const Hero = () => {
             <div className="hero-actions">
               <button
                 className="btn-hero-primary"
-                onClick={() => navigate("/report")}
+                onClick={() => navigate("/dashboard/file-complaint")}
                 id="hero-report-crime-cta"
               >
                 <FaFileAlt />

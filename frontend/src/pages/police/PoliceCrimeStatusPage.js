@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import axios from 'axios';
+import api from "../../api/api";
 import {
   FaTasks,
   FaCheckCircle,
@@ -36,11 +36,11 @@ const PoliceCrimeStatusPage = () => {
 
     try {
       const [crimesRes, complaintsRes] = await Promise.all([
-        axios.get('http://localhost:8000/api/police/crimes/', {
+        api.get("api/police/crimes/", {
           headers: { Authorization: `Bearer ${token}` },
           withCredentials: true
         }),
-        axios.get('http://localhost:8000/api/police/complaints/', {
+        api.get("api/police/complaints/", {
           headers: { Authorization: `Bearer ${token}` },
           withCredentials: true
         })

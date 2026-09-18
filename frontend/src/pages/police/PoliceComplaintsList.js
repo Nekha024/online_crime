@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { Link } from 'react-router-dom';
-import axios from 'axios';
+import api from "../../api/api";
 import {
   FaClipboardList,
   FaSearch,
@@ -27,7 +27,7 @@ const PoliceComplaintsList = () => {
       if (search) params.search = search;
       if (statusFilter !== 'All') params.status = statusFilter;
 
-      const res = await axios.get('http://localhost:8000/api/police/complaints/', {
+      const res = await api.get("api/police/complaints/", {
         headers: {
           Authorization: `Bearer ${token}`
         },

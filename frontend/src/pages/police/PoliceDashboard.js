@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import axios from 'axios';
+import api from "../../api/api";
 import {
   FaFolderOpen,
   FaExclamationCircle,
@@ -29,7 +29,7 @@ const PoliceDashboard = () => {
     const token = sessionStorage.getItem('police_token');
 
     try {
-      const res = await axios.get('http://localhost:8000/api/police/dashboard/', {
+      const res = await api.get("api/police/dashboard/", {
         headers: {
           Authorization: `Bearer ${token}`
         },

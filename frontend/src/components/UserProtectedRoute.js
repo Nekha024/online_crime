@@ -9,7 +9,7 @@ const UserProtectedRoute = ({ children }) => {
     useEffect(() => {
         const verifyUserAuth = async () => {
             try {
-                const res = await api.get('http://localhost:8000/accounts/me/', {
+                const res = await api.get('accounts/me/', {
                     withCredentials: true
                 });
 

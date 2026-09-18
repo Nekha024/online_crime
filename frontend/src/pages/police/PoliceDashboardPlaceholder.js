@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import axios from 'axios';
+import api from "../../api/api";
 import { FaShieldAlt, FaSignOutAlt, FaBuilding, FaCheckCircle } from 'react-icons/fa';
 import '../../css/PoliceAuth.css';
 
@@ -16,7 +16,7 @@ const PoliceDashboardPlaceholder = () => {
 
         try {
             if (token) {
-                await axios.post('http://localhost:8000/api/police/logout/', {}, {
+                await api.post("api/police/logout/", {}, {
                     headers: {
                         Authorization: `Bearer ${token}`
                     },

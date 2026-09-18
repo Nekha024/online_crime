@@ -1,5 +1,6 @@
 from django.db import models
 from django.utils import timezone
+from django.conf import settings
 import secrets
 
 STATUS_CHOICES = [
@@ -65,6 +66,7 @@ class PoliceStationToken(models.Model):
 
 class CrimeReport(models.Model):
     crime_id = models.CharField(max_length=50, unique=True, db_index=True)
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name='crime_reports', null=True, blank=True)
     police_station = models.ForeignKey(PoliceStation, on_delete=models.CASCADE, related_name='crimes')
     crime_type = models.CharField(max_length=100, db_index=True)
     title = models.CharField(max_length=255)
@@ -100,6 +102,7 @@ class CrimeReport(models.Model):
 
 class Complaint(models.Model):
     complaint_id = models.CharField(max_length=50, unique=True, db_index=True)
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name='citizen_complaints', null=True, blank=True)
     police_station = models.ForeignKey(PoliceStation, on_delete=models.CASCADE, related_name='complaints')
     complaint_type = models.CharField(max_length=100, db_index=True)
     title = models.CharField(max_length=255)

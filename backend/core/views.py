@@ -114,6 +114,7 @@ def create_complaint(request):
             status='Submitted',
             latitude=clean_lat,
             longitude=clean_lon,
+            user=request.user if request.user.is_authenticated else None
         )
         
         # Trigger background AI analysis
@@ -126,23 +127,12 @@ def create_complaint(request):
 @api_view(["GET"])
 @loginrequired
 def get_my_complaints(request):
-    # Fetch complaints by phone number (if logged in) or allow frontend to pass a list of IDs
-    phone = request.user.phone_number if hasattr(request.user, 'phone_number') and request.user.is_authenticated else None
+    if not request.user.is_authenticated:
+        return Response({"success": False, "message": "Unauthorized"}, status=status.HTTP_401_UNAUTHORIZED)
+        
+    # Strictly filter by the authenticated user
+    queryset = Complaint.objects.filter(user=request.user)
     
-    queryset = Complaint.objects.all()
-    
-    # Filter by user's phone if authenticated
-    if phone:
-        queryset = queryset.filter(complainant_contact=phone)
-    else:
-        # Fallback for guests: frontend passes ?ids=CMP-123,CMP-456
-        ids_param = request.query_params.get('ids', '')
-        if ids_param:
-            ids_list = [i.strip() for i in ids_param.split(',') if i.strip()]
-            queryset = queryset.filter(complaint_id__in=ids_list)
-        else:
-            return Response({"success": True, "complaints": []}, status=status.HTTP_200_OK)
-            
     serializer = ComplaintDetailSerializer(queryset, many=True)
     return Response({"success": True, "complaints": serializer.data}, status=status.HTTP_200_OK)
 

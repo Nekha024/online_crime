@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import axios from "axios";
+import api from "../../api/api";
 import "../../css/dashboard/DashboardPages.css";
 import {
   FaBuilding,
@@ -25,7 +25,7 @@ const PoliceDirectoryPage = () => {
     setIsLoading(true);
     setError("");
     try {
-      const res = await axios.get("http://localhost:8000/api/police/stations/");
+      const res = await api.get("api/police/stations/");
       if (res.data?.success) {
         setStations(res.data.stations || []);
       }

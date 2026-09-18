@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { Link } from 'react-router-dom';
-import axios from 'axios';
+import api from "../../api/api";
 import {
   FaFolderOpen,
   FaSearch,
@@ -31,7 +31,7 @@ const PoliceCrimesList = () => {
       if (typeFilter !== 'All') params.type = typeFilter;
       if (priorityFilter !== 'All') params.priority = priorityFilter;
 
-      const res = await axios.get('http://localhost:8000/api/police/crimes/', {
+      const res = await api.get("api/police/crimes/", {
         headers: {
           Authorization: `Bearer ${token}`
         },

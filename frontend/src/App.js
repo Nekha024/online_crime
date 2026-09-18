@@ -63,7 +63,6 @@ function App() {
       <Routes>
         {/* Landing & Public Pages */}
         <Route path="/" element={<LandingPage />} />
-        <Route path="/report" element={<ReportCrime />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
 

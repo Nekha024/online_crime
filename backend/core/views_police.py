@@ -17,7 +17,7 @@ from .serializers import (
     StatusUpdateSerializer
 )
 from .authentication import PoliceAuthentication, IsPoliceStationAuthenticated
-from .decorators import loginrequired
+from .authentication import PoliceAuthentication, IsPoliceStationAuthenticated
 
 @csrf_exempt
 @api_view(['POST'])
@@ -155,7 +155,6 @@ def police_station_list_view(request):
 @api_view(['GET'])
 @authentication_classes([PoliceAuthentication])
 @permission_classes([IsPoliceStationAuthenticated])
-@loginrequired
 def police_dashboard_stats_view(request):
     """
     Computes real database statistics strictly scoped to the authenticated police station.
@@ -256,7 +255,6 @@ def police_dashboard_stats_view(request):
 @api_view(['GET'])
 @authentication_classes([PoliceAuthentication])
 @permission_classes([IsPoliceStationAuthenticated])
-@loginrequired
 def police_crimes_list_view(request):
     """
     Returns real crime reports relevant to the authenticated police station.
@@ -303,7 +301,6 @@ def police_crimes_list_view(request):
 @api_view(['GET'])
 @authentication_classes([PoliceAuthentication])
 @permission_classes([IsPoliceStationAuthenticated])
-@loginrequired
 def police_crime_detail_view(request, pk):
     """
     Returns detailed crime report information strictly if it belongs to the authenticated station.
@@ -332,7 +329,6 @@ def police_crime_detail_view(request, pk):
 @api_view(['POST', 'PATCH'])
 @authentication_classes([PoliceAuthentication])
 @permission_classes([IsPoliceStationAuthenticated])
-@loginrequired
 def police_crime_status_update_view(request, pk):
     """
     Updates the status of a crime report and records an immutable history trail.
@@ -396,7 +392,6 @@ def police_crime_status_update_view(request, pk):
 @api_view(['GET'])
 @authentication_classes([PoliceAuthentication])
 @permission_classes([IsPoliceStationAuthenticated])
-@loginrequired
 def police_complaints_list_view(request):
     """
     Returns complaints scoped to the authenticated police station.
@@ -429,7 +424,6 @@ def police_complaints_list_view(request):
 @api_view(['GET'])
 @authentication_classes([PoliceAuthentication])
 @permission_classes([IsPoliceStationAuthenticated])
-@loginrequired
 def police_complaint_detail_view(request, pk):
     """
     Returns detailed complaint information scoped to the station.
@@ -457,7 +451,6 @@ def police_complaint_detail_view(request, pk):
 @api_view(['POST', 'PATCH'])
 @authentication_classes([PoliceAuthentication])
 @permission_classes([IsPoliceStationAuthenticated])
-@loginrequired
 def police_complaint_status_update_view(request, pk):
     """
     Updates the status of a complaint and records an audit history entry.
@@ -518,7 +511,6 @@ def police_complaint_status_update_view(request, pk):
 @api_view(['GET'])
 @authentication_classes([PoliceAuthentication])
 @permission_classes([IsPoliceStationAuthenticated])
-@loginrequired
 def police_station_profile_view(request):
     """
     Station information page endpoint.

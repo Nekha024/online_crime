@@ -19,7 +19,7 @@ const CallToAction = () => {
             <div className="cta-buttons-row">
               <button
                 className="btn-cta-white"
-                onClick={() => navigate("/report")}
+                onClick={() => navigate("/dashboard/file-complaint")}
                 id="cta-report-crime-btn"
               >
                 <FaFileAlt />

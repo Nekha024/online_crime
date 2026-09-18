@@ -41,7 +41,7 @@ const Login = () => {
         setSuccessMessage('');
         setIsLoading(true);
         try {
-            const res = await api.post('http://localhost:8000/accounts/send-otp/', {
+            const res = await api.post('accounts/send-otp/', {
                 phone_number: phoneNumber.trim()
             });
             if (res.data.success) {
@@ -75,7 +75,7 @@ const Login = () => {
         setError('');
         setIsLoading(true);
         try {
-            const res = await api.post('http://localhost:8000/accounts/verify-otp/', {
+            const res = await api.post('accounts/verify-otp/', {
                 phone_number: phoneNumber,
                 otp: otp
             }, {
@@ -104,7 +104,7 @@ const Login = () => {
         setError('');
         setIsLoading(true);
         try {
-            const res = await api.post('http://localhost:8000/accounts/login/', {
+            const res = await api.post('accounts/login/', {
                 email: email,
                 password: password
             }, {

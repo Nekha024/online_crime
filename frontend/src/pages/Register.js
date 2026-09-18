@@ -43,7 +43,7 @@ const Register = () => {
 
         setIsLoading(true);
         try {
-            const res = await api.post('http://localhost:8000/accounts/register/', {
+            const res = await api.post('accounts/register/', {
                 full_name: formData.full_name,
                 phone_number: formData.phone_number,
                 email: formData.email,
