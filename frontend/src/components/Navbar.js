@@ -10,6 +10,7 @@ import {
   FaUserCircle,
   FaTachometerAlt
 } from "react-icons/fa";
+import api from "../api/api";
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -19,19 +20,20 @@ const Navbar = () => {
   const location = useLocation();
 
   useEffect(() => {
-    // Check if citizen is logged in
-    const storedUser = localStorage.getItem("user") || sessionStorage.getItem("user");
-    const storedToken = localStorage.getItem("token") || sessionStorage.getItem("token");
-    if (storedToken && storedUser) {
+    // Check if citizen is logged in via backend session
+    const checkAuth = async () => {
       try {
-        setCitizenUser(JSON.parse(storedUser));
+        const res = await api.get('accounts/me/', { withCredentials: true });
+        if (res.data && res.data.success && res.data.user) {
+          setCitizenUser(res.data.user);
+        } else {
+          setCitizenUser(null);
+        }
       } catch (e) {
-        setCitizenUser({ name: "Citizen" });
+        setCitizenUser(null);
       }
-    } else {
-      setCitizenUser(null);
-    }
-
+    };
+    checkAuth();
     // Scroll listener for sticky navbar styling
     const handleScroll = () => {
       if (window.scrollY > 30) {

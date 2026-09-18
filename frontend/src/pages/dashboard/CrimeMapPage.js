@@ -11,6 +11,7 @@ import {
   FaCheckCircle,
   FaInfoCircle
 } from "react-icons/fa";
+import api from "../../api/api";
 
 // Marker icon fix
 delete L.Icon.Default.prototype._getIconUrl;
@@ -53,11 +54,10 @@ const CrimeMapPage = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch("http://127.0.0.1:8000/api/public/map-data/")
-      .then(res => res.json())
-      .then(data => {
-        if (data.success) {
-          setMapNodes(data.nodes);
+    api.get("api/public/map-data/")
+      .then(res => {
+        if (res.data && res.data.success) {
+          setMapNodes(res.data.nodes);
         }
       })
       .catch(console.error)

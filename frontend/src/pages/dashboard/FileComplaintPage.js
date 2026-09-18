@@ -4,6 +4,7 @@ import { MapContainer, TileLayer, Marker, useMapEvents } from "react-leaflet";
 import L from "leaflet";
 import "leaflet/dist/leaflet.css";
 import "../../css/dashboard/DashboardPages.css";
+import api from "../../api/api";
 import {
   FaFileSignature,
   FaUpload,
@@ -95,10 +96,9 @@ const FileComplaintPage = () => {
   // Fetch police stations on mount
   useEffect(() => {
     setLoadingStations(true);
-    fetch("http://127.0.0.1:8000/api/police/stations/")
-      .then((res) => res.json())
-      .then((data) => {
-        if (data.stations) setStations(data.stations);
+    api.get("api/police/stations/")
+      .then((res) => {
+        if (res.data && res.data.stations) setStations(res.data.stations);
       })
       .catch(() => {})
       .finally(() => setLoadingStations(false));
@@ -190,13 +190,14 @@ const FileComplaintPage = () => {
       if (evidenceFile) fd.append("evidence_file", evidenceFile);
       if (audioBlob) fd.append("audio_file", audioBlob, "voice_statement.webm");
 
-      const response = await fetch("http://127.0.0.1:8000/api/complaints/submit/", {
-        method: "POST",
-        body: fd,
+      const response = await api.post("api/complaints/submit/", fd, {
+        headers: {
+          'Content-Type': 'multipart/form-data'
+        }
       });
 
-      if (response.ok) {
-        const data = await response.json();
+      if (response.status === 201 || response.status === 200) {
+        const data = response.data;
         // Save to localStorage so guest users can track their complaints
         const existingIds = JSON.parse(localStorage.getItem('myComplaintIds') || '[]');
         if (!existingIds.includes(data.complaint_id)) {
@@ -205,13 +206,20 @@ const FileComplaintPage = () => {
         }
 
         setSuccessMessage(`Complaint Registered! ID: ${data.complaint_id}`);
-        setTimeout(() => navigate("/dashboard/my-complaints"), 2000);
+        // Optionally reload the page to refresh context, or we can just rely on the redirect and tell the user to refresh.
+        // The best way without modifying context is a full reload to the complaints page
+        setTimeout(() => {
+            window.location.href = "/dashboard/my-complaints";
+        }, 2000);
       } else {
-        const err = await response.json();
-        setErrorMessage("Submission failed: " + JSON.stringify(err));
+        setErrorMessage("Submission failed: Unexpected response");
       }
     } catch (error) {
-      setErrorMessage("Error connecting to server. Please ensure the backend is running.");
+      if (error.response && error.response.data) {
+        setErrorMessage("Submission failed: " + JSON.stringify(error.response.data));
+      } else {
+        setErrorMessage("Error connecting to server. Please ensure the backend is running.");
+      }
     } finally {
       setIsSubmitting(false);
     }

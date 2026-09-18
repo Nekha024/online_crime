@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { useParams, Link } from 'react-router-dom';
-import axios from 'axios';
+import api from "../../api/api";
 import {
   FaFolderOpen,
   FaArrowLeft,
@@ -39,7 +39,7 @@ const PoliceCrimeDetail = () => {
     const token = sessionStorage.getItem('police_token');
 
     try {
-      const res = await axios.get(`http://localhost:8000/api/police/crimes/${id}/`, {
+      const res = await api.get(`api/police/crimes/${id}/`, {
         headers: {
           Authorization: `Bearer ${token}`
         },
@@ -76,7 +76,7 @@ const PoliceCrimeDetail = () => {
     const token = sessionStorage.getItem('police_token');
 
     try {
-      const res = await axios.post(`http://localhost:8000/api/police/crimes/${id}/status/`, {
+      const res = await api.post(`api/police/crimes/${id}/status/`, {
         status: newStatus,
         remarks: remarks.trim(),
         assigned_officer: assignedOfficer.trim(),

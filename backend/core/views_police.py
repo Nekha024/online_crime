@@ -17,6 +17,7 @@ from .serializers import (
     StatusUpdateSerializer
 )
 from .authentication import PoliceAuthentication, IsPoliceStationAuthenticated
+from .authentication import PoliceAuthentication, IsPoliceStationAuthenticated
 
 @csrf_exempt
 @api_view(['POST'])
@@ -200,7 +201,8 @@ def police_dashboard_stats_view(request):
             'priority': c.priority,
             'status': c.status,
             'date': c.report_date.strftime("%b %d, %Y"),
-            'assigned_officer': c.assigned_officer
+            'assigned_officer': c.assigned_officer,
+            'ai_severity': c.ai_severity
         })
     for cmp in recent_complaints:
         combined_recent.append({
@@ -212,7 +214,8 @@ def police_dashboard_stats_view(request):
             'priority': cmp.priority,
             'status': cmp.status,
             'date': cmp.date.strftime("%b %d, %Y"),
-            'assigned_officer': cmp.assigned_officer
+            'assigned_officer': cmp.assigned_officer,
+            'ai_severity': cmp.ai_severity
         })
 
     # Sort combined by date descending

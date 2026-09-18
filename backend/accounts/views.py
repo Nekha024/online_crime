@@ -21,14 +21,10 @@ User = get_user_model()
 @authentication_classes([])
 @permission_classes([AllowAny])
 def register_view(request):
-    username = request.data.get('username')
     full_name = request.data.get('full_name')
     phone_number = request.data.get('phone_number')
     email = request.data.get('email')
     password = request.data.get('password')
-    
-    if not username or not password:
-        return Response({'success': False, 'message': 'Username and password required.'}, status=status.HTTP_400_BAD_REQUEST)
     confirm_password = request.data.get('confirm_password')
 
     if not all([full_name, phone_number, email, password, confirm_password]):
@@ -40,18 +36,16 @@ def register_view(request):
     if User.objects.filter(phone_number=phone_number).exists():
         return Response({'success': False, 'message': 'Phone number already registered.'}, status=status.HTTP_400_BAD_REQUEST)
         
-    if User.objects.filter(username=username).exists():
-        return Response({'success': False, 'message': 'Username already exists.'}, status=status.HTTP_400_BAD_REQUEST)
-        
-    user = User.objects.create_user(username=username, email=email, password=password)
-    login(request, user)
-    return Response({'success': True, 'message': 'Account created successfully.', 'user': {'username': user.username}}, status=status.HTTP_201_CREATED)
     if User.objects.filter(email=email).exists():
         return Response({'success': False, 'message': 'Email already registered.'}, status=status.HTTP_400_BAD_REQUEST)
 
     # Auto-generate a unique username
     base_username = full_name.lower().replace(' ', '')
     username = f"{base_username}_{uuid.uuid4().hex[:6]}"
+    
+    # Ensure username is unique just in case
+    while User.objects.filter(username=username).exists():
+        username = f"{base_username}_{uuid.uuid4().hex[:6]}"
     
     user = User.objects.create_user(
         username=username,
@@ -81,7 +75,11 @@ def send_otp_view(request):
     try:
         user = User.objects.get(phone_number=phone_number)
     except User.DoesNotExist:
-        return Response({'success': False, 'message': 'User with this phone number not found.'}, status=status.HTTP_404_NOT_FOUND)
+        return Response({
+            'success': False, 
+            'not_registered': True,
+            'message': 'Phone number is not registered. Please create an account.'
+        }, status=status.HTTP_404_NOT_FOUND)
 
     # Generate a 6-digit numeric OTP
     otp_code = str(random.randint(100000, 999999))

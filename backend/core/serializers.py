@@ -64,7 +64,8 @@ class CrimeReportListSerializer(serializers.ModelSerializer):
             'formatted_date',
             'assigned_officer',
             'station_name',
-            'station_code'
+            'station_code',
+            'ai_severity'
         ]
 
     def get_formatted_date(self, obj):
@@ -105,7 +106,10 @@ class CrimeReportDetailSerializer(serializers.ModelSerializer):
             'police_district',
             'history',
             'created_at',
-            'updated_at'
+            'updated_at',
+            'ai_severity',
+            'ai_summary',
+            'ai_analysis'
         ]
 
     def get_formatted_report_date(self, obj):
@@ -135,7 +139,8 @@ class ComplaintListSerializer(serializers.ModelSerializer):
             'description',
             'assigned_officer',
             'station_name',
-            'station_code'
+            'station_code',
+            'ai_severity'
         ]
 
     def get_formatted_date(self, obj):
@@ -176,7 +181,10 @@ class ComplaintDetailSerializer(serializers.ModelSerializer):
             'police_district',
             'history',
             'created_at',
-            'updated_at'
+            'updated_at',
+            'ai_severity',
+            'ai_summary',
+            'ai_analysis'
         ]
         read_only_fields = [
             'id', 'complaint_id', 'date', 'formatted_date',

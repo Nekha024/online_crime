@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import axios from 'axios';
+import api from "../../api/api";
 import { FaShieldAlt, FaUserShield, FaKey, FaEye, FaEyeSlash, FaLock } from 'react-icons/fa';
 import '../../css/PoliceAuth.css';
 
@@ -19,7 +19,7 @@ const PoliceLogin = () => {
         setIsLoading(true);
 
         try {
-            const res = await axios.post('http://localhost:8000/api/police/login/', {
+            const res = await api.post("api/police/login/", {
                 username: username.trim(),
                 identification_key: identificationKey.trim()
             }, {

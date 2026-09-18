@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { NavLink, Outlet, useNavigate, useLocation } from 'react-router-dom';
-import axios from 'axios';
+import api from "../../api/api";
 import {
   FaShieldAlt,
   FaTachometerAlt,
@@ -36,7 +36,7 @@ const PoliceLayout = () => {
     const token = sessionStorage.getItem('police_token');
     try {
       if (token) {
-        await axios.post('http://localhost:8000/api/police/logout/', {}, {
+        await api.post("api/police/logout/", {}, {
           headers: {
             Authorization: `Bearer ${token}`
           },

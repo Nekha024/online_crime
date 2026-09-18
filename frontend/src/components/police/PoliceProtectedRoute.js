@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Navigate } from 'react-router-dom';
-import axios from 'axios';
+import api from "../../api/api";
 
 const PoliceProtectedRoute = ({ children }) => {
     const [isChecking, setIsChecking] = useState(true);
@@ -16,7 +16,7 @@ const PoliceProtectedRoute = ({ children }) => {
             }
 
             try {
-                const res = await axios.get('http://localhost:8000/api/police/me/', {
+                const res = await api.get("api/police/me/", {
                     headers: {
                         Authorization: `Bearer ${token}`
                     },

@@ -21,7 +21,7 @@ export const CrimeProvider = ({ children }) => {
   useEffect(() => {
     const fetchUserAndComplaints = async () => {
       try {
-        const res = await api.get('http://localhost:8000/accounts/me/', {
+        const res = await api.get('accounts/me/', {
           withCredentials: true
         });
         if (res.data.success && res.data.user) {
@@ -41,15 +41,11 @@ export const CrimeProvider = ({ children }) => {
 
       // Fetch complaints
       try {
-        const myIds = JSON.parse(localStorage.getItem('myComplaintIds') || '[]');
-        let url = 'http://127.0.0.1:8000/api/complaints/my/';
-        if (myIds.length > 0) {
-           url += `?ids=${myIds.join(',')}`;
-        }
-        
-        const resComplaints = await fetch(url);
-        if (resComplaints.ok) {
-          const data = await resComplaints.json();
+        let url = "api/complaints/my/";
+        // We no longer need the local storage fallback because we rely on session auth now
+        const resComplaints = await api.get(url, { withCredentials: true });
+        if (resComplaints.status === 200) {
+          const data = resComplaints.data;
           if (data.success) {
             // Map backend fields to frontend expected fields for DashboardHome
             const mapped = data.complaints.map(c => ({
