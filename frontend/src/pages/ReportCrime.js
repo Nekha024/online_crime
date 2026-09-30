@@ -1,13 +1,49 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useCallback } from "react";
 import { Link } from "react-router-dom";
+import { MapContainer, TileLayer, Marker, useMapEvents, useMap } from "react-leaflet";
+import L from "leaflet";
+import "leaflet/dist/leaflet.css";
 import {
   FaShieldAlt,
   FaArrowLeft,
   FaFileUpload,
   FaCheckCircle,
-  FaLock
+  FaLock,
+  FaSearch,
+  FaMapMarkerAlt,
+  FaTimes,
+  FaIdCard
 } from "react-icons/fa";
 import "../css/ReportCrime.css";
+
+// Fix Leaflet default marker icons broken by webpack
+delete L.Icon.Default.prototype._getIconUrl;
+L.Icon.Default.mergeOptions({
+  iconRetinaUrl: require("leaflet/dist/images/marker-icon-2x.png"),
+  iconUrl: require("leaflet/dist/images/marker-icon.png"),
+  shadowUrl: require("leaflet/dist/images/marker-shadow.png"),
+});
+
+// Component to handle map click events for pinning
+function MapClickHandler({ onLocationSelect }) {
+  useMapEvents({
+    click(e) {
+      onLocationSelect(e.latlng.lat, e.latlng.lng);
+    },
+  });
+  return null;
+}
+
+// Component to programmatically fly/pan the map to a location
+function FlyToLocation({ lat, lng, zoom }) {
+  const map = useMap();
+  React.useEffect(() => {
+    if (lat && lng) {
+      map.flyTo([lat, lng], zoom || 15, { duration: 1.2 });
+    }
+  }, [lat, lng, zoom, map]);
+  return null;
+}
 
 const ReportCrime = () => {
   const [formData, setFormData] = useState({
@@ -22,7 +58,20 @@ const ReportCrime = () => {
     financialLoss: "",
     suspectInfo: "",
     evidence: null,
+    govtIdType: "",
+    govtId: null,
   });
+
+  // Map state
+  const [pinLat, setPinLat] = useState(null);
+  const [pinLng, setPinLng] = useState(null);
+  const [flyTarget, setFlyTarget] = useState({ lat: null, lng: null });
+  const [mapSearchQuery, setMapSearchQuery] = useState("");
+  const [searchResults, setSearchResults] = useState([]);
+  const [isSearching, setIsSearching] = useState(false);
+  const [showResults, setShowResults] = useState(false);
+  const searchTimeoutRef = useRef(null);
+  const searchContainerRef = useRef(null);
 
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [referenceId, setReferenceId] = useState("");
@@ -42,6 +91,77 @@ const ReportCrime = () => {
       });
     }
   };
+
+  // --- Map location handlers ---
+  const handleMapLocationSelect = useCallback((lat, lng) => {
+    setPinLat(lat);
+    setPinLng(lng);
+    // Reverse geocode to get address
+    fetch(`https://nominatim.openstreetmap.org/reverse?format=json&lat=${lat}&lon=${lng}&zoom=18&addressdetails=1`)
+      .then((res) => res.json())
+      .then((data) => {
+        if (data && data.display_name) {
+          setFormData((prev) => ({ ...prev, location: data.display_name }));
+        }
+      })
+      .catch(() => {});
+  }, []);
+
+  const handleMapSearch = useCallback((query) => {
+    if (!query || query.length < 3) {
+      setSearchResults([]);
+      setShowResults(false);
+      return;
+    }
+    setIsSearching(true);
+    fetch(`https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(query)}&limit=5&countrycodes=in`)
+      .then((res) => res.json())
+      .then((data) => {
+        setSearchResults(data || []);
+        setShowResults(true);
+      })
+      .catch(() => setSearchResults([]))
+      .finally(() => setIsSearching(false));
+  }, []);
+
+  const handleSearchInputChange = (e) => {
+    const val = e.target.value;
+    setMapSearchQuery(val);
+    // Debounce search
+    if (searchTimeoutRef.current) clearTimeout(searchTimeoutRef.current);
+    searchTimeoutRef.current = setTimeout(() => handleMapSearch(val), 500);
+  };
+
+  const handleSearchResultSelect = (result) => {
+    const lat = parseFloat(result.lat);
+    const lng = parseFloat(result.lon);
+    setPinLat(lat);
+    setPinLng(lng);
+    setFlyTarget({ lat, lng });
+    setFormData((prev) => ({ ...prev, location: result.display_name }));
+    setMapSearchQuery(result.display_name);
+    setShowResults(false);
+    setSearchResults([]);
+  };
+
+  const clearMapPin = () => {
+    setPinLat(null);
+    setPinLng(null);
+    setFormData((prev) => ({ ...prev, location: "" }));
+    setMapSearchQuery("");
+    setFlyTarget({ lat: null, lng: null });
+  };
+
+  // Close dropdown when clicking outside
+  React.useEffect(() => {
+    const handleClickOutside = (e) => {
+      if (searchContainerRef.current && !searchContainerRef.current.contains(e.target)) {
+        setShowResults(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -134,21 +254,6 @@ const ReportCrime = () => {
 
               <div className="form-field-group">
                 <label className="form-field-label">
-                  Incident Location / City <span className="required-star">*</span>
-                </label>
-                <input
-                  type="text"
-                  name="location"
-                  className="form-control-input"
-                  placeholder="e.g. Alappuzha, Kochi, Thiruvananthapuram"
-                  value={formData.location}
-                  onChange={handleChange}
-                  required
-                />
-              </div>
-
-              <div className="form-field-group">
-                <label className="form-field-label">
                   Date of Incident <span className="required-star">*</span>
                 </label>
                 <input
@@ -173,6 +278,93 @@ const ReportCrime = () => {
                   onChange={handleChange}
                 />
               </div>
+            </div>
+
+            {/* Searchable Map Location */}
+            <div className="form-field-group" style={{ marginTop: "20px" }}>
+              <label className="form-field-label">
+                <FaMapMarkerAlt style={{ color: "#1e3a8a" }} />
+                Incident Location <span className="required-star">*</span>
+              </label>
+              <p className="map-helper-text">
+                Search for a location below or click directly on the map to pin the exact spot.
+              </p>
+
+              {/* Search Bar */}
+              <div className="map-search-container" ref={searchContainerRef}>
+                <div className="map-search-input-wrap">
+                  <FaSearch className="map-search-icon" />
+                  <input
+                    type="text"
+                    className="map-search-input"
+                    placeholder="Search location... e.g. Kochi, Marine Drive, Thiruvananthapuram"
+                    value={mapSearchQuery}
+                    onChange={handleSearchInputChange}
+                    onFocus={() => { if (searchResults.length > 0) setShowResults(true); }}
+                  />
+                  {mapSearchQuery && (
+                    <button
+                      type="button"
+                      className="map-search-clear"
+                      onClick={() => { setMapSearchQuery(""); setSearchResults([]); setShowResults(false); }}
+                    >
+                      <FaTimes />
+                    </button>
+                  )}
+                  {isSearching && <span className="map-search-spinner" />}
+                </div>
+
+                {showResults && searchResults.length > 0 && (
+                  <ul className="map-search-results">
+                    {searchResults.map((result, idx) => (
+                      <li
+                        key={idx}
+                        className="map-search-result-item"
+                        onClick={() => handleSearchResultSelect(result)}
+                      >
+                        <FaMapMarkerAlt className="result-pin-icon" />
+                        <span>{result.display_name}</span>
+                      </li>
+                    ))}
+                  </ul>
+                )}
+              </div>
+
+              {/* Map */}
+              <div className={"report-map-wrapper" + (pinLat ? " pinned" : "")}>
+                <MapContainer
+                  center={[10.8505, 76.2711]}
+                  zoom={8}
+                  style={{ height: "100%", width: "100%" }}
+                  scrollWheelZoom={true}
+                >
+                  <TileLayer
+                    attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+                    url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+                  />
+                  <MapClickHandler onLocationSelect={handleMapLocationSelect} />
+                  {flyTarget.lat && flyTarget.lng && (
+                    <FlyToLocation lat={flyTarget.lat} lng={flyTarget.lng} zoom={15} />
+                  )}
+                  {pinLat && pinLng && <Marker position={[pinLat, pinLng]} />}
+                </MapContainer>
+              </div>
+
+              {/* Pin status */}
+              {pinLat && pinLng ? (
+                <div className="map-pin-status pinned">
+                  <FaCheckCircle />
+                  <span>Location pinned: {formData.location || `${pinLat.toFixed(5)}°N, ${pinLng.toFixed(5)}°E`}</span>
+                  <button type="button" className="map-clear-pin-btn" onClick={clearMapPin}>
+                    <FaTimes /> Clear
+                  </button>
+                </div>
+              ) : (
+                <div className="map-pin-status pending">
+                  <FaMapMarkerAlt />
+                  <span>No location selected — search or click on the map above</span>
+                </div>
+              )}
             </div>
           </div>
 
@@ -318,7 +510,84 @@ const ReportCrime = () => {
             </div>
           </div>
 
-          {/* Section 5: Review & Submission */}
+          {/* Section 5: Government ID Upload (Optional) */}
+          <div className="form-section-card">
+            <div className="form-section-header">
+              <h2>5. Government ID Verification <span className="field-hint">(Optional)</span></h2>
+              <p>Upload a government-issued ID for identity verification — Aadhaar, Driving Licence, or PAN Card</p>
+            </div>
+
+            <div className="form-grid-2">
+              <div className="form-field-group">
+                <label className="form-field-label">
+                  <FaIdCard style={{ color: "#1e3a8a" }} /> ID Type
+                </label>
+                <select
+                  name="govtIdType"
+                  className="form-control-select"
+                  value={formData.govtIdType}
+                  onChange={handleChange}
+                >
+                  <option value="">Select ID Type (Optional)</option>
+                  <option value="Aadhaar Card">Aadhaar Card</option>
+                  <option value="Driving Licence">Driving Licence</option>
+                  <option value="PAN Card">PAN Card</option>
+                  <option value="Voter ID">Voter ID</option>
+                  <option value="Passport">Passport</option>
+                </select>
+              </div>
+
+              <div className="form-field-group">
+                <label className="form-field-label">
+                  Upload ID Image <span className="field-hint">(JPG, PNG up to 5MB)</span>
+                </label>
+                <div
+                  className="file-upload-zone govt-id-upload"
+                  onClick={() => document.getElementById("govt-id-upload").click()}
+                >
+                  <FaIdCard className="upload-icon" />
+                  <p>
+                    {formData.govtId ? (
+                      <strong>Selected: {formData.govtId.name}</strong>
+                    ) : (
+                      "Click to upload your government ID image"
+                    )}
+                  </p>
+                  <span>Accepted: JPG, PNG, PDF</span>
+                  <input
+                    type="file"
+                    id="govt-id-upload"
+                    name="govtId"
+                    accept="image/*,.pdf"
+                    style={{ display: "none" }}
+                    onChange={handleChange}
+                  />
+                </div>
+              </div>
+            </div>
+
+            {/* Preview */}
+            {formData.govtId && formData.govtId.type && formData.govtId.type.startsWith("image/") && (
+              <div className="govt-id-preview">
+                <p className="form-field-label" style={{ marginBottom: "8px" }}>ID Preview:</p>
+                <img
+                  src={URL.createObjectURL(formData.govtId)}
+                  alt="Government ID Preview"
+                  className="govt-id-preview-img"
+                />
+              </div>
+            )}
+
+            <div className="govt-id-notice">
+              <FaLock style={{ flexShrink: 0 }} />
+              <span>
+                Your ID details are encrypted and handled per Government of India data protection guidelines.
+                This information is only accessible to authorized investigating officers.
+              </span>
+            </div>
+          </div>
+
+          {/* Section 6: Review & Submission */}
           <div className="form-submission-card">
             <div className="submission-disclaimer">
               <div style={{ display: "flex", alignItems: "center", gap: "6px", color: "#1e3a8a", fontWeight: "600", marginBottom: "4px" }}>

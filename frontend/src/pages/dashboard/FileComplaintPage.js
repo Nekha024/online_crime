@@ -1,6 +1,6 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, useCallback } from "react";
 import { useNavigate } from "react-router-dom";
-import { MapContainer, TileLayer, Marker, useMapEvents } from "react-leaflet";
+import { MapContainer, TileLayer, Marker, useMapEvents, useMap } from "react-leaflet";
 import L from "leaflet";
 import "leaflet/dist/leaflet.css";
 import "../../css/dashboard/DashboardPages.css";
@@ -20,6 +20,11 @@ import {
   FaBuilding,
   FaExclamationTriangle,
   FaTrash,
+  FaSearch,
+  FaTimes,
+  FaIdCard,
+  FaLock,
+  FaCheckCircle,
 } from "react-icons/fa";
 
 // Fix Leaflet's default marker icon broken by webpack
@@ -49,6 +54,17 @@ function MapClickHandler({ onLocationSelect }) {
   return null;
 }
 
+// Component to programmatically fly the map to a searched location
+function FlyToLocation({ lat, lng, zoom }) {
+  const map = useMap();
+  useEffect(() => {
+    if (lat && lng) {
+      map.flyTo([lat, lng], zoom || 15, { duration: 1.2 });
+    }
+  }, [lat, lng, zoom, map]);
+  return null;
+}
+
 const FileComplaintPage = () => {
   const navigate = useNavigate();
 
@@ -72,6 +88,19 @@ const FileComplaintPage = () => {
   const [pinLat, setPinLat] = useState(null);
   const [pinLon, setPinLon] = useState(null);
   const [mapCenter] = useState([10.8505, 76.2711]); // Kerala, India
+  const [flyTarget, setFlyTarget] = useState({ lat: null, lng: null });
+
+  // Map search state
+  const [mapSearchQuery, setMapSearchQuery] = useState("");
+  const [searchResults, setSearchResults] = useState([]);
+  const [isSearchingMap, setIsSearchingMap] = useState(false);
+  const [showSearchResults, setShowSearchResults] = useState(false);
+  const searchTimeoutRef = useRef(null);
+  const searchContainerRef = useRef(null);
+
+  // Government ID upload
+  const [govtIdType, setGovtIdType] = useState("");
+  const [govtIdFile, setGovtIdFile] = useState(null);
 
   // Evidence file
   const [evidenceFile, setEvidenceFile] = useState(null);
@@ -104,14 +133,87 @@ const FileComplaintPage = () => {
       .finally(() => setLoadingStations(false));
   }, []);
 
+  // Close search dropdown when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (e) => {
+      if (searchContainerRef.current && !searchContainerRef.current.contains(e.target)) {
+        setShowSearchResults(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleLocationSelect = (lat, lon) => {
+  // --- Map location select with reverse geocoding ---
+  const handleLocationSelect = useCallback((lat, lon) => {
     setPinLat(lat);
     setPinLon(lon);
+    // Reverse geocode to fill location text
+    fetch(`https://nominatim.openstreetmap.org/reverse?format=json&lat=${lat}&lon=${lon}&zoom=18&addressdetails=1`)
+      .then((res) => res.json())
+      .then((data) => {
+        if (data && data.display_name) {
+          setFormData((prev) => ({ ...prev, location: data.display_name }));
+          setMapSearchQuery(data.display_name);
+        }
+      })
+      .catch(() => {});
+  }, []);
+
+  // --- Map search handlers ---
+  const handleMapSearch = useCallback((query) => {
+    if (!query || query.length < 3) {
+      setSearchResults([]);
+      setShowSearchResults(false);
+      return;
+    }
+    setIsSearchingMap(true);
+    fetch(`https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(query)}&limit=5&countrycodes=in`)
+      .then((res) => res.json())
+      .then((data) => {
+        setSearchResults(data || []);
+        setShowSearchResults(true);
+      })
+      .catch(() => setSearchResults([]))
+      .finally(() => setIsSearchingMap(false));
+  }, []);
+
+  const handleSearchInputChange = (e) => {
+    const val = e.target.value;
+    setMapSearchQuery(val);
+    if (searchTimeoutRef.current) clearTimeout(searchTimeoutRef.current);
+    searchTimeoutRef.current = setTimeout(() => handleMapSearch(val), 500);
+  };
+
+  const handleSearchResultSelect = (result) => {
+    const lat = parseFloat(result.lat);
+    const lng = parseFloat(result.lon);
+    setPinLat(lat);
+    setPinLon(lng);
+    setFlyTarget({ lat, lng });
+    setFormData((prev) => ({ ...prev, location: result.display_name }));
+    setMapSearchQuery(result.display_name);
+    setShowSearchResults(false);
+    setSearchResults([]);
+  };
+
+  const clearMapPin = () => {
+    setPinLat(null);
+    setPinLon(null);
+    setFormData((prev) => ({ ...prev, location: "" }));
+    setMapSearchQuery("");
+    setFlyTarget({ lat: null, lng: null });
+  };
+
+  const handleGovtIdFileChange = (e) => {
+    if (e.target.files && e.target.files[0]) {
+      setGovtIdFile(e.target.files[0]);
+    }
   };
 
   const handleFileChange = (e) => {
@@ -189,6 +291,8 @@ const FileComplaintPage = () => {
 
       if (evidenceFile) fd.append("evidence_file", evidenceFile);
       if (audioBlob) fd.append("audio_file", audioBlob, "voice_statement.webm");
+      if (govtIdType) fd.append("govt_id_type", govtIdType);
+      if (govtIdFile) fd.append("govt_id_file", govtIdFile);
 
       const response = await api.post("api/complaints/submit/", fd, {
         headers: {
@@ -348,32 +452,84 @@ const FileComplaintPage = () => {
             </div>
           </div>
 
-          {/* ── Section 2: Map ── */}
+          {/* ── Section 2: Searchable Map ── */}
           <div style={{ marginBottom: "24px" }}>
             <h3 style={{ color: "#1e3a8a", borderBottom: "2px solid #dbeafe", paddingBottom: "8px", marginBottom: "12px" }}>
-              <FaMapMarkerAlt /> 2. Incident Location (Drop a Pin) *
+              <FaMapMarkerAlt /> 2. Incident Location *
             </h3>
             <p style={{ color: "#64748b", fontSize: "0.87rem", marginBottom: "10px" }}>
-              Click anywhere on the map to mark the exact spot where the incident occurred.
+              Search for a location below or click directly on the map to pin the exact spot.
             </p>
-            <div style={{ height: "360px", borderRadius: "10px", overflow: "hidden", border: "2px solid " + (pinLat ? "#22c55e" : "#e2e8f0") }}>
-              <MapContainer center={mapCenter} zoom={10} style={{ height: "100%", width: "100%" }}>
+
+            {/* Search Bar */}
+            <div className="fc-map-search-container" ref={searchContainerRef}>
+              <div className="fc-map-search-input-wrap">
+                <FaSearch className="fc-map-search-icon" />
+                <input
+                  type="text"
+                  className="fc-map-search-input"
+                  placeholder="Search location... e.g. Kochi, Marine Drive, Thiruvananthapuram"
+                  value={mapSearchQuery}
+                  onChange={handleSearchInputChange}
+                  onFocus={() => { if (searchResults.length > 0) setShowSearchResults(true); }}
+                />
+                {mapSearchQuery && (
+                  <button
+                    type="button"
+                    className="fc-map-search-clear"
+                    onClick={() => { setMapSearchQuery(""); setSearchResults([]); setShowSearchResults(false); }}
+                  >
+                    <FaTimes />
+                  </button>
+                )}
+                {isSearchingMap && <span className="fc-map-search-spinner" />}
+              </div>
+
+              {showSearchResults && searchResults.length > 0 && (
+                <ul className="fc-map-search-results">
+                  {searchResults.map((result, idx) => (
+                    <li
+                      key={idx}
+                      className="fc-map-search-result-item"
+                      onClick={() => handleSearchResultSelect(result)}
+                    >
+                      <FaMapMarkerAlt style={{ color: "#1e3a8a", flexShrink: 0, marginTop: "2px" }} />
+                      <span>{result.display_name}</span>
+                    </li>
+                  ))}
+                </ul>
+              )}
+            </div>
+
+            {/* Map */}
+            <div style={{ height: "360px", borderRadius: "10px", overflow: "hidden", border: "2px solid " + (pinLat ? "#22c55e" : "#e2e8f0"), transition: "border-color 0.3s ease" }}>
+              <MapContainer center={mapCenter} zoom={10} style={{ height: "100%", width: "100%" }} scrollWheelZoom={true}>
                 <TileLayer
                   attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
                   url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
                 />
                 <MapClickHandler onLocationSelect={handleLocationSelect} />
+                {flyTarget.lat && flyTarget.lng && (
+                  <FlyToLocation lat={flyTarget.lat} lng={flyTarget.lng} zoom={15} />
+                )}
                 {pinLat && pinLon && <Marker position={[pinLat, pinLon]} />}
               </MapContainer>
             </div>
+
+            {/* Pin Status */}
             {pinLat && pinLon ? (
-              <p style={{ color: "#166534", fontWeight: "600", marginTop: "8px", fontSize: "0.85rem" }}>
-                ✅ Pin dropped at: {pinLat.toFixed(5)}°N, {pinLon.toFixed(5)}°E
-              </p>
+              <div className="fc-map-pin-status pinned">
+                <FaCheckCircle />
+                <span>Location pinned: {formData.location || `${pinLat.toFixed(5)}°N, ${pinLon.toFixed(5)}°E`}</span>
+                <button type="button" className="fc-map-clear-pin" onClick={clearMapPin}>
+                  <FaTimes /> Clear
+                </button>
+              </div>
             ) : (
-              <p style={{ color: "#b45309", marginTop: "8px", fontSize: "0.85rem" }}>
-                ⚠️ No location selected yet. Please click on the map.
-              </p>
+              <div className="fc-map-pin-status pending">
+                <FaMapMarkerAlt />
+                <span>No location selected — search or click on the map above</span>
+              </div>
             )}
           </div>
 
@@ -457,10 +613,77 @@ const FileComplaintPage = () => {
             </div>
           </div>
 
-          {/* ── Section 6: Complainant Details ── */}
+          {/* ── Section 6: Government ID Upload (Optional) ── */}
+          <div style={{ marginBottom: "24px" }}>
+            <h3 style={{ color: "#1e3a8a", borderBottom: "2px solid #dbeafe", paddingBottom: "8px", marginBottom: "12px" }}>
+              <FaIdCard /> 6. Government ID Verification (Optional)
+            </h3>
+            <p style={{ color: "#64748b", fontSize: "0.87rem", marginBottom: "14px" }}>
+              Upload a government-issued ID for identity verification — Aadhaar, Driving Licence, or PAN Card.
+            </p>
+
+            <div className="form-grid-dual" style={{ marginBottom: "16px" }}>
+              <div>
+                <label className="form-label"><FaIdCard /> ID Type</label>
+                <select
+                  className="form-select"
+                  value={govtIdType}
+                  onChange={(e) => setGovtIdType(e.target.value)}
+                >
+                  <option value="">Select ID Type (Optional)</option>
+                  <option value="Aadhaar Card">Aadhaar Card</option>
+                  <option value="Driving Licence">Driving Licence</option>
+                  <option value="PAN Card">PAN Card</option>
+                  <option value="Voter ID">Voter ID</option>
+                  <option value="Passport">Passport</option>
+                </select>
+              </div>
+              <div>
+                <label className="form-label">Upload ID Image <span style={{ fontWeight: "normal", color: "#64748b", fontSize: "0.78rem" }}>(JPG, PNG up to 5MB)</span></label>
+                <div
+                  className="file-upload-box fc-govt-id-upload"
+                  onClick={() => document.getElementById("govtIdInput").click()}
+                  style={{ cursor: "pointer", padding: "16px" }}
+                >
+                  <input type="file" id="govtIdInput" style={{ display: "none" }} onChange={handleGovtIdFileChange} accept="image/*,.pdf" />
+                  <FaIdCard style={{ fontSize: "1.5rem", color: "#1e3a8a", marginBottom: "6px" }} />
+                  <p style={{ color: "#0f172a", fontSize: "0.88rem", margin: "0 0 4px" }}>
+                    {govtIdFile ? (
+                      <span style={{ color: "#1e3a8a", fontWeight: "600" }}>📎 {govtIdFile.name}</span>
+                    ) : (
+                      "Click to upload your government ID"
+                    )}
+                  </p>
+                  <span style={{ color: "#64748b", fontSize: "0.78rem" }}>Accepted: JPG, PNG, PDF</span>
+                </div>
+              </div>
+            </div>
+
+            {/* Preview */}
+            {govtIdFile && govtIdFile.type && govtIdFile.type.startsWith("image/") && (
+              <div style={{ marginBottom: "14px", padding: "12px", background: "#f8fafc", border: "1px solid #e2e8f0", borderRadius: "8px" }}>
+                <p className="form-label" style={{ marginBottom: "8px" }}>ID Preview:</p>
+                <img
+                  src={URL.createObjectURL(govtIdFile)}
+                  alt="Government ID Preview"
+                  style={{ maxWidth: "280px", maxHeight: "180px", objectFit: "contain", borderRadius: "6px", border: "1px solid #cbd5e1" }}
+                />
+              </div>
+            )}
+
+            <div style={{ display: "flex", alignItems: "flex-start", gap: "10px", padding: "12px 16px", background: "#eff6ff", borderRadius: "6px", borderLeft: "3px solid #1e3a8a", fontSize: "0.82rem", color: "#1e3a8a", lineHeight: 1.5 }}>
+              <FaLock style={{ flexShrink: 0, marginTop: "2px" }} />
+              <span>
+                Your ID details are encrypted and handled per Government of India data protection guidelines.
+                This information is only accessible to authorized investigating officers.
+              </span>
+            </div>
+          </div>
+
+          {/* ── Section 7: Complainant Details ── */}
           <div style={{ marginBottom: "24px" }}>
             <h3 style={{ color: "#1e3a8a", borderBottom: "2px solid #dbeafe", paddingBottom: "8px", marginBottom: "16px" }}>
-              6. Your Contact Details
+              7. Your Contact Details
             </h3>
             <div className="form-grid-dual">
               <div>
@@ -474,10 +697,10 @@ const FileComplaintPage = () => {
             </div>
           </div>
 
-          {/* ── Section 7: Station Routing ── */}
+          {/* ── Section 8: Station Routing ── */}
           <div style={{ marginBottom: "28px" }}>
             <h3 style={{ color: "#1e3a8a", borderBottom: "2px solid #dbeafe", paddingBottom: "8px", marginBottom: "12px" }}>
-              <FaBuilding /> 7. Police Station Routing
+              <FaBuilding /> 8. Police Station Routing
             </h3>
             <p style={{ color: "#64748b", fontSize: "0.87rem", marginBottom: "12px" }}>
               By default, your complaint will be automatically routed to the <strong>nearest police station</strong> based on your map pin. You can also select a specific station below.
