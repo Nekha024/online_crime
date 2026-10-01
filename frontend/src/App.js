@@ -39,6 +39,17 @@ import PoliceStationProfile from "./pages/police/PoliceStationProfile";
 
 import TrustSecurity from "./components/TrustSecurity";
 
+
+// Admin Portal Architecture
+import AdminLogin from "./pages/admin/AdminLogin";
+import AdminProtectedRoute from "./components/admin/AdminProtectedRoute";
+import AdminLayout from "./components/admin/AdminLayout";
+import AdminDashboard from "./pages/admin/AdminDashboard";
+import AdminStationManager from "./pages/admin/AdminStationManager";
+import AdminStationStats from "./pages/admin/AdminStationStats";
+import AdminBroadcast from "./pages/admin/AdminBroadcast";
+import AdminQueries from "./pages/admin/AdminQueries";
+
 function LandingPage() {
   return (
     <div className="landing-wrapper">
@@ -94,6 +105,25 @@ function App() {
           <Route path="complaints/:id" element={<PoliceComplaintDetail />} />
           <Route path="status" element={<PoliceCrimeStatusPage />} />
           <Route path="station" element={<PoliceStationProfile />} />
+        </Route>
+
+        
+        {/* Isolated System Admin Portal */}
+        <Route path="/admin/login" element={<AdminLogin />} />
+        <Route 
+          path="/admin" 
+          element={
+            <AdminProtectedRoute>
+              <AdminLayout />
+            </AdminProtectedRoute>
+          } 
+        >
+          <Route index element={<Navigate to="/admin/dashboard" replace />} />
+          <Route path="dashboard" element={<AdminDashboard />} />
+          <Route path="stations" element={<AdminStationManager />} />
+          <Route path="stats" element={<AdminStationStats />} />
+          <Route path="broadcast" element={<AdminBroadcast />} />
+          <Route path="queries" element={<AdminQueries />} />
         </Route>
 
         {/* Fallback */}

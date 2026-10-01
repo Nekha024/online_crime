@@ -169,3 +169,28 @@ class Notification(models.Model):
 
     def __str__(self):
         return f"Alert for {self.police_station.station_name}: {self.title}"
+
+class StationQuery(models.Model):
+    station = models.ForeignKey(PoliceStation, on_delete=models.CASCADE, related_name='queries')
+    subject = models.CharField(max_length=255)
+    message = models.TextField()
+    status = models.CharField(max_length=50, choices=[('Pending', 'Pending'), ('Responded', 'Responded'), ('Resolved', 'Resolved')], default='Pending')
+    admin_reply = models.TextField(blank=True, default='')
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        ordering = ['-created_at']
+        verbose_name = 'Station Query'
+        verbose_name_plural = 'Station Queries'
+
+    def __str__(self):
+        return f"{self.station.station_name} - {self.subject} ({self.status})"
+
+class AdminProfile(models.Model):
+    user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name='admin_profile')
+    role = models.CharField(max_length=100, default='System Administrator')
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f"Admin: {self.user.username}"

@@ -30,4 +30,5 @@ urlpatterns = [
     # Public Police Station Directory (from database)
     path("police/stations/", views_police.police_station_list_view, name="police_stations"),
     path("police/notifications/", views_police.police_notifications_view, name="police_notifications"),
+    path("police/submit-query/", views.submit_station_query, name="submit_station_query"),
 ]

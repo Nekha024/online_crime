@@ -3,7 +3,7 @@ from rest_framework.decorators import api_view, parser_classes, authentication_c
 from rest_framework.parsers import MultiPartParser, FormParser
 from rest_framework.response import Response
 from rest_framework import status
-from .models import Complaint, PoliceStation
+from .models import Complaint, PoliceStation, StationQuery
 from .serializers import ComplaintDetailSerializer
 import uuid
 
@@ -195,4 +195,22 @@ def public_map_data(request):
     crimes = CrimeReport.objects.filter(location__isnull=False) # Wait, CrimeReport doesn't have lat/lon yet! 
     # Just return Complaints for now since that's what citizens are creating with the map.
     
-    return Response({"success": True, "nodes": nodes}, status=status.HTTP_200_OK)
+    return Response({"success": True, "nodes": nodes}, status=status.HTTP_200_OK)
+@api_view(['POST'])
+def submit_station_query(request):
+    # This assumes the police station authenticates with a token or session
+    # We will use the identification_key or assume they send station_id for simplicity for now
+    station_id = request.data.get('station_id')
+    subject = request.data.get('subject')
+    message = request.data.get('message')
+    
+    try:
+        station = PoliceStation.objects.get(id=station_id)
+        StationQuery.objects.create(
+            station=station,
+            subject=subject,
+            message=message
+        )
+        return Response({'success': True, 'message': 'Query submitted to admin.'})
+    except PoliceStation.DoesNotExist:
+        return Response({'success': False, 'message': 'Station not found.'}, status=404)

@@ -49,7 +49,6 @@ class CrimeReportListSerializer(serializers.ModelSerializer):
     station_name = serializers.CharField(source='police_station.station_name', read_only=True)
     station_code = serializers.CharField(source='police_station.station_code', read_only=True)
     formatted_date = serializers.SerializerMethodField()
-    registered_user_details = serializers.SerializerMethodField()
 
     class Meta:
         model = CrimeReport
@@ -125,7 +124,6 @@ class ComplaintListSerializer(serializers.ModelSerializer):
     station_name = serializers.CharField(source='police_station.station_name', read_only=True)
     station_code = serializers.CharField(source='police_station.station_code', read_only=True)
     formatted_date = serializers.SerializerMethodField()
-    registered_user_details = serializers.SerializerMethodField()
 
     class Meta:
         model = Complaint
