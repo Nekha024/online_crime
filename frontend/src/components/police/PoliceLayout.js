@@ -14,6 +14,7 @@ import {
   FaMapMarkerAlt
 } from 'react-icons/fa';
 import '../../css/PoliceDashboard.css';
+import NotificationBell from './NotificationBell';
 
 const PoliceLayout = () => {
   const [station, setStation] = useState({});
@@ -140,6 +141,8 @@ const PoliceLayout = () => {
           </div>
 
           <div className="police-header-right">
+            <NotificationBell />
+            
             <div className="police-live-status">
               <span className="police-status-dot"></span>
               <span>Online & Dispatched</span>

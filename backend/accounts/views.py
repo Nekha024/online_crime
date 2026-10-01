@@ -130,12 +130,6 @@ def login_view(request):
     phone_number = request.data.get('phone_number')
     otp_code = request.data.get('otp')
     
-    user = authenticate(request, username=username, password=password)
-    if user is not None:
-        login(request, user)
-        return Response({'success': True, 'message': 'Logged in successfully.', 'user': {'username': user.username}}, status=status.HTTP_200_OK)
-    else:
-        return Response({'success': False, 'message': 'Invalid credentials.'}, status=status.HTTP_400_BAD_REQUEST)
     if not all([phone_number, otp_code]):
         return Response({'success': False, 'message': 'Phone number and OTP (or Email and Password) are required.'}, status=status.HTTP_400_BAD_REQUEST)
 

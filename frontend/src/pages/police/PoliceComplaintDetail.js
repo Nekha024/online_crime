@@ -13,7 +13,8 @@ import {
   FaUserShield,
   FaFileAlt,
   FaMapMarkerAlt,
-  FaMicrophone
+  FaMicrophone,
+  FaRobot
 } from 'react-icons/fa';
 import '../../css/PoliceDashboard.css';
 
@@ -33,6 +34,44 @@ const PoliceComplaintDetail = () => {
   const [isUpdating, setIsUpdating] = useState(false);
   const [updateSuccess, setUpdateSuccess] = useState('');
   const [updateError, setUpdateError] = useState('');
+
+  // Helper to parse basic markdown from AI response
+  const parseMarkdown = (text) => {
+    if (!text) return null;
+    return text.split('\n').map((line, i) => (
+      <div key={i} style={{ minHeight: '1.2em' }}>
+        {line.split(/(\*\*.*?\*\*)/g).map((part, j) => {
+          if (part.startsWith('**') && part.endsWith('**')) {
+            return <strong key={j} style={{ color: '#38bdf8' }}>{part.slice(2, -2)}</strong>;
+          }
+          return <span key={j}>{part}</span>;
+        })}
+      </div>
+    ));
+  };
+
+  
+  // Helper to render evidence inline without downloading
+  const renderInlineEvidence = (url) => {
+    if (!url) return null;
+    const fullUrl = url.startsWith('http') ? url : `http://localhost:8000${url}`;
+    const lowerUrl = fullUrl.toLowerCase();
+    
+    if (lowerUrl.match(/\.(jpeg|jpg|gif|png|webp)$/)) {
+      return <img src={fullUrl} alt="Evidence" style={{ width: '100%', maxHeight: '500px', objectFit: 'contain', borderRadius: '8px', border: '1px solid #cbd5e1', background: '#f8fafc' }} />;
+    }
+    if (lowerUrl.match(/\.(mp4|webm|ogg)$/)) {
+      return <video controls src={fullUrl} style={{ width: '100%', maxHeight: '500px', borderRadius: '8px', border: '1px solid #cbd5e1', background: '#f8fafc' }} />;
+    }
+    if (lowerUrl.match(/\.(pdf)$/)) {
+      return <iframe src={fullUrl} style={{ width: '100%', height: '600px', border: '1px solid #cbd5e1', borderRadius: '8px' }} title="Evidence Document" />;
+    }
+    return (
+      <a href={fullUrl} target="_blank" rel="noreferrer" className="btn-view-details" style={{ display: 'inline-flex', alignItems: 'center', gap: '8px' }}>
+        <FaFileAlt /> Open Evidence File
+      </a>
+    );
+  };
 
   const fetchComplaintDetails = useCallback(async () => {
     setIsLoading(true);
@@ -187,10 +226,21 @@ const PoliceComplaintDetail = () => {
           </p>
         </div>
 
-        <div style={{ background: '#ffffff', border: '1px solid #cbd5e1', borderRadius: '8px', padding: '10px 16px', textAlign: 'right' }}>
-          <div style={{ fontSize: '0.72rem', color: '#64748b', textTransform: 'uppercase', fontWeight: 600 }}>Assigned Precinct</div>
-          <div style={{ fontWeight: 600, color: '#0f172a' }}>{complaint.station_name}</div>
-          <div style={{ fontSize: '0.75rem', color: '#1e3a8a' }}>{complaint.station_code} ({complaint.police_district})</div>
+        <div style={{ display: 'flex', gap: '16px', textAlign: 'right' }}>
+          {complaint.registered_user_details && (
+            <div style={{ background: '#f8fafc', border: '1px solid #cbd5e1', borderRadius: '8px', padding: '10px 16px', textAlign: 'right' }}>
+              <div style={{ fontSize: '0.72rem', color: '#64748b', textTransform: 'uppercase', fontWeight: 600 }}>Registered Account</div>
+              <div style={{ fontWeight: 600, color: '#0f172a' }}>{complaint.registered_user_details.name}</div>
+              <div style={{ fontSize: '0.75rem', color: '#1e3a8a' }}>{complaint.registered_user_details.email}</div>
+              <div style={{ fontSize: '0.75rem', color: '#475569' }}>{complaint.registered_user_details.phone}</div>
+            </div>
+          )}
+
+          <div style={{ background: '#ffffff', border: '1px solid #cbd5e1', borderRadius: '8px', padding: '10px 16px', textAlign: 'right' }}>
+            <div style={{ fontSize: '0.72rem', color: '#64748b', textTransform: 'uppercase', fontWeight: 600 }}>Assigned Precinct</div>
+            <div style={{ fontWeight: 600, color: '#0f172a' }}>{complaint.station_name}</div>
+            <div style={{ fontSize: '0.75rem', color: '#1e3a8a' }}>{complaint.station_code} ({complaint.police_district})</div>
+          </div>
         </div>
       </div>
 
@@ -199,36 +249,47 @@ const PoliceComplaintDetail = () => {
         {/* Left Column: Complaint Data */}
         <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
           
-          {/* AI Insights Card */}
+          {/* Tactical AI Intelligence Brief */}
           {(complaint.ai_severity || complaint.ai_summary) && (
-          <div className="police-card" style={{ margin: 0, borderLeft: '4px solid #6366f1', background: '#fafaf9' }}>
-            <div className="police-card-header" style={{ borderBottom: '1px solid #e7e5e4', paddingBottom: '10px', marginBottom: '14px' }}>
-              <h3 style={{ color: '#4338ca', display: 'flex', alignItems: 'center', gap: '8px' }}>
-                🤖 AI Automated Insights
+          <div className="police-card" style={{ margin: 0, padding: 0, overflow: 'hidden', border: '1px solid #e2e8f0', boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)' }}>
+            <div style={{ background: 'linear-gradient(to right, #0f172a, #1e3a8a)', padding: '16px 24px', color: 'white', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+              <h3 style={{ margin: 0, display: 'flex', alignItems: 'center', gap: '10px', fontSize: '1.25rem', color: '#fff', fontWeight: 'bold' }}>
+                <FaRobot style={{ fontSize: '1.4rem', color: '#38bdf8' }} /> Tactical AI Intelligence Brief
               </h3>
+              <div>{getAIBadge(complaint.ai_severity)}</div>
             </div>
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr 2fr', gap: '20px' }}>
-              <div>
-                <div style={{ fontSize: '0.75rem', color: '#64748b', textTransform: 'uppercase', fontWeight: 600 }}>Detected Severity</div>
-                <div style={{ marginTop: '8px' }}>
-                  {getAIBadge(complaint.ai_severity)}
+            
+            <div style={{ padding: '24px', background: '#f8fafc' }}>
+              <div style={{ marginBottom: '24px' }}>
+                <div style={{ fontSize: '0.8rem', color: '#475569', textTransform: 'uppercase', fontWeight: 700, letterSpacing: '0.05em', marginBottom: '8px' }}>
+                  Executive Summary
                 </div>
-              </div>
-              <div>
-                <div style={{ fontSize: '0.75rem', color: '#64748b', textTransform: 'uppercase', fontWeight: 600 }}>Executive Summary</div>
-                <div style={{ color: '#1e293b', fontSize: '0.92rem', lineHeight: 1.5, marginTop: '8px', fontWeight: 500 }}>
+                <div style={{ color: '#0f172a', fontSize: '1.05rem', lineHeight: 1.6, fontWeight: 500, background: 'white', padding: '18px', borderRadius: '8px', borderLeft: '4px solid #3b82f6', boxShadow: '0 1px 3px rgba(0,0,0,0.05)' }}>
                   {complaint.ai_summary}
                 </div>
               </div>
-            </div>
-            {complaint.ai_analysis && (
-              <div style={{ marginTop: '16px', paddingTop: '16px', borderTop: '1px solid #e7e5e4' }}>
-                <div style={{ fontSize: '0.75rem', color: '#64748b', textTransform: 'uppercase', fontWeight: 600 }}>Extracted Entities & Details</div>
-                <div style={{ color: '#334155', fontSize: '0.9rem', marginTop: '8px', whiteSpace: 'pre-line', fontFamily: 'monospace' }}>
-                  {complaint.ai_analysis}
+
+              {complaint.ai_analysis && (
+                <div>
+                  <div style={{ fontSize: '0.8rem', color: '#475569', textTransform: 'uppercase', fontWeight: 700, letterSpacing: '0.05em', marginBottom: '12px' }}>
+                    Structured Entities & Recommended Protocol
+                  </div>
+                  <div style={{ 
+                    background: '#0f172a', 
+                    color: '#e2e8f0', 
+                    padding: '20px', 
+                    borderRadius: '8px',
+                    fontSize: '0.95rem',
+                    fontFamily: '"SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace',
+                    lineHeight: 1.6,
+                    border: '1px solid #334155',
+                    boxShadow: 'inset 0 2px 4px rgba(0,0,0,0.2)'
+                  }}>
+                    {parseMarkdown(complaint.ai_analysis)}
+                  </div>
                 </div>
-              </div>
-            )}
+              )}
+            </div>
           </div>
           )}
 
@@ -264,10 +325,11 @@ const PoliceComplaintDetail = () => {
             )}
 
             {complaint.evidence_file && (
-              <div style={{ marginTop: '10px', marginBottom: '10px' }}>
-                <a href={`http://localhost:8000${complaint.evidence_file}`} target="_blank" rel="noreferrer" className="btn-view-details" style={{ display: 'inline-flex', alignItems: 'center', gap: '8px' }}>
-                  <FaFileAlt /> View Uploaded Evidence File
-                </a>
+              <div style={{ marginTop: '14px', marginBottom: '14px' }}>
+                <div style={{ fontSize: '0.72rem', color: '#64748b', textTransform: 'uppercase', fontWeight: 600, marginBottom: '8px', display: 'flex', alignItems: 'center', gap: '6px' }}>
+                  <FaFileAlt /> Attached Evidence File
+                </div>
+                {renderInlineEvidence(complaint.evidence_file)}
               </div>
             )}
 

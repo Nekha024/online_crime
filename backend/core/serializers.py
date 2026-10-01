@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import PoliceStation, CrimeReport, Complaint, CaseStatusHistory, STATUS_CHOICES
+from .models import PoliceStation, CrimeReport, Complaint, CaseStatusHistory, STATUS_CHOICES, Notification
 
 class PoliceStationSerializer(serializers.ModelSerializer):
     """
@@ -49,6 +49,7 @@ class CrimeReportListSerializer(serializers.ModelSerializer):
     station_name = serializers.CharField(source='police_station.station_name', read_only=True)
     station_code = serializers.CharField(source='police_station.station_code', read_only=True)
     formatted_date = serializers.SerializerMethodField()
+    registered_user_details = serializers.SerializerMethodField()
 
     class Meta:
         model = CrimeReport
@@ -101,6 +102,7 @@ class CrimeReportDetailSerializer(serializers.ModelSerializer):
             'assigned_officer',
             'complainant_name',
             'complainant_contact',
+            'registered_user_details',
             'station_name',
             'station_code',
             'police_district',
@@ -123,6 +125,7 @@ class ComplaintListSerializer(serializers.ModelSerializer):
     station_name = serializers.CharField(source='police_station.station_name', read_only=True)
     station_code = serializers.CharField(source='police_station.station_code', read_only=True)
     formatted_date = serializers.SerializerMethodField()
+    registered_user_details = serializers.SerializerMethodField()
 
     class Meta:
         model = Complaint
@@ -146,6 +149,11 @@ class ComplaintListSerializer(serializers.ModelSerializer):
     def get_formatted_date(self, obj):
         return obj.date.strftime("%b %d, %Y")
 
+    def get_registered_user_details(self, obj):
+        if obj.user:
+            return {'username': obj.user.username, 'email': obj.user.email, 'name': getattr(obj.user, 'first_name', obj.user.username), 'phone': getattr(obj.user, 'phone_number', '')}
+        return None
+
 
 class ComplaintDetailSerializer(serializers.ModelSerializer):
     station_name = serializers.CharField(source='police_station.station_name', read_only=True)
@@ -153,6 +161,7 @@ class ComplaintDetailSerializer(serializers.ModelSerializer):
     police_district = serializers.CharField(source='police_station.police_district', read_only=True)
     history = CaseStatusHistorySerializer(many=True, read_only=True)
     formatted_date = serializers.SerializerMethodField()
+    registered_user_details = serializers.SerializerMethodField()
 
     class Meta:
         model = Complaint
@@ -176,6 +185,7 @@ class ComplaintDetailSerializer(serializers.ModelSerializer):
             'assigned_officer',
             'complainant_name',
             'complainant_contact',
+            'registered_user_details',
             'station_name',
             'station_code',
             'police_district',
@@ -196,9 +206,24 @@ class ComplaintDetailSerializer(serializers.ModelSerializer):
     def get_formatted_date(self, obj):
         return obj.date.strftime("%b %d, %Y %I:%M %p")
 
+    def get_registered_user_details(self, obj):
+        if obj.user:
+            return {
+                'username': obj.user.username,
+                'email': obj.user.email,
+                'name': getattr(obj.user, 'first_name', obj.user.username),
+                'phone': getattr(obj.user, 'phone_number', '')
+            }
+        return None
+
 
 class StatusUpdateSerializer(serializers.Serializer):
     status = serializers.ChoiceField(choices=[c[0] for c in STATUS_CHOICES])
     remarks = serializers.CharField(required=False, allow_blank=True, default='')
     assigned_officer = serializers.CharField(required=False, allow_blank=True)
     investigation_notes = serializers.CharField(required=False, allow_blank=True)
+
+class NotificationSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Notification
+        fields = '__all__'

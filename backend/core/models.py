@@ -155,3 +155,17 @@ class CaseStatusHistory(models.Model):
     def __str__(self):
         target = self.crime_report.crime_id if self.crime_report else (self.complaint.complaint_id if self.complaint else "Case")
         return f"{target}: {self.old_status} -> {self.new_status} at {self.timestamp.strftime('%Y-%m-%d %H:%M')}"
+
+class Notification(models.Model):
+    police_station = models.ForeignKey(PoliceStation, on_delete=models.CASCADE, related_name='notifications')
+    title = models.CharField(max_length=255)
+    message = models.TextField()
+    is_read = models.BooleanField(default=False)
+    complaint = models.ForeignKey(Complaint, on_delete=models.SET_NULL, null=True, blank=True)
+    created_at = models.DateTimeField(auto_now_add=True, db_index=True)
+
+    class Meta:
+        ordering = ['-created_at']
+
+    def __str__(self):
+        return f"Alert for {self.police_station.station_name}: {self.title}"

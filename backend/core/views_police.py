@@ -6,7 +6,7 @@ from rest_framework.response import Response
 from rest_framework import status
 from django.db.models import Q, Count
 
-from .models import PoliceStation, PoliceStationToken, CrimeReport, Complaint, CaseStatusHistory
+from .models import Notification, PoliceStation, PoliceStationToken, CrimeReport, Complaint, CaseStatusHistory
 from .serializers import (
     PoliceStationSerializer,
     PoliceLoginSerializer,
@@ -39,6 +39,8 @@ def police_login_view(request):
     username = serializer.validated_data['username']
     identification_key = serializer.validated_data['identification_key']
 
+    print(f"DEBUG: Attempting login for {username} with key {identification_key}")
+
     # Station can log in using either station username or station code
     station = PoliceStation.objects.filter(
         Q(username__iexact=username) | Q(station_code__iexact=username),
@@ -46,13 +48,17 @@ def police_login_view(request):
     ).first()
 
     if not station:
+        print("DEBUG: Station not found")
         return Response(
             {'success': False, 'message': 'Invalid police station credentials.'},
             status=status.HTTP_401_UNAUTHORIZED
         )
 
-    # Constant-time comparison to prevent timing attacks
-    if not secrets.compare_digest(station.identification_key, identification_key):
+    print(f"DEBUG: Found station {station.username}, comparing key: {station.identification_key} == {identification_key}")
+
+    # Case-insensitive constant-time comparison
+    if not secrets.compare_digest(station.identification_key.upper(), identification_key.upper()):
+        print("DEBUG: Key mismatch")
         return Response(
             {'success': False, 'message': 'Invalid police station credentials.'},
             status=status.HTTP_401_UNAUTHORIZED
@@ -536,3 +542,14 @@ def police_station_profile_view(request):
         'success': True,
         'station': data
     }, status=status.HTTP_200_OK)
+
+@api_view(['GET', 'POST'])
+@authentication_classes([PoliceAuthentication])
+@permission_classes([IsPoliceStationAuthenticated])
+def police_notifications_view(request):
+    if request.method == 'POST':
+        Notification.objects.filter(police_station=request.police_station).update(is_read=True)
+        return Response({'success': True})
+    notifications = Notification.objects.filter(police_station=request.police_station)[:20]
+    from .serializers import NotificationSerializer
+    return Response(NotificationSerializer(notifications, many=True).data)

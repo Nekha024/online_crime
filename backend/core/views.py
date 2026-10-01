@@ -30,6 +30,35 @@ def run_ai_analysis(complaint):
     severity = complaint.ai_severity.lower()
     if 'critical' in severity:
         complaint.priority = 'Critical'
+        
+        # --- AUTOMATED ALERT LOGIC ---
+        try:
+            from django.core.mail import send_mail
+            from django.conf import settings
+            
+            station = complaint.police_station
+            # Log to terminal for immediate visibility (simulating SMS/Push)
+            print(f"\n{'='*55}\n🚨 CRITICAL ALERT DISPATCHED 🚨\nTo: {station.station_name} SHO\nIncident: {complaint.title}\nLocation: {complaint.location}\n{'='*55}\n", flush=True)
+            
+            # Send Email Alert if station has email
+            if station.email:
+                subject = f"🚨 CRITICAL PRIORITY: New Report - {complaint.crime_id}"
+                message = f"CRITICAL INCIDENT REPORTED\n{'-'*26}\nID: {complaint.crime_id}\nTitle: {complaint.title}\nLocation: {complaint.location}\n\nAI Summary:\n{complaint.ai_summary}\n\nPlease review this report immediately on the dashboard."
+                
+                from_email = getattr(settings, 'DEFAULT_FROM_EMAIL', 'alerts@aicrimereporting.local')
+                send_mail(subject, message, from_email, [station.email], fail_silently=True)
+                
+            # Create Database Notification for the React Dashboard
+            from .models import Notification
+            Notification.objects.create(
+                police_station=station,
+                title=f"CRITICAL: {complaint.title}",
+                message=complaint.ai_summary,
+                complaint=complaint
+            )
+        except Exception as e:
+            print(f"Failed to send critical alert: {e}")
+            
     elif 'high' in severity:
         complaint.priority = 'High'
     elif 'medium' in severity:
