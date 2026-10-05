@@ -5,6 +5,7 @@ from rest_framework import status
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth import get_user_model
 from django.views.decorators.csrf import csrf_exempt
+from .authentication import CsrfExemptSessionAuthentication
 from .models import AdminProfile, PoliceStation, StationQuery, Notification, CrimeReport, Complaint
 
 User = get_user_model()
@@ -41,6 +42,7 @@ def admin_login(request):
     return Response({'success': False, 'message': 'Invalid credentials.'}, status=status.HTTP_400_BAD_REQUEST)
 
 @api_view(['POST'])
+@authentication_classes([CsrfExemptSessionAuthentication])
 @permission_classes([IsAuthenticated])
 def admin_logout(request):
     if not is_admin(request.user):
@@ -49,6 +51,7 @@ def admin_logout(request):
     return Response({'success': True, 'message': 'Admin logged out.'})
 
 @api_view(['GET', 'POST'])
+@authentication_classes([CsrfExemptSessionAuthentication])
 @permission_classes([IsAuthenticated])
 def manage_stations(request):
     if not is_admin(request.user):
@@ -96,6 +99,7 @@ def manage_stations(request):
             return Response({'success': False, 'message': str(e)}, status=status.HTTP_400_BAD_REQUEST)
 
 @api_view(['DELETE'])
+@authentication_classes([CsrfExemptSessionAuthentication])
 @permission_classes([IsAuthenticated])
 def delete_station(request, pk):
     if not is_admin(request.user):
@@ -108,6 +112,7 @@ def delete_station(request, pk):
         return Response(status=status.HTTP_404_NOT_FOUND)
 
 @api_view(['GET'])
+@authentication_classes([CsrfExemptSessionAuthentication])
 @permission_classes([IsAuthenticated])
 def station_stats(request):
     if not is_admin(request.user):
@@ -129,6 +134,7 @@ def station_stats(request):
     return Response({'success': True, 'stats': stats})
 
 @api_view(['POST'])
+@authentication_classes([CsrfExemptSessionAuthentication])
 @permission_classes([IsAuthenticated])
 def broadcast_alert(request):
     if not is_admin(request.user):
@@ -147,6 +153,7 @@ def broadcast_alert(request):
     return Response({'success': True, 'message': f'Alert broadcasted to {stations.count()} stations.'})
 
 @api_view(['GET', 'PUT'])
+@authentication_classes([CsrfExemptSessionAuthentication])
 @permission_classes([IsAuthenticated])
 def admin_queries(request):
     if not is_admin(request.user):
@@ -178,6 +185,7 @@ def admin_queries(request):
             return Response(status=status.HTTP_404_NOT_FOUND)
 
 @api_view(['GET'])
+@authentication_classes([CsrfExemptSessionAuthentication])
 @permission_classes([IsAuthenticated])
 def admin_dashboard_stats(request):
     if not is_admin(request.user):

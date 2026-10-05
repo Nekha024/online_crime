@@ -133,9 +133,9 @@ const CrimeMapPage = () => {
           ) : (
             <MapContainer center={[10.8505, 76.2711]} zoom={9} style={{ height: "100%", width: "100%", zIndex: 1 }}>
               <TileLayer
-                attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-                url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-              />
+                        attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+                        url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+                    />
               
               {filteredNodes.map((node) => (
                 <Marker 

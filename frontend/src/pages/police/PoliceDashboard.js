@@ -19,6 +19,8 @@ import {
   PieChart, Pie, Cell, BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, CartesianGrid, Legend 
 } from 'recharts';
 import '../../css/PoliceDashboard.css';
+import PoliceHeatmap from '../../components/police/PoliceHeatmap';
+
 
 const COLORS = ['#3b82f6', '#10b981', '#f59e0b', '#ef4444', '#8b5cf6', '#ec4899', '#14b8a6', '#6366f1'];
 
@@ -27,6 +29,7 @@ const PoliceDashboard = () => {
   const [recentReports, setRecentReports] = useState([]);
   const [crimeTypes, setCrimeTypes] = useState([]);
   const [stationInfo, setStationInfo] = useState({});
+  const [broadcasts, setBroadcasts] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState('');
 
@@ -43,12 +46,24 @@ const PoliceDashboard = () => {
         withCredentials: true
       });
 
+      
       if (res.data?.success) {
         setStats(res.data.statistics);
         setRecentReports(res.data.recent_reports || []);
         setCrimeTypes(res.data.crime_types || []);
         setStationInfo(res.data.station || {});
       }
+      
+      const notifRes = await api.get("api/police/notifications/", {
+        headers: { Authorization: 'Bearer ' + token },
+        withCredentials: true
+      });
+      if(notifRes.data && Array.isArray(notifRes.data)) {
+        // filter broadcasts
+        const b = notifRes.data.filter(n => n.title && n.title.includes('BROADCAST:'));
+        setBroadcasts(b.slice(0, 3)); // show top 3
+      }
+
     } catch (err) {
       console.error("Dashboard stats error:", err);
       if (err.response?.status === 401 || err.response?.status === 403) {
@@ -168,6 +183,27 @@ const PoliceDashboard = () => {
             </div>
           </div>
 
+          
+          {broadcasts.length > 0 && (
+            <div className="police-card" style={{ borderLeft: '4px solid #ef4444', marginBottom: '24px' }}>
+              <div className="police-card-header" style={{ paddingBottom: '12px', borderBottom: '1px solid #f1f5f9' }}>
+                <h3 style={{ margin: 0, display: 'flex', alignItems: 'center', gap: '8px', color: '#ef4444' }}>
+                  <FaExclamationCircle /> Priority Alerts from Command Center
+                </h3>
+              </div>
+              <div style={{ marginTop: '16px', display: 'flex', flexDirection: 'column', gap: '12px' }}>
+                {broadcasts.map(b => (
+                  <div key={b.id} style={{ background: '#fef2f2', padding: '12px 16px', borderRadius: '8px', border: '1px solid #fecaca' }}>
+                    <h4 style={{ margin: '0 0 4px 0', color: '#991b1b', fontSize: '1rem' }}>{b.title.replace('BROADCAST: ', '')}</h4>
+                    <p style={{ margin: 0, color: '#7f1d1d', fontSize: '0.9rem', whiteSpace: 'pre-wrap' }}>{b.message}</p>
+                    <small style={{ display: 'block', marginTop: '8px', color: '#b91c1c', fontSize: '0.75rem', fontWeight: 600 }}>{new Date(b.created_at).toLocaleString()}</small>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+
+          <PoliceHeatmap />
           {/* Charts Row */}
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '24px', marginBottom: '24px' }}>
             
