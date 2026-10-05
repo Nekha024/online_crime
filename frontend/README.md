@@ -1,0 +1,67 @@
+# CrimeAI - Frontend Application
+
+This is the frontend application for the **CrimeAI** Online Crime Reporting System. It is built using React and interfaces with a Django REST API backend to provide citizens with a secure, responsive, and intuitive platform to report and track cyber crimes and other incidents.
+
+## Technologies Used
+
+- **React.js:** Core UI library.
+- **React Router DOM:** Used for navigating between the public landing pages and the secure user dashboard (`/login`, `/register`, `/dashboard`, etc.).
+- **Axios:** Configured in `src/api/api.js` to handle all HTTP requests to the Django backend (`http://127.0.0.1:8000/api/`).
+- **Context API:** The `CrimeContext.js` provides global state management for the user profile, notifications, and crime reports.
+- **CSS:** Custom styling for components, landing pages, and the interactive dashboard.
+
+## Folder Structure
+
+```text
+frontend/
+├── public/              # Static assets (index.html, logos)
+└── src/                 # Main application code
+    ├── api/             # Axios configuration and API services (api.js)
+    ├── components/      # Reusable UI elements
+    │   ├── dashboard/   # Secure dashboard layouts (Navbar, Sidebar)
+    │   └── ...          # Public landing page components (Hero, Features, etc.)
+    ├── context/         # React Context providers (CrimeContext.js)
+    ├── css/             # Stylesheets for various components
+    ├── pages/           # Page-level components
+    │   ├── dashboard/   # Pages inside the user portal (FileComplaintPage, etc.)
+    │   ├── Login.js     # Authentication pages
+    │   └── Register.js  
+    └── App.js           # Root routing configuration
+```
+
+## Available Scripts
+
+In the project directory, you can run:
+
+### `npm start`
+
+Runs the app in the development mode.\
+Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+
+The page will reload when you make changes.\
+You may also see any lint errors in the console.
+
+### `npm run build`
+
+Builds the app for production to the `build` folder.\
+It correctly bundles React in production mode and optimizes the build for the best performance.
+
+The build is minified and the filenames include the hashes.\
+Your app is ready to be deployed!
+
+## API Connection Setup
+
+This frontend requires the Django backend to be running simultaneously to fetch real data and handle authentication. 
+
+The API configuration is centralized in `src/api/api.js`:
+```javascript
+import axios from "axios";
+
+const api = axios.create({
+    baseURL: "http://127.0.0.1:8000/api/",
+});
+
+export default api;
+```
+*Note: Make sure your Django backend is running on `http://127.0.0.1:8000` and has `corsheaders` configured to accept requests from `http://localhost:3000`.*
+
